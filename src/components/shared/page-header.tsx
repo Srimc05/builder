@@ -1,0 +1,47 @@
+import type { ReactNode } from "react"
+import { motion } from "motion/react"
+
+import { MaskedLines } from "@/components/shared/reveal"
+import { EASE } from "@/lib/motion"
+import { cn } from "@/lib/utils"
+
+interface PageHeaderProps {
+  eyebrow: string
+  title: string[]
+  description?: ReactNode
+  children?: ReactNode
+  className?: string
+}
+
+/** Opening block for inner pages — generous, typographic, animated on load. */
+export function PageHeader({ eyebrow, title, description, children, className }: PageHeaderProps) {
+  return (
+    <header className={cn("container-site pt-36 pb-14 md:pt-44 md:pb-20", className)}>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        className="text-eyebrow flex items-center gap-3 text-stone"
+      >
+        <span aria-hidden className="h-px w-8 bg-brand" />
+        {eyebrow}
+      </motion.p>
+      <div className="mt-7 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+        <h1 className="text-display lg:col-span-8">
+          <MaskedLines lines={title} delay={0.2} animateOnMount />
+        </h1>
+        {description && (
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.55, ease: EASE }}
+            className="text-lead max-w-md text-stone lg:col-span-4 lg:pb-2"
+          >
+            {description}
+          </motion.p>
+        )}
+      </div>
+      {children}
+    </header>
+  )
+}
