@@ -17,7 +17,7 @@ export function ProjectsShowcase({ index = "03" }: { index?: string }) {
           description="A selection of homes, workplaces and industrial facilities — each one planned carefully, built precisely and finished with care."
           action={<ArrowLink to="/projects">View all projects</ArrowLink>}
         />
-        <Reveal className="mt-14 md:mt-16">
+        <Reveal className="mt-10 md:mt-12">
           <ProjectGallery projects={projects} limit={5} />
         </Reveal>
       </div>

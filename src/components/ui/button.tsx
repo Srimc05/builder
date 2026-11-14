@@ -18,12 +18,6 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
-        // Brand variants (pill CTAs)
-        ink: "rounded-full bg-ink text-white shadow-soft hover:bg-black",
-        brand: "rounded-full bg-brand text-white shadow-soft hover:bg-brand-deep",
-        light: "rounded-full bg-white text-ink shadow-soft hover:bg-sand",
-        "outline-ink": "rounded-full border-ink/15 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white",
-        "outline-light": "rounded-full border-white/40 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white hover:text-ink",
       },
       size: {
         default:
@@ -37,8 +31,6 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
-        pill: "h-11 gap-2 px-5 text-sm font-semibold tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-300 has-data-[icon=inline-end]:pr-1.5",
-        "pill-lg": "h-13 gap-2.5 px-6 text-[0.95rem] font-semibold tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-300 has-data-[icon=inline-end]:pr-2",
       },
     },
     defaultVariants: {

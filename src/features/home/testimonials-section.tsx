@@ -15,7 +15,7 @@ export function TestimonialsSection({ index = "05" }: { index?: string }) {
           eyebrow="Client stories"
           title={["Trusted by the people", "we build for."]}
         />
-        <Reveal className="mt-14 md:mt-20">
+        <Reveal className="mt-10 md:mt-12">
           <AnimatedTestimonials testimonials={testimonials} />
         </Reveal>
       </div>

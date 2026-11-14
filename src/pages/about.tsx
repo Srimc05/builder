@@ -60,10 +60,10 @@ export function AboutPage() {
             <Reveal
               key={item.label}
               delay={i * 0.1}
-              className="border-line py-16 md:py-24 md:first:border-r md:first:pr-12 md:last:pl-12 max-md:first:border-b"
+              className="border-line py-12 md:py-16 md:first:border-r md:first:pr-12 md:last:pl-12 max-md:first:border-b"
             >
               <p className="text-eyebrow text-brand">{item.label}</p>
-              <p className="mt-6 text-[clamp(1.4rem,1.1rem+1.1vw,2.1rem)] leading-snug font-semibold tracking-[-0.03em] text-ink">
+              <p className="mt-4 text-[clamp(1.2rem,1.05rem+0.6vw,1.5rem)] leading-snug font-semibold tracking-[-0.02em] text-ink">
                 {item.text}
               </p>
             </Reveal>
@@ -75,13 +75,13 @@ export function AboutPage() {
       <section aria-labelledby="values-title" className="section-y">
         <div className="container-site">
           <SectionHeading id="values-title" eyebrow="Core values" title={["What we stand on."]} />
-          <RevealGroup as="ul" className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-media border border-line bg-line lg:grid-cols-4">
+          <RevealGroup as="ul" className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-media border border-line bg-line lg:grid-cols-4">
             {about.values.map((v, i) => (
               <RevealItem as="li" key={v.title} className="bg-white p-5 sm:p-8 lg:p-10">
-                <span className="text-[3.5rem] leading-none font-bold tracking-[-0.05em] text-sand-deep tabular-nums">
+                <span className="text-[2.25rem] leading-none font-bold tracking-[-0.05em] text-sand-deep tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-10 text-xl font-semibold tracking-[-0.02em] text-ink">{v.title}</h3>
+                <h3 className="mt-6 text-lg font-semibold tracking-[-0.02em] text-ink">{v.title}</h3>
                 <p className="mt-3 leading-relaxed text-stone">{v.text}</p>
               </RevealItem>
             ))}
@@ -91,11 +91,11 @@ export function AboutPage() {
 
       {/* Leadership */}
       <section aria-labelledby="leadership-title" className="bg-night text-white">
-        <div className="container-site grid items-center gap-12 py-20 md:py-28 lg:grid-cols-12 lg:gap-16">
-          <ImageReveal className="aspect-[4/5] rounded-media lg:col-span-5">
+        <div className="container-site grid items-center gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-14">
+          <ImageReveal className="aspect-[4/3] rounded-media lg:col-span-4 lg:aspect-square">
             <ResponsiveImage name="architect-drawing" alt="Hands sketching architectural plans at a drafting table" sizes="(min-width:1024px) 40vw, 100vw" className="size-full" />
           </ImageReveal>
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="lg:col-span-7 lg:col-start-6">
             <Reveal>
               <p className="text-eyebrow text-bronze">Leadership</p>
             </Reveal>
@@ -104,10 +104,10 @@ export function AboutPage() {
             </h2>
             <Reveal delay={0.1}>
               <blockquote>
-                <p className="mt-8 text-[clamp(1.5rem,1.1rem+1.5vw,2.5rem)] leading-[1.3] font-medium tracking-[-0.03em]">
+                <p className="mt-5 text-[clamp(1.25rem,1.05rem+0.8vw,1.75rem)] leading-[1.4] font-medium tracking-[-0.02em]">
                   &ldquo;{about.leadership.message}&rdquo;
                 </p>
-                <footer className="mt-10 flex items-center gap-4 border-t border-white/15 pt-6">
+                <footer className="mt-8 flex items-center gap-4 border-t border-white/15 pt-5">
                   <span className="grid size-12 place-items-center rounded-full bg-white/10 text-sm font-bold" aria-hidden>
                     {about.leadership.name
                       .split(" ")
@@ -127,18 +127,18 @@ export function AboutPage() {
 
       {/* Why choose us */}
       <section aria-labelledby="why-title" className="section-y">
-        <div className="container-site grid gap-14 lg:grid-cols-12">
+        <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading id="why-title" align="left" eyebrow="Why choose us" title={["Clarity at", "every stage."]} />
-            <ImageReveal className="mt-12 hidden aspect-[4/3] rounded-media lg:block">
+            <ImageReveal className="mt-10 hidden aspect-[4/3] rounded-media lg:block">
               <ResponsiveImage name="rebar-crew" alt="Crew fixing reinforcement on a column" sizes="40vw" className="size-full" />
             </ImageReveal>
           </div>
-          <RevealGroup as="ul" className="grid gap-4 sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:grid-cols-1 lg:pt-24">
+          <RevealGroup as="ul" className="grid gap-3 sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:grid-cols-1 lg:pt-16">
             {about.whyChooseUs.map((item, i) => {
               const Icon = whyIcons[i] ?? Building2
               return (
-                <RevealItem as="li" key={item.title} className="flex gap-5 rounded-media border border-line p-6 transition-colors hover:border-ink/20 md:p-8">
+                <RevealItem as="li" key={item.title} className="flex gap-4 rounded-media border border-line p-5 transition-colors hover:border-ink/20 md:p-6">
                   <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-soft text-brand">
                     <Icon aria-hidden className="size-5" strokeWidth={1.75} />
                   </span>

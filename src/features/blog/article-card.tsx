@@ -24,7 +24,7 @@ export function ArticleCard({
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 }: {
   post: BlogPost
-  variant?: "standard" | "featured" | "compact"
+  variant?: "standard" | "featured" | "compact" | "horizontal"
   sizes?: string
 }) {
   if (variant === "compact") {
@@ -41,10 +41,34 @@ export function ArticleCard({
     )
   }
 
+  if (variant === "horizontal") {
+    return (
+      <Link to={`/blog/${post.slug}`} className="focus-ring group grid items-center gap-6 rounded-media md:grid-cols-12 md:gap-10">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-media md:col-span-7">
+          <ResponsiveImage
+            name={post.cover.name}
+            alt={post.cover.alt}
+            sizes="(min-width: 768px) 55vw, 100vw"
+            className="size-full"
+            imgClassName="transition-transform duration-[1.2s] ease-architect group-hover:scale-[1.04]"
+          />
+        </div>
+        <div className="md:col-span-5">
+          <ArticleMeta post={post} />
+          <h3 className="text-title mt-3 text-ink transition-colors group-hover:text-brand">{post.title}</h3>
+          <p className="mt-3 leading-relaxed text-stone">{post.excerpt}</p>
+          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+            Read article <ArrowUpRight aria-hidden className="size-4" />
+          </span>
+        </div>
+      </Link>
+    )
+  }
+
   const featured = variant === "featured"
   return (
     <Link to={`/blog/${post.slug}`} className="focus-ring group block rounded-media">
-      <div className={cn("relative overflow-hidden rounded-media", featured ? "aspect-[4/3] lg:aspect-[16/11]" : "aspect-[3/2]")}>
+      <div className={cn("relative overflow-hidden rounded-media", "aspect-[3/2]")}>
         <ResponsiveImage
           name={post.cover.name}
           alt={post.cover.alt}
@@ -57,10 +81,10 @@ export function ArticleCard({
         </span>
       </div>
       <ArticleMeta post={post} className="mt-5" />
-      <h3 className={cn("mt-3 font-semibold tracking-[-0.025em] text-ink transition-colors group-hover:text-brand", featured ? "text-[clamp(1.5rem,1.1rem+1.4vw,2.25rem)] leading-tight" : "text-xl leading-snug")}>
+      <h3 className={cn("mt-3 font-semibold tracking-[-0.025em] text-ink transition-colors group-hover:text-brand", featured ? "text-title" : "text-lg leading-snug")}>
         {post.title}
       </h3>
-      <p className={cn("mt-3 leading-relaxed text-stone", featured ? "text-lead max-w-xl" : "text-[0.95rem]")}>{post.excerpt}</p>
+      <p className={cn("mt-3 leading-relaxed text-stone", featured ? "max-w-xl" : "text-[0.95rem]")}>{post.excerpt}</p>
     </Link>
   )
 }

@@ -1,3 +1,5 @@
+import type { Photo } from "./types"
+
 /**
  * About-page copy. Written as brand positioning only — no figures, awards or
  * credentials have been invented. Have the company confirm or rewrite every
@@ -15,10 +17,26 @@ export const about = {
   mission:
     "To deliver every project with engineering rigour, transparent communication and craftsmanship that stands up to close inspection.",
   values: [
-    { title: "Integrity", text: "Honest estimates, clear contracts and no surprises." },
-    { title: "Precision", text: "Measured twice, built once — at every scale." },
-    { title: "Accountability", text: "One team, responsible from first sketch to handover." },
-    { title: "Craft", text: "Details that are finished properly, even where no one looks." },
+    {
+      title: "Integrity",
+      text: "Honest estimates, clear contracts and no surprises.",
+      image: { name: "cost-planning", alt: "Reviewing a project budget with a model house and calculator" },
+    },
+    {
+      title: "Precision",
+      text: "Measured twice, built once — at every scale.",
+      image: { name: "structure-framing", alt: "Multi-storey building frame under construction" },
+    },
+    {
+      title: "Accountability",
+      text: "One team, responsible from first sketch to handover.",
+      image: { name: "site-team-slab", alt: "Site team gathered on a concrete slab" },
+    },
+    {
+      title: "Craft",
+      text: "Details that are finished properly, even where no one looks.",
+      image: { name: "interior-living", alt: "Living room with carefully detailed timber panelling" },
+    },
   ],
   whyChooseUs: [
     { title: "Design and build under one roof", text: "Architects, engineers and site teams working from the same plan." },
@@ -32,4 +50,12 @@ export const about = {
     message:
       "Every project we take on carries our name. We treat that as a promise — to plan honestly, build carefully and stand behind our work long after handover.",
   },
+} satisfies {
+  introduction: string
+  background: string[]
+  vision: string
+  mission: string
+  values: { title: string; text: string; image: Photo }[]
+  whyChooseUs: { title: string; text: string }[]
+  leadership: { name: string; role: string; message: string }
 }

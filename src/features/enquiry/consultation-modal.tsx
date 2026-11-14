@@ -3,6 +3,7 @@ import { Dialog as DialogPrimitive } from "radix-ui"
 import { X } from "lucide-react"
 
 import { LogoMark } from "@/components/layout/logo"
+import { ActionButton } from "@/components/shared/action-button"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { Button } from "@/components/ui/button"
 import { site } from "@/content/site"
@@ -123,11 +124,9 @@ export function ConsultationModal() {
                         firstName={firstName}
                         message="Your enquiry is with our team. We'll contact you shortly to arrange a consultation."
                         action={
-                          <DialogPrimitive.Close asChild>
-                            <Button variant="outline-ink" size="pill">
-                              Continue browsing
-                            </Button>
-                          </DialogPrimitive.Close>
+                          <ActionButton variant="outline" size="md" onClick={() => setOpen(false)}>
+                            Continue browsing
+                          </ActionButton>
                         }
                       />
                     )}

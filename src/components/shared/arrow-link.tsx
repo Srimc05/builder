@@ -46,18 +46,3 @@ export function ArrowLink({ to, children, className, tone = "light" }: ArrowLink
   )
 }
 
-/** Trailing circular arrow icon used inside pill buttons. */
-export function ButtonArrow({ className }: { className?: string }) {
-  return (
-    <span
-      data-icon="inline-end"
-      aria-hidden
-      className={cn(
-        "grid size-8 place-items-center rounded-full bg-white/15 transition-transform duration-500 ease-architect group-hover/button:rotate-45",
-        className,
-      )}
-    >
-      <ArrowUpRight className="size-4" />
-    </span>
-  )
-}

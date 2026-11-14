@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 import { ArrowUpRight, Mail, MessageCircle, Phone, X } from "lucide-react"
 import { Link } from "react-router"
 
-import { Button } from "@/components/ui/button"
+import { ActionButton } from "@/components/shared/action-button"
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { navigation, site, whatsappHref } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
@@ -63,7 +63,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
                   to={item.to}
                   aria-current={isActive(item.to) ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className="focus-ring group flex items-center justify-between py-4 text-[1.65rem] font-semibold tracking-[-0.03em] text-ink"
+                  className="focus-ring group flex items-center justify-between py-3.5 text-[1.4rem] font-semibold tracking-[-0.025em] text-ink"
                 >
                   <span className="flex items-baseline gap-3">
                     <span className="text-meta w-6 font-medium text-stone tabular-nums">{String(i + 1).padStart(2, "0")}</span>
@@ -82,9 +82,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
           transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
           className="grid gap-4 border-t border-line bg-sand px-5 py-6 sm:px-8"
         >
-          <Button
-            variant="brand"
-            size="pill-lg"
+          <ActionButton
             className="w-full"
             onClick={() => {
               setOpen(false)
@@ -93,7 +91,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
             }}
           >
             Get a Quote
-          </Button>
+          </ActionButton>
           <div className="grid grid-cols-3 gap-2 text-sm font-semibold">
             <a href={site.contact.phoneHref} className="focus-ring flex flex-col items-center gap-1.5 rounded-xl bg-white py-3 text-ink">
               <Phone aria-hidden className="size-4 text-brand" /> Call

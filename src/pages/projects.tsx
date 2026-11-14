@@ -1,8 +1,6 @@
-import { Link } from "react-router"
-
 import { PageHeader } from "@/components/shared/page-header"
 import { PageMeta } from "@/components/shared/page-meta"
-import { Button } from "@/components/ui/button"
+import { ActionButton } from "@/components/shared/action-button"
 import { ProjectGallery } from "@/features/projects/project-gallery"
 import { projects } from "@/lib/content"
 
@@ -15,7 +13,7 @@ export function ProjectsPage() {
         title={["Selected work."]}
         description="Homes, workplaces and industrial facilities — each planned carefully, built precisely and finished with care."
       />
-      <section aria-label="Project portfolio" className="container-site pb-20 md:pb-28">
+      <section aria-label="Project portfolio" className="container-site pb-16 md:pb-20">
         {projects.length > 0 ? (
           <ProjectGallery projects={projects} />
         ) : (
@@ -24,9 +22,9 @@ export function ProjectsPage() {
             <p className="text-lead mx-auto mt-4 max-w-md text-stone">
               We&rsquo;re photographing our latest work. In the meantime, we&rsquo;re happy to share relevant examples on request.
             </p>
-            <Button variant="ink" size="pill" className="mt-8" asChild>
-              <Link to="/contact">Request examples</Link>
-            </Button>
+            <ActionButton size="md" className="mt-8" to="/contact">
+              Request examples
+            </ActionButton>
           </div>
         )}
       </section>

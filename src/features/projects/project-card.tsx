@@ -62,11 +62,11 @@ export function ProjectCard({ project, aspect, sizes, variant = "standard", prio
         </span>
 
         {feature && (
-          <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night/80 via-night/30 to-transparent p-6 pt-24 text-white md:p-9 md:pt-32">
+          <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night/80 via-night/30 to-transparent p-6 pt-24 text-white md:p-8 md:pt-28">
             <p className="text-eyebrow text-white/70">
               {categoryLabel(project.category)} · {project.year}
             </p>
-            <h3 className="mt-3 text-[clamp(1.6rem,1rem+2vw,2.75rem)] leading-tight font-semibold tracking-[-0.035em]">
+            <h3 className="mt-2 text-[clamp(1.4rem,1.1rem+1.2vw,2.1rem)] leading-tight font-semibold tracking-[-0.03em]">
               {project.name}
             </h3>
             <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/75">
@@ -78,12 +78,12 @@ export function ProjectCard({ project, aspect, sizes, variant = "standard", prio
       </div>
 
       {!feature && (
-        <div className="mt-5 flex items-start justify-between gap-6">
+        <div className="mt-4 flex items-start justify-between gap-6">
           <div>
-            <h3 className="text-xl font-semibold tracking-[-0.025em] text-ink transition-colors group-hover:text-brand md:text-[1.4rem]">
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink transition-colors group-hover:text-brand md:text-xl">
               {project.name}
             </h3>
-            <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone">
+            <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone">
               <MetaItem label="Location" value={project.location} />
               <MetaItem label="Built-up area" value={project.builtUpArea} />
             </dl>

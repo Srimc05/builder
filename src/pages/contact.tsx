@@ -5,7 +5,7 @@ import { Clock, Mail, MapPin, MessageCircle, Phone, type LucideIcon } from "luci
 import { PageHeader } from "@/components/shared/page-header"
 import { PageMeta } from "@/components/shared/page-meta"
 import { Reveal } from "@/components/shared/reveal"
-import { Button } from "@/components/ui/button"
+import { ActionButton } from "@/components/shared/action-button"
 import { mapEmbedSrc, mapLinkHref, site, whatsappHref } from "@/content/site"
 import { EnquiryForm } from "@/features/enquiry/enquiry-form"
 import { EnquirySuccess } from "@/features/enquiry/enquiry-success"
@@ -27,7 +27,7 @@ export function ContactPage() {
       <PageMeta title="Contact" description="Talk to our team about your construction project, or request a site visit." />
       <PageHeader eyebrow="Contact" title={["Let's start", "a conversation."]} description="Call, message or write to us — or use the form to send an enquiry or request a site visit." />
 
-      <div className="container-site grid gap-14 pb-20 md:pb-28 lg:grid-cols-12 lg:gap-16">
+      <div className="container-site grid gap-12 pb-16 md:pb-20 lg:grid-cols-12 lg:gap-14">
         {/* Direct contact */}
         <aside className="lg:col-span-5" aria-label="Contact details">
           <Reveal className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
@@ -43,7 +43,7 @@ export function ContactPage() {
 
         {/* Forms */}
         <section aria-labelledby="form-title" className="lg:col-span-7">
-          <Reveal className="rounded-panel border border-line p-6 sm:p-9 lg:p-11">
+          <Reveal className="rounded-panel border border-line p-6 sm:p-8 lg:p-9">
             <h2 id="form-title" className="sr-only">
               Enquiry form
             </h2>
@@ -89,10 +89,10 @@ export function ContactPage() {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.35, ease: EASE }}
               >
-                <p className="text-lead mt-7 text-stone">{active.intro}</p>
+                <p className="mt-6 text-stone">{active.intro}</p>
                 <EnquiryForm
                   kind={kind}
-                  className="mt-8"
+                  className="mt-6"
                   submitLabel={kind === "site-visit" ? "Request site visit" : "Send enquiry"}
                   renderSuccess={(firstName, reset) => (
                     <EnquirySuccess
@@ -103,9 +103,9 @@ export function ContactPage() {
                           : "Your enquiry is with our team. We'll be in touch shortly."
                       }
                       action={
-                        <Button variant="outline-ink" size="pill" onClick={reset}>
+                        <ActionButton variant="outline" size="md" onClick={reset}>
                           Send another enquiry
-                        </Button>
+                        </ActionButton>
                       }
                     />
                   )}
@@ -183,9 +183,9 @@ function MapCard() {
               <span className="grid size-14 place-items-center rounded-full bg-brand text-white shadow-[0_0_0_10px_rgb(100_37_232/0.12)]">
                 <MapPin aria-hidden className="size-6" />
               </span>
-              <Button variant="ink" size="pill" onClick={() => setLoaded(true)}>
+              <ActionButton size="md" icon={MapPin} onClick={() => setLoaded(true)}>
                 Load interactive map
-              </Button>
+              </ActionButton>
               <p className="text-meta max-w-60 text-stone">Loads Google Maps, which may set cookies.</p>
             </div>
           </>

@@ -85,9 +85,9 @@ export const AnimatedTestimonials = ({
       onBlurCapture={() => setPaused(false)}
       className={cn("mx-auto w-full font-sans antialiased", className)}
     >
-      <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
+      <div className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,17rem)_1fr] md:gap-14 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-20">
         <div>
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md [perspective:1200px] md:max-w-none">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[17rem] [perspective:1200px] md:max-w-none">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -113,7 +113,7 @@ export const AnimatedTestimonials = ({
                   <ResponsiveImage
                     name={testimonial.image.name}
                     alt={isActive(index) ? testimonial.image.alt : ""}
-                    sizes="(min-width: 768px) 45vw, 90vw"
+                    sizes="(min-width: 1024px) 320px, 272px"
                     className="h-full w-full rounded-3xl"
                     imgClassName="object-center"
                   />
@@ -123,7 +123,7 @@ export const AnimatedTestimonials = ({
           </div>
         </div>
 
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex flex-col justify-between gap-8 md:py-2">
           <motion.div
             key={active}
             id={regionId}
@@ -135,14 +135,14 @@ export const AnimatedTestimonials = ({
             exit={{ y: reduce ? 0 : -20, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
-            <svg aria-hidden viewBox="0 0 40 32" className="h-8 w-10 text-bronze">
+            <svg aria-hidden viewBox="0 0 40 32" className="h-6 w-7.5 text-bronze">
               <path
                 fill="currentColor"
                 d="M0 32V19.2C0 8.6 5.6 2.2 16.8 0l1.6 4.4C12.3 6.3 9.4 9.9 9.2 15.2H16V32H0Zm22.4 0V19.2C22.4 8.6 28 2.2 39.2 0l.8 4.4c-6.1 1.9-9 5.5-9.2 10.8h7.2V32H22.4Z"
               />
             </svg>
-            <blockquote className="mt-8">
-              <p className="text-[clamp(1.2rem,1rem+0.8vw,1.6rem)] leading-[1.5] font-medium tracking-[-0.015em] text-ink">
+            <blockquote className="mt-5">
+              <p className="max-w-2xl text-[clamp(1.08rem,0.98rem+0.45vw,1.3rem)] leading-[1.55] font-medium tracking-[-0.01em] text-ink">
                 {reduce
                   ? current.feedback
                   : current.feedback.split(" ").map((word, index) => (
@@ -157,8 +157,8 @@ export const AnimatedTestimonials = ({
                       </motion.span>
                     ))}
               </p>
-              <footer className="mt-10 border-t border-line pt-6">
-                <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">{current.clientName}</h3>
+              <footer className="mt-7 max-w-2xl border-t border-ink/10 pt-5">
+                <h3 className="text-base font-semibold tracking-[-0.015em] text-ink">{current.clientName}</h3>
                 <p className="mt-1 text-sm text-stone">
                   {current.projectName} <span aria-hidden>·</span> {current.location}
                 </p>
@@ -166,7 +166,7 @@ export const AnimatedTestimonials = ({
             </blockquote>
           </motion.div>
 
-          <div className="flex items-center gap-4 pt-10 md:pt-0">
+          <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={handlePrev}

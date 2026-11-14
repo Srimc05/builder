@@ -32,7 +32,7 @@ const N = processStages.length
 
 export function ProcessSection({ index = "04" }: { index?: string }) {
   return (
-    <section aria-labelledby="process-title" className="bg-canvas pt-20 md:pt-28 lg:pt-32">
+    <section aria-labelledby="process-title" className="bg-canvas pt-16 md:pt-22 lg:pt-26">
       <div className="container-site">
         <SectionHeading
           id="process-title"
@@ -73,7 +73,7 @@ function DesktopJourney() {
   const current = processStages[active]
 
   return (
-    <div ref={track} data-process-track className="relative hidden h-[640vh] lg:block">
+    <div ref={track} data-process-track className="relative hidden h-[520vh] lg:block">
       <div className="sticky top-0 flex h-screen items-center">
         <div className="container-site grid grid-cols-12 items-center gap-12 pt-16">
           <ol className="relative col-span-4 flex flex-col" aria-label="Construction stages">
@@ -111,7 +111,7 @@ function DesktopJourney() {
                         </span>
                         <span
                           className={cn(
-                            "text-[1.02rem] font-semibold tracking-[-0.02em] transition-colors duration-500",
+                            "text-[0.95rem] font-semibold tracking-[-0.015em] transition-colors duration-500",
                             isActive ? "text-ink" : done ? "text-ink/60" : "text-ink/40 group-hover:text-ink/70",
                           )}
                         >
@@ -175,7 +175,7 @@ function MobileJourney() {
   const { scrollYProgress } = useScroll({ target: list, offset: ["start 0.7", "end 0.6"] })
 
   return (
-    <div className="container-site pt-14 pb-20 md:pb-28 lg:hidden">
+    <div className="container-site pt-10 pb-16 md:pb-22 lg:hidden">
       <ol ref={list} className="relative" aria-label="Construction stages">
         <span aria-hidden className="absolute top-2 bottom-2 left-5 w-px bg-line" />
         <motion.span aria-hidden className="absolute top-2 bottom-2 left-5 w-px origin-top bg-brand" style={{ scaleY: scrollYProgress }} />
@@ -200,7 +200,7 @@ function MobileStage({ index }: { index: number }) {
       initial={{ opacity: 0, y: 24 }}
       animate={seen ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.7, ease: EASE }}
-      className="relative flex gap-5 pb-10 last:pb-0"
+      className="relative flex gap-5 pb-8 last:pb-0"
     >
       <span
         className={cn(
@@ -214,7 +214,7 @@ function MobileStage({ index }: { index: number }) {
         <p className={cn("text-meta font-semibold tabular-nums", inView ? "text-brand" : "text-stone")}>
           Stage {String(index + 1).padStart(2, "0")}
         </p>
-        <h3 className="mt-1.5 text-lg font-semibold tracking-[-0.02em] text-ink">{stage.title}</h3>
+        <h3 className="mt-1 text-base font-semibold tracking-[-0.015em] text-ink">{stage.title}</h3>
         <p className="mt-2 text-[0.95rem] leading-relaxed text-stone">{stage.detail}</p>
       </div>
     </motion.li>

@@ -31,8 +31,8 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "grid gap-8",
-        align === "split" && "lg:grid-cols-12 lg:items-end lg:gap-12",
+        "grid gap-6",
+        align === "split" && "lg:grid-cols-12 lg:items-end lg:gap-10",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function SectionHeading({
             {eyebrow}
           </p>
         </Reveal>
-        <h2 id={id} className={cn("text-headline mt-6", dark ? "text-white" : "text-ink")}>
+        <h2 id={id} className={cn("text-headline mt-4", dark ? "text-white" : "text-ink")}>
           <MaskedLines lines={title} />
         </h2>
       </div>

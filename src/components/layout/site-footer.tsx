@@ -2,11 +2,11 @@ import type { ReactNode } from "react"
 import { ArrowUp, ArrowUpRight } from "lucide-react"
 import { Link } from "react-router"
 
-import { ButtonArrow } from "@/components/shared/arrow-link"
+import { ActionButton } from "@/components/shared/action-button"
 import { MaskedLines, Reveal } from "@/components/shared/reveal"
-import { Button } from "@/components/ui/button"
+import { WhatsAppButton } from "@/components/shared/whatsapp-button"
 import { services } from "@/content/services"
-import { navigation, site, whatsappHref } from "@/content/site"
+import { navigation, site } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 
 import { Logo } from "./logo"
@@ -18,31 +18,26 @@ export function SiteFooter() {
 
   return (
     <footer className="relative overflow-hidden bg-night text-white">
-      <div className="container-site pt-20 md:pt-28">
+      <div className="container-site pt-16 md:pt-20">
         {/* Closing call to action */}
-        <div className="flex flex-col gap-10 border-b border-white/10 pb-16 md:pb-20 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-10 border-b border-white/10 pb-12 md:pb-14 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Reveal>
               <p className="text-eyebrow text-bronze">Start a conversation</p>
             </Reveal>
-            <h2 className="text-headline mt-6 max-w-3xl">
+            <h2 className="text-headline mt-4 max-w-3xl">
               <MaskedLines lines={["Have a project", "in mind?"]} />
             </h2>
           </div>
-          <Reveal delay={0.15} className="flex flex-col gap-3 sm:flex-row">
-            <Button variant="light" size="pill-lg" className="group/button" onClick={openConsultation}>
+          <Reveal delay={0.15} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <ActionButton variant="light" className="w-full sm:w-auto" onClick={openConsultation}>
               Discuss your project
-              <ButtonArrow className="bg-ink/8" />
-            </Button>
-            <Button variant="outline-light" size="pill-lg" asChild>
-              <a href={whatsappHref()} target="_blank" rel="noreferrer">
-                Chat on WhatsApp
-              </a>
-            </Button>
+            </ActionButton>
+            <WhatsAppButton className="w-full sm:w-auto" />
           </Reveal>
         </div>
 
-        <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-4">
             <Logo tone="light" />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/60">{site.description}</p>
@@ -125,7 +120,7 @@ export function SiteFooter() {
 
       {/* Oversized wordmark — an architectural signature at the base of every page */}
       <div aria-hidden className="pointer-events-none container-site select-none">
-        <p className="-mb-[0.18em] text-[clamp(5rem,22vw,20rem)] leading-none font-bold tracking-[-0.06em] text-white/[0.04]">
+        <p className="-mb-[0.18em] text-[clamp(4rem,16vw,13rem)] leading-none font-bold tracking-[-0.06em] text-white/[0.04]">
           {site.name}
         </p>
       </div>

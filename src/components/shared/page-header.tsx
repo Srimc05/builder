@@ -16,7 +16,7 @@ interface PageHeaderProps {
 /** Opening block for inner pages — generous, typographic, animated on load. */
 export function PageHeader({ eyebrow, title, description, children, className }: PageHeaderProps) {
   return (
-    <header className={cn("container-site pt-36 pb-14 md:pt-44 md:pb-20", className)}>
+    <header className={cn("container-site pt-32 pb-12 md:pt-40 md:pb-16", className)}>
       <motion.p
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export function PageHeader({ eyebrow, title, description, children, className }:
         <span aria-hidden className="h-px w-8 bg-brand" />
         {eyebrow}
       </motion.p>
-      <div className="mt-7 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+      <div className="mt-5 grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
         <h1 className="text-display lg:col-span-8">
           <MaskedLines lines={title} delay={0.2} animateOnMount />
         </h1>

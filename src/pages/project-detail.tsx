@@ -2,11 +2,10 @@ import { motion } from "motion/react"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Link, useParams } from "react-router"
 
-import { ButtonArrow } from "@/components/shared/arrow-link"
+import { ActionButton } from "@/components/shared/action-button"
 import { PageMeta } from "@/components/shared/page-meta"
 import { MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
-import { Button } from "@/components/ui/button"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 import { StatusBadge } from "@/features/projects/project-card"
 import { ProjectGalleryGrid } from "@/features/projects/gallery-lightbox"
@@ -35,7 +34,7 @@ export function ProjectDetailPage() {
       <PageMeta title={project.name} description={project.excerpt} />
 
       {/* Hero */}
-      <header className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-night text-white">
+      <header className="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden bg-night text-white">
         <motion.div className="absolute inset-0 -z-10" initial={{ scale: 1.12 }} animate={{ scale: 1 }} transition={{ duration: 2, ease: EASE }}>
           <ResponsiveImage name={project.cover.name} alt={project.cover.alt} priority sizes="100vw" className="size-full" />
         </motion.div>
@@ -54,19 +53,19 @@ export function ProjectDetailPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mt-10 grid grid-cols-2 gap-y-6 border-t border-white/15 pt-6 md:grid-cols-4"
+            className="mt-8 grid grid-cols-2 gap-y-5 border-t border-white/15 pt-5 md:grid-cols-4"
           >
             {facts.map((f) => (
               <div key={f.label} className="pr-4">
                 <dt className="text-eyebrow text-white/50">{f.label}</dt>
-                <dd className="mt-2 text-lg font-semibold tracking-[-0.02em]">{f.value}</dd>
+                <dd className="mt-1.5 text-base font-semibold tracking-[-0.015em]">{f.value}</dd>
               </div>
             ))}
           </motion.dl>
         </div>
       </header>
 
-      <div className="container-site grid gap-14 py-20 md:py-28 lg:grid-cols-12 lg:gap-16">
+      <div className="container-site grid gap-12 py-16 md:py-20 lg:grid-cols-12 lg:gap-14">
         {/* Sidebar */}
         <aside className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
@@ -88,10 +87,9 @@ export function ProjectDetailPage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="brand" size="pill" className="group/button mt-8 w-full justify-between" onClick={openConsultation}>
+              <ActionButton size="md" className="mt-7 w-full" onClick={openConsultation}>
                 Discuss a similar project
-                <ButtonArrow />
-              </Button>
+              </ActionButton>
             </Reveal>
           </div>
         </aside>
@@ -104,7 +102,7 @@ export function ProjectDetailPage() {
             </h2>
             <Reveal className="mt-6 grid gap-5">
               {project.overview.map((p, i) => (
-                <p key={p.slice(0, 20)} className={i === 0 ? "text-[clamp(1.3rem,1.05rem+0.9vw,1.75rem)] leading-snug font-medium tracking-[-0.02em] text-ink" : "text-lead text-stone"}>
+                <p key={p.slice(0, 20)} className={i === 0 ? "text-[clamp(1.15rem,1rem+0.6vw,1.4rem)] leading-snug font-medium tracking-[-0.015em] text-ink" : "text-lead text-stone"}>
                   {p}
                 </p>
               ))}
@@ -112,7 +110,7 @@ export function ProjectDetailPage() {
           </section>
 
           {project.gallery.length > 0 && (
-            <section aria-labelledby="gallery-title" className="mt-20">
+            <section aria-labelledby="gallery-title" className="mt-14">
               <h2 id="gallery-title" className="text-eyebrow text-brand">
                 Gallery
               </h2>
@@ -122,7 +120,7 @@ export function ProjectDetailPage() {
             </section>
           )}
 
-          <section aria-labelledby="details-title" className="mt-20">
+          <section aria-labelledby="details-title" className="mt-14">
             <h2 id="details-title" className="text-eyebrow text-brand">
               Construction details
             </h2>
@@ -136,7 +134,7 @@ export function ProjectDetailPage() {
             </RevealGroup>
           </section>
 
-          <section aria-labelledby="challenges-title" className="mt-20">
+          <section aria-labelledby="challenges-title" className="mt-14">
             <h2 id="challenges-title" className="text-eyebrow text-brand">
               Challenges &amp; solutions
             </h2>
@@ -156,7 +154,7 @@ export function ProjectDetailPage() {
             </RevealGroup>
           </section>
 
-          <section aria-labelledby="completion-title" className="mt-20">
+          <section aria-labelledby="completion-title" className="mt-14">
             <h2 id="completion-title" className="text-eyebrow text-brand">
               Completion
             </h2>
@@ -180,13 +178,13 @@ export function ProjectDetailPage() {
             imgClassName="transition-transform duration-[1.6s] ease-architect group-hover:scale-105"
           />
           <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-r from-night/90 to-night/30" />
-          <div className="container-site flex items-end justify-between gap-6 py-20 md:py-28">
+          <div className="container-site flex items-end justify-between gap-6 py-14 md:py-18">
             <div>
               <p className="text-eyebrow text-white/60">Next project</p>
               <p className="text-headline mt-4">{next.name}</p>
             </div>
-            <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-full bg-white text-ink transition-transform duration-500 group-hover:rotate-45 md:size-20">
-              <ArrowUpRight className="size-6 md:size-8" />
+            <span aria-hidden className="grid size-12 shrink-0 place-items-center rounded-full bg-white text-ink transition-transform duration-500 group-hover:rotate-45 md:size-14">
+              <ArrowUpRight className="size-5 md:size-6" />
             </span>
           </div>
         </Link>

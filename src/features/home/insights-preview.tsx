@@ -19,7 +19,7 @@ export function InsightsPreview({ index = "06" }: { index?: string }) {
           title={["Notes on planning,", "design and building."]}
           action={<ArrowLink to="/blog">All articles</ArrowLink>}
         />
-        <div className="mt-14 grid gap-12 md:mt-20 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-10 grid gap-10 md:mt-12 lg:grid-cols-12 lg:gap-14">
           <Reveal className="lg:col-span-7">
             <ArticleCard post={featured} variant="featured" sizes="(min-width: 1024px) 55vw, 100vw" />
           </Reveal>

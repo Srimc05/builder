@@ -2,8 +2,7 @@ import { useState } from "react"
 import { motion, useMotionValueEvent, useScroll } from "motion/react"
 import { NavLink, useLocation } from "react-router"
 
-import { Button } from "@/components/ui/button"
-import { ButtonArrow } from "@/components/shared/arrow-link"
+import { ActionButton } from "@/components/shared/action-button"
 import { navigation } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 import { getProject } from "@/lib/content"
@@ -47,7 +46,7 @@ export function SiteHeader() {
       <div
         className={cn(
           "mx-auto transition-[max-width,padding,margin] duration-700 ease-architect",
-          atTop ? "max-w-[88rem] px-0" : "mt-3 max-w-[76rem] px-3 sm:px-4",
+          atTop ? "max-w-[80rem] px-0" : "mt-3 max-w-[72rem] px-3 sm:px-4",
         )}
       >
         <div
@@ -103,15 +102,14 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Button
-              variant={overDark ? "light" : "brand"}
-              size="pill"
+            <ActionButton
+              variant={overDark ? "light" : "primary"}
+              size="md"
               onClick={openConsultation}
-              className="group/button hidden sm:inline-flex"
+              className="hidden sm:inline-flex"
             >
               Get a Quote
-              <ButtonArrow className={overDark ? "bg-ink/8" : undefined} />
-            </Button>
+            </ActionButton>
             <MobileNav overDark={overDark} isActive={isActive} />
           </div>
         </div>

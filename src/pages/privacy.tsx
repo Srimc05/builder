@@ -12,7 +12,7 @@ export function PrivacyPage() {
     <>
       <PageMeta title="Privacy Policy" />
       <PageHeader eyebrow="Legal" title={["Privacy policy."]} description="How we collect, use and protect the information you share with us." />
-      <div className="container-site pb-20 md:pb-28">
+      <div className="container-site pb-16 md:pb-20">
         <div className="mx-auto max-w-2xl space-y-10 text-[1.02rem] leading-relaxed text-ink-soft [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:text-ink">
           <section>
             <h2>Information we collect</h2>

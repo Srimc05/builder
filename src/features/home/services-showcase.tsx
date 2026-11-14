@@ -28,7 +28,7 @@ export function ServicesShowcase() {
         />
 
         {/* Desktop: editorial index with a responsive image stage */}
-        <div className="mt-20 hidden gap-12 lg:grid lg:grid-cols-12">
+        <div className="mt-14 hidden gap-12 lg:grid lg:grid-cols-12">
           <ol className="lg:col-span-6">
             {services.map((service, i) => {
               const isActive = i === active
@@ -38,15 +38,15 @@ export function ServicesShowcase() {
                     to={`/services#${service.slug}`}
                     onMouseEnter={() => setActive(i)}
                     onFocus={() => setActive(i)}
-                    className="focus-ring group grid grid-cols-[3rem_1fr_auto] items-start gap-4 py-6 outline-offset-[-2px]"
+                    className="focus-ring group grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-4 outline-offset-[-2px]"
                   >
-                    <span className={cn("text-meta pt-2 font-semibold tabular-nums transition-colors duration-500", isActive ? "text-brand" : "text-stone/70")}>
+                    <span className={cn("text-meta pt-1.5 font-semibold tabular-nums transition-colors duration-500", isActive ? "text-brand" : "text-stone/70")}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span>
                       <span
                         className={cn(
-                          "block text-[1.65rem] leading-tight font-semibold tracking-[-0.03em] transition-colors duration-500",
+                          "block text-[1.3rem] leading-tight font-semibold tracking-[-0.025em] transition-colors duration-500",
                           isActive ? "text-ink" : "text-ink/35 group-hover:text-ink/60",
                         )}
                       >
@@ -58,7 +58,7 @@ export function ServicesShowcase() {
                         transition={{ duration: 0.55, ease: EASE }}
                         className="block overflow-hidden"
                       >
-                        <span className="block max-w-md pt-3 text-[0.98rem] leading-relaxed text-stone">{service.summary}</span>
+                        <span className="block max-w-md pt-2 text-[0.95rem] leading-relaxed text-stone">{service.summary}</span>
                         <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
                           Learn more <ArrowUpRight aria-hidden className="size-4" />
                         </span>
@@ -67,7 +67,7 @@ export function ServicesShowcase() {
                     <span
                       aria-hidden
                       className={cn(
-                        "mt-1.5 grid size-9 place-items-center rounded-full border transition-all duration-500 ease-architect",
+                        "mt-0.5 grid size-8 place-items-center rounded-full border transition-all duration-500 ease-architect",
                         isActive ? "rotate-45 border-brand bg-brand text-white" : "border-ink/15 text-ink/40",
                       )}
                     >
@@ -81,7 +81,7 @@ export function ServicesShowcase() {
 
           <div className="lg:col-span-6">
             <div className="sticky top-28">
-              <Reveal className="relative aspect-[4/5] overflow-hidden rounded-media bg-sand-deep">
+              <Reveal className="relative aspect-square overflow-hidden rounded-media bg-sand-deep">
                 <AnimatePresence initial={false}>
                   {current && (
                     <motion.div
@@ -103,7 +103,7 @@ export function ServicesShowcase() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-end justify-between bg-linear-to-t from-night/70 to-transparent p-7 pt-24 text-white">
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-end justify-between bg-linear-to-t from-night/70 to-transparent p-6 pt-20 text-white">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.p
                       key={current?.slug}
@@ -128,12 +128,12 @@ export function ServicesShowcase() {
         {/* Mobile & tablet: swipeable editorial cards */}
         <RevealGroup
           as="ul"
-          className="-mx-5 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-4 [scrollbar-width:none] sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:hidden [&::-webkit-scrollbar]:hidden"
+          className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-4 [scrollbar-width:none] sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:hidden [&::-webkit-scrollbar]:hidden"
         >
           {services.map((service, i) => (
-            <RevealItem as="li" key={service.slug} className="w-[78vw] max-w-[22rem] shrink-0 snap-start">
+            <RevealItem as="li" key={service.slug} className="w-[72vw] max-w-[19rem] shrink-0 snap-start">
               <Link to={`/services#${service.slug}`} className="focus-ring group block rounded-media">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-media">
+                <div className="relative aspect-[5/4] overflow-hidden rounded-media">
                   <ResponsiveImage
                     name={service.image.name}
                     alt={service.image.alt}
@@ -145,8 +145,8 @@ export function ServicesShowcase() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold tracking-[-0.025em] text-ink">{service.title}</h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-stone">{service.summary}</p>
+                <h3 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-ink">{service.title}</h3>
+                <p className="mt-1.5 text-[0.95rem] leading-relaxed text-stone">{service.summary}</p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
                   Learn more <ArrowUpRight aria-hidden className="size-4" />
                 </span>

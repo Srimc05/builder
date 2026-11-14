@@ -2,8 +2,9 @@ import { motion, useScroll, useTransform, useReducedMotion } from "motion/react"
 import { useRef } from "react"
 
 import { ArrowLink } from "@/components/shared/arrow-link"
-import { ImageReveal, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { ImageReveal, Reveal } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
+import { TiltedCards } from "@/components/shared/tilted-cards"
 import { about } from "@/content/about"
 
 export function AboutIntro() {
@@ -23,28 +24,28 @@ export function AboutIntro() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-14 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <h2 id="about-title" className="text-[clamp(1.6rem,1.1rem+1.9vw,2.85rem)] leading-[1.18] font-semibold tracking-[-0.03em] text-ink">
+              <h2 id="about-title" className="text-[clamp(1.35rem,1.1rem+1vw,1.95rem)] leading-[1.25] font-semibold tracking-[-0.03em] text-ink">
                 We are a design-led construction company.{" "}
                 <span className="text-stone">
                   Architects, engineers and builders under one roof — so what is designed is exactly what gets built.
                 </span>
               </h2>
             </Reveal>
-            <Reveal delay={0.1} className="mt-10 grid max-w-2xl gap-6 text-[1.02rem] leading-relaxed text-stone sm:grid-cols-2">
+            <Reveal delay={0.1} className="mt-8 grid max-w-2xl gap-6 text-[0.95rem] leading-relaxed text-stone sm:grid-cols-2">
               {about.background.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </Reveal>
-            <Reveal delay={0.2} className="mt-10">
+            <Reveal delay={0.2} className="mt-8">
               <ArrowLink to="/about">More about us</ArrowLink>
             </Reveal>
           </div>
 
           <div ref={ref} className="relative lg:col-span-5">
-            <ImageReveal className="aspect-[4/5] rounded-media">
+            <ImageReveal className="aspect-[4/3] rounded-media sm:aspect-[4/5] lg:aspect-square">
               <ResponsiveImage
                 name="engineers-on-site"
                 alt="Two engineers in hard hats reviewing progress on a construction site"
@@ -63,15 +64,16 @@ export function AboutIntro() {
           </div>
         </div>
 
-        <RevealGroup as="ul" className="mt-24 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 lg:mt-32 lg:grid-cols-4">
-          {about.values.map((v, i) => (
-            <RevealItem as="li" key={v.title} className="border-t border-ink/15 pt-6">
-              <span className="text-meta font-semibold text-bronze-deep tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-4 text-lg font-semibold tracking-[-0.02em] text-ink">{v.title}</h3>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-stone">{v.text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <TiltedCards
+          className="mt-20 lg:mt-24"
+          items={about.values.map((v, i) => ({
+            key: v.title,
+            image: v.image,
+            eyebrow: String(i + 1).padStart(2, "0"),
+            title: v.title,
+            text: v.text,
+          }))}
+        />
       </div>
     </section>
   )
