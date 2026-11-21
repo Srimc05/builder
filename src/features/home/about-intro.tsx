@@ -17,9 +17,8 @@ export function AboutIntro() {
     <section id="about" aria-labelledby="about-title" className="section-y scroll-mt-20 bg-canvas">
       <div className="container-site">
         <Reveal>
-          <p className="text-eyebrow flex items-center gap-3 text-stone">
+          <p className="text-eyebrow flex items-center gap-2.5 text-stone">
             <span className="text-brand">01</span>
-            <span aria-hidden className="h-px w-8 bg-ink/20" />
             About us
           </p>
         </Reveal>
@@ -28,9 +27,9 @@ export function AboutIntro() {
           <div className="lg:col-span-7">
             <Reveal>
               <h2 id="about-title" className="text-[clamp(1.35rem,1.1rem+1vw,1.95rem)] leading-[1.25] font-semibold tracking-[-0.03em] text-ink">
-                We are a design-led construction company.{" "}
+                Established builder and property developer since 2001.{" "}
                 <span className="text-stone">
-                  Architects, engineers and builders under one roof — so what is designed is exactly what gets built.
+                  Led by Mr Shankar, with direct involvement at every stage and customers who stay with us for years.
                 </span>
               </h2>
             </Reveal>
@@ -47,8 +46,8 @@ export function AboutIntro() {
           <div ref={ref} className="relative lg:col-span-5">
             <ImageReveal className="aspect-[4/3] rounded-media sm:aspect-[4/5] lg:aspect-square">
               <ResponsiveImage
-                name="engineers-on-site"
-                alt="Two engineers in hard hats reviewing progress on a construction site"
+                name="structure-framing"
+                alt="Apartment building structure rising on a construction site"
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="size-full"
               />
@@ -58,7 +57,7 @@ export function AboutIntro() {
               className="absolute -bottom-10 -left-6 hidden w-[46%] rounded-media border-[6px] border-canvas shadow-lift sm:block lg:-left-16"
             >
               <ImageReveal delay={0.2} className="aspect-square rounded-[calc(var(--radius-media)-6px)]">
-                <ResponsiveImage name="architect-drawing" alt="Architect sketching plans by hand" sizes="20vw" className="size-full" />
+                <ResponsiveImage name="apartments-brick" alt="Brick apartment building with balconies and a lawn" sizes="20vw" className="size-full" />
               </ImageReveal>
             </motion.div>
           </div>

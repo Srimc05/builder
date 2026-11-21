@@ -22,17 +22,19 @@ export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; cl
     <Link
       to="/"
       aria-label={`${site.name} — home`}
-      className={cn("focus-ring group flex items-center gap-2.5 rounded-lg", className)}
+      className={cn("focus-ring group flex min-h-11 min-w-0 items-center gap-2 rounded-lg min-[360px]:gap-2.5", className)}
       style={light ? ({ "--logo-ground": "#141414" } as CSSProperties) : undefined}
     >
-      <LogoMark className={cn("transition-transform duration-500 ease-architect group-hover:rotate-[-8deg]", light ? "text-white" : "text-ink")} />
+      <LogoMark className={cn("size-7 shrink-0 transition-transform duration-500 ease-architect group-hover:rotate-[-8deg] min-[360px]:size-8", light ? "text-white" : "text-ink")} />
       <span className="flex flex-col leading-none">
-        <span className={cn("text-[1.05rem] font-bold tracking-[-0.03em]", light ? "text-white" : "text-ink")}>
+        <span className={cn("text-[0.9rem] font-bold tracking-[-0.03em] whitespace-nowrap min-[360px]:text-[1.05rem]", light ? "text-white" : "text-ink")}>
           {site.name}
         </span>
-        <span className={cn("mt-1 text-[0.6rem] font-semibold tracking-[0.18em] uppercase", light ? "text-white/60" : "text-stone")}>
-          {site.descriptor}
-        </span>
+        {site.descriptor && (
+          <span className={cn("mt-1 text-[0.6rem] font-semibold tracking-[0.18em] uppercase", light ? "text-white/60" : "text-stone")}>
+            {site.descriptor}
+          </span>
+        )}
       </span>
     </Link>
   )

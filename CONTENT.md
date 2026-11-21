@@ -1,41 +1,45 @@
 # Pre-launch content checklist
 
-The site was built without the company's real details. Everything below is
-placeholder content and **must** be replaced or confirmed before launch.
-No credentials, figures, awards, clients or testimonials have been invented —
-anything that would state a fact about the company is either generic brand
-copy (to be confirmed) or explicitly marked as sample content.
+The site is for **Hari Shankar Builders** (Chennai, established 2001, founder
+Mr Shankar). The brand, positioning and copy are in place; the items below are
+still placeholders or need the company's confirmation before launch. No
+awards, figures or testimonials have been invented beyond the confirmed
+positioning (established 2001, over 50 projects, direct involvement at every
+stage, long customer relationships).
 
 ## 1. Company details — `src/content/site.ts`
 
-- [ ] Company name, legal name and descriptor (currently "Stratum")
+- [x] Company name, tagline and description
+- [x] Services offered and enquiry-form construction types
+- [ ] Confirm "founded 2001", "over 50 projects" and the areas served (Pallavaram, Chromepet, Chitlapakkam and surroundings)
 - [ ] Phone number (display + `tel:` link) and WhatsApp number
 - [ ] Email address (currently `hello@example.com`)
 - [ ] Office address and `mapQuery` (drives the Google Maps embed and directions link)
 - [ ] Office hours
-- [ ] Social media profile URLs (currently point to each platform's home page)
-- [ ] Construction types offered in the enquiry forms
+- [ ] Real Instagram and Facebook page links (currently each platform's home page)
 - [ ] Replace the placeholder logo mark in `src/components/layout/logo.tsx` and `public/favicon.svg`
 
 ## 2. About copy — `src/content/about.ts`
 
-- [ ] Introduction, background, vision, mission, values and "why choose us"
-- [ ] Leadership name, role and message (currently "Founder Name")
+- [x] Introduction, background, vision, mission, values and "why choose us"
+- [ ] Mr Shankar's approval of the founder message
+- [ ] A photo of Mr Shankar (the leadership block currently shows a house photo)
 
 ## 3. Services — `src/content/services.ts`
 
-- [ ] Delete any service the company does not offer (the brief: show only confirmed services)
+- [x] Residential, Commercial, Industrial, Renovation & Remodeling (others removed)
 - [ ] Confirm descriptions and deliverables
 
-## 4. Sample content (excluded from production builds automatically)
+## 4. Projects, testimonials and articles
 
-Placeholder items live in `src/content/sample/`. They are shown in development and in
-`npm run build:showcase`, and are not bundled at all by `npm run build`. Sections with no real items hide themselves
-(testimonials, insights) or show a graceful empty state (projects, blog).
+Placeholder projects and testimonials live in `src/content/sample/`. They are switched
+**off** in development (`.env.development`), are shown only by `npm run build:showcase`,
+and are never bundled by `npm run build`. Sections with no real items hide themselves
+(testimonials) or show a graceful empty state (projects).
 
-- [ ] **Projects** — add real projects to `src/content/projects.ts` (same shape as `src/content/sample/projects.ts`), with real photography and specifications.
+- [ ] **Projects** — add real projects to `src/content/projects.ts` (same shape as `src/content/sample/projects.ts`): a few flats and the 2018 industrial building in Maraimalai Nagar, with names, areas, years and photos.
 - [ ] **Testimonials** — add real client feedback to `src/content/testimonials.ts`, with each client's permission.
-- [ ] **Blog articles** — move reviewed articles from `src/content/sample/blog.ts` into `src/content/blog.ts` with real publication dates (drop `sample: true`).
+- [ ] **Blog articles** — the six articles in `src/content/blog.ts` are published, but still have placeholder dates (Sept–Oct 2026) and generic wording (some mention design and architecture). Review them, set real dates, or replace them.
 
 ## 5. Photography — `assets/photos/`
 

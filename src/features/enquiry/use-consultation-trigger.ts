@@ -5,7 +5,7 @@ import { SESSION_KEYS, sessionFlags } from "@/lib/session"
 
 import { useConsultation } from "./consultation-context"
 
-const SCROLL_THRESHOLD = 0.25
+const SCROLL_THRESHOLD = 0.65
 const DELAY_MS = 1500
 const RETRY_MS = 4000
 /** Pages where the visitor is already enquiring — never interrupt them. */
@@ -13,7 +13,7 @@ const EXCLUDED_PATHS = ["/contact", "/privacy"]
 
 /**
  * Opens the consultation modal once per session, ~1.5s after the visitor
- * scrolls past 25% of the page. It never opens over another dialog, while a
+ * scrolls past 65% of the page. It never opens over another dialog, while a
  * form is being filled in, or after an enquiry has been sent.
  */
 export function useConsultationTrigger() {

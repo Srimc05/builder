@@ -42,15 +42,15 @@ const PHONE = /^\+?[\d\s()-]{7,20}$/
 export function validateEnquiry(values: EnquiryValues, kind: EnquiryKind): EnquiryErrors {
   const errors: EnquiryErrors = {}
   const name = values.fullName.trim()
-  if (name.length < 2) errors.fullName = "Please enter your full name."
+  if (name.length < 2) errors.fullName = "What should we call you?"
   if (!PHONE.test(values.phone.trim()) || values.phone.replace(/\D/g, "").length < 7)
-    errors.phone = "Please enter a valid phone number."
-  if (!EMAIL.test(values.email.trim())) errors.email = "Please enter a valid email address."
-  if (values.location.trim().length < 2) errors.location = "Please tell us where the project is."
+    errors.phone = "That number doesn't look right. Could you check it?"
+  if (!EMAIL.test(values.email.trim())) errors.email = "That email doesn't look right. Could you check it?"
+  if (values.location.trim().length < 2) errors.location = "Where is your project?"
   if (!(constructionTypes as readonly string[]).includes(values.constructionType))
-    errors.constructionType = "Please choose a construction type."
+    errors.constructionType = "What would you like us to build?"
   if (kind !== "site-visit" && values.description.trim().length < 10)
-    errors.description = "Please add a few words about your project (at least 10 characters)."
+    errors.description = "A few words about your project would help us."
   if (kind === "site-visit") {
     if (!values.preferredDate) errors.preferredDate = "Please choose a preferred date."
     else if (values.preferredDate < todayISO()) errors.preferredDate = "Please choose a date in the future."
@@ -79,8 +79,8 @@ export const enquiryErrorMessage: Record<EnquiryErrorReason, string> = {
   "not-configured":
     "Online enquiries aren't connected yet. Please call or email us and we'll get back to you promptly.",
   network: "We couldn't reach our server. Please check your connection and try again.",
-  timeout: "The request took too long. Please try again.",
-  server: "Something went wrong on our side. Please try again, or contact us by phone or email.",
+  timeout: "That took longer than expected. Please try again.",
+  server: "Sorry, something went wrong on our end. Please call or email us and we'll sort it out.",
 }
 
 const endpoint = import.meta.env.VITE_ENQUIRY_ENDPOINT?.trim()

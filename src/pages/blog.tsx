@@ -31,7 +31,7 @@ export function BlogPage() {
           <>
             <Reveal>
               <article className="border-y border-line py-8 md:py-10">
-                <p className="text-eyebrow mb-6 text-stone">Featured article</p>
+                <h2 className="text-eyebrow mb-6 text-stone">Featured article</h2>
                 <ArticleCard post={featured} variant="horizontal" />
               </article>
             </Reveal>
@@ -40,16 +40,19 @@ export function BlogPage() {
               <FilterChips
                 className="mt-12"
                 label="Filter articles by category"
-                options={categories.map((c) => ({
-                  value: c,
-                  label: c,
-                  count: c === "All" ? posts.length - 1 : posts.filter((p) => p !== featured && p.category === c).length,
-                }))}
+                options={categories
+                  .map((c) => ({
+                    value: c,
+                    label: c,
+                    count: c === "All" ? posts.length - 1 : posts.filter((p) => p !== featured && p.category === c).length,
+                  }))
+                  .filter((o) => o.count > 0)}
                 value={category}
                 onChange={setCategory}
               />
             )}
 
+            <h2 className="sr-only">More articles</h2>
             <motion.ul layout className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
               <AnimatePresence mode="popLayout" initial={false}>
                 {list.map((post) => (

@@ -45,7 +45,7 @@ export function FilterChips({
                   aria-pressed={selected}
                   onClick={() => onChange(option.value)}
                   className={cn(
-                    "focus-ring relative flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors duration-300",
+                    "focus-ring relative flex h-11 items-center gap-2 rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors duration-300 sm:h-10",
                     selected ? "border-ink text-white" : "border-line bg-white text-ink/70 hover:border-ink/30 hover:text-ink",
                   )}
                 >

@@ -39,7 +39,7 @@ export function ProcessSection({ index = "04" }: { index?: string }) {
           index={index}
           eyebrow="Our process"
           title={["From first conversation", "to final handover."]}
-          description="Seven clear stages, one accountable team. Scroll to watch a project take shape — from the brief on the table to the keys in your hand."
+          description="Seven clear stages, one accountable team with you throughout. Scroll to watch a project take shape — from the brief on the table to the keys in your hand."
         />
       </div>
       <DesktopJourney />
@@ -106,13 +106,13 @@ function DesktopJourney() {
                     </span>
                     <span className="min-w-0 pt-2">
                       <span className="flex items-baseline gap-3">
-                        <span className={cn("text-meta font-semibold tabular-nums", isActive ? "text-brand" : "text-stone/70")}>
+                        <span className={cn("text-meta font-semibold tabular-nums", isActive ? "text-brand" : "text-stone")}>
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span
                           className={cn(
                             "text-[0.95rem] font-semibold tracking-[-0.015em] transition-colors duration-500",
-                            isActive ? "text-ink" : done ? "text-ink/60" : "text-ink/40 group-hover:text-ink/70",
+                            isActive ? "text-ink" : done ? "text-ink/80" : "text-stone group-hover:text-ink",
                           )}
                         >
                           {stage.title}

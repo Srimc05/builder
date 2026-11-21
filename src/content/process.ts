@@ -11,13 +11,13 @@ export const processStages: ProcessStage[] = [
     id: "site-assessment",
     title: "Site Assessment",
     summary: "Understanding the ground.",
-    detail: "Our engineers survey the site, study soil conditions, access and services, and identify constraints early.",
+    detail: "We survey the site, study soil conditions, access and services, and identify constraints early.",
   },
   {
     id: "design",
-    title: "Architectural Design & Estimation",
+    title: "Planning & Estimation",
     summary: "Ideas become drawings.",
-    detail: "We develop the design with you and prepare a transparent, itemised estimate so cost is clear from the start.",
+    detail: "We develop the plan with you and prepare a transparent, itemised estimate so cost is clear from the start.",
   },
   {
     id: "approvals",

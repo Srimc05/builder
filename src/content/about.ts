@@ -1,54 +1,55 @@
 import type { Photo } from "./types"
 
 /**
- * About-page copy. Written as brand positioning only — no figures, awards or
- * credentials have been invented. Have the company confirm or rewrite every
- * statement, and fill in the leadership details, before launch.
+ * About-page copy, based only on the company's confirmed positioning:
+ * established 2001, founder Mr Shankar, direct involvement at every stage,
+ * long customer relationships. No awards, figures or credentials beyond
+ * those have been added.
  */
 export const about = {
   introduction:
-    "We are a design-led construction company. We bring architects, engineers and builders together under one roof so that what is designed is exactly what gets built.",
+    "Hari Shankar Builders is an established builder and property developer working in and around Chennai. Since 2001 we have built homes and industrial spaces on one principle: be directly involved in every project, from the first plan to the final handover.",
   background: [
-    "Our work spans homes, commercial buildings and industrial facilities, but our approach is the same on every site: plan carefully, communicate openly and build with precision.",
-    "We believe a building should outlast the people who commissioned it. That belief shapes how we select materials, how we detail junctions and how we check our own work.",
+    "Founded by Mr Shankar in 2001, we have completed over 50 projects across South India, from apartments and flats to industrial buildings. Most of our work is in Chennai, mainly in Pallavaram, Chromepet and Chitlapakkam and the neighbourhoods around them.",
+    "Every project is planned and overseen by the same people who walk the site each week. Many of our customers stay in touch long after handover, and that is the measure of the work we care about most.",
   ],
   vision:
-    "To create buildings that communities are proud of for generations — spaces that are beautiful, durable and genuinely useful.",
+    "To be the builder families and businesses return to — known for honest work, steady relationships and homes built to last.",
   mission:
-    "To deliver every project with engineering rigour, transparent communication and craftsmanship that stands up to close inspection.",
+    "To build every project with direct involvement at every stage, clear communication and the care we would want for our own home.",
   values: [
     {
-      title: "Integrity",
-      text: "Honest estimates, clear contracts and no surprises.",
+      title: "Trust",
+      text: "Honest estimates, clear commitments and no surprises.",
       image: { name: "cost-planning", alt: "Reviewing a project budget with a model house and calculator" },
     },
     {
-      title: "Precision",
-      text: "Measured twice, built once — at every scale.",
-      image: { name: "structure-framing", alt: "Multi-storey building frame under construction" },
+      title: "Involvement",
+      text: "Hands-on attention at every stage, not just at handover.",
+      image: { name: "rebar-crew", alt: "Site crew fixing steel reinforcement on a column" },
     },
     {
       title: "Accountability",
-      text: "One team, responsible from first sketch to handover.",
+      text: "One team responsible from groundbreaking to the keys.",
       image: { name: "site-team-slab", alt: "Site team gathered on a concrete slab" },
     },
     {
-      title: "Craft",
-      text: "Details that are finished properly, even where no one looks.",
-      image: { name: "interior-living", alt: "Living room with carefully detailed timber panelling" },
+      title: "Relationships",
+      text: "Customers who stay with us long after the project ends.",
+      image: { name: "living-room-dog", alt: "Bright family living room with a dog resting on the rug" },
     },
   ],
   whyChooseUs: [
-    { title: "Design and build under one roof", text: "Architects, engineers and site teams working from the same plan." },
-    { title: "Transparent, itemised pricing", text: "You see what everything costs before work begins." },
-    { title: "Single point of contact", text: "A dedicated project manager who knows your project in detail." },
-    { title: "Quality checked at every stage", text: "Structured inspections before each milestone is signed off." },
+    { title: "Personal attention", text: "Every project is overseen closely, with nothing left to chance." },
+    { title: "Direct involvement at every stage", text: "The people who plan your project are the people who oversee it." },
+    { title: "Over two decades of experience", text: "Established in 2001, with over 50 projects completed." },
+    { title: "Long customer relationships", text: "We stay available well after handover." },
   ],
   leadership: {
-    name: "Founder Name",
-    role: "Founder & Managing Director",
+    name: "Mr Shankar",
+    role: "Founder",
     message:
-      "Every project we take on carries our name. We treat that as a promise — to plan honestly, build carefully and stand behind our work long after handover.",
+      "Every home we build carries our name, and we give each one our full attention. We stand behind our work long after handover.",
   },
 } satisfies {
   introduction: string

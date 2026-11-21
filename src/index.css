@@ -5,8 +5,8 @@
 
 /* ------------------------------------------------------------------
    Design tokens
-   Brand palette from the brief. Secondary text is #737373 rather than
-   #777777 so body copy meets WCAG AA (4.7:1) on white.
+   Brand palette from the brief. Secondary text is #6b6b6b rather than
+   #777777 so body copy meets WCAG AA on both white (5.3:1) and sand (4.9:1).
 ------------------------------------------------------------------- */
 @theme {
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
@@ -16,7 +16,7 @@
   --color-sand-deep: #efeeea;
   --color-ink: #222222;
   --color-ink-soft: #3a3a3a;
-  --color-stone: #737373;
+  --color-stone: #6b6b6b;
   --color-line: #e8e8e8;
   --color-brand: #6425e8;
   --color-brand-deep: #4f17c4;
@@ -76,7 +76,7 @@
   --secondary: #f7f7f5;
   --secondary-foreground: #222222;
   --muted: #f7f7f5;
-  --muted-foreground: #737373;
+  --muted-foreground: #6b6b6b;
   --accent: #f1ebfd;
   --accent-foreground: #4f17c4;
   --destructive: #c0352b;

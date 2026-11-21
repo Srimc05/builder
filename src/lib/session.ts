@@ -17,6 +17,6 @@ export const sessionFlags = {
 }
 
 export const SESSION_KEYS = {
-  consultationShown: "stratum:consultation-shown",
-  enquirySubmitted: "stratum:enquiry-submitted",
+  consultationShown: "hsb:consultation-shown",
+  enquirySubmitted: "hsb:enquiry-submitted",
 } as const

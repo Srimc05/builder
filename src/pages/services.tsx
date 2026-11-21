@@ -24,18 +24,18 @@ export function ServicesPage() {
 
   return (
     <>
-      <PageMeta title="Services" description="Design, engineering and construction services delivered by one accountable team." />
+      <PageMeta title="Services" description="Residential, commercial and industrial construction and renovation, delivered with direct involvement at every stage." />
       <PageHeader
         eyebrow="Services"
-        title={["Design, engineering", "and construction."]}
-        description="Everything needed to take a project from idea to occupation — delivered by one accountable team."
+        title={["Residential, commercial", "and industrial."]}
+        description="Construction and renovation services, delivered with direct involvement at every stage."
       >
         <nav aria-label="Services on this page" className="mt-10 flex flex-wrap gap-2">
           {services.map((s) => (
             <a
               key={s.slug}
               href={`#${s.slug}`}
-              className="focus-ring flex h-10 items-center rounded-full border border-line px-4 text-sm font-semibold text-ink/75 transition-colors hover:border-ink hover:bg-ink hover:text-white"
+              className="focus-ring flex h-11 items-center rounded-full border border-line px-4 sm:h-10 text-sm font-semibold text-ink/75 transition-colors hover:border-ink hover:bg-ink hover:text-white"
             >
               {s.title}
             </a>

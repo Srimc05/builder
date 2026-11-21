@@ -92,7 +92,7 @@ export function ConsultationModal() {
                       From the first conversation to the final handover.
                     </p>
                     <ul className="mt-6 grid gap-2.5 text-sm text-white/80">
-                      {["Design & build under one roof", "Transparent, itemised estimates", "A dedicated project manager"].map(
+                      {["Building in Chennai since 2001", "Over 50 projects completed", "Direct involvement at every stage"].map(
                         (item) => (
                           <li key={item} className="flex items-center gap-2.5">
                             <span aria-hidden className="size-1.5 rounded-full bg-bronze" />
@@ -106,26 +106,26 @@ export function ConsultationModal() {
 
                 <div className="flex-1 overflow-y-auto overscroll-contain px-5 pt-6 pb-8 sm:px-8 md:px-10 md:py-10 lg:px-12">
                   <div className="md:pr-10">
-                    <p className="text-eyebrow text-brand">Book a consultation</p>
+                    <p className="text-eyebrow text-brand">Talk to Us</p>
                     <DialogPrimitive.Title className="text-title mt-4 max-w-md text-ink md:text-[2.1rem]">
                       Let&rsquo;s Build Something Great Together
                     </DialogPrimitive.Title>
                     <DialogPrimitive.Description id="consultation-description" className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-stone">
-                      Share a few details about your project and our team will reach out to arrange a consultation.
+                      Share a few details about your project and we'll call you back soon.
                     </DialogPrimitive.Description>
                   </div>
                   <EnquiryForm
                     kind="consultation"
                     density="compact"
-                    submitLabel="Request consultation"
+                    submitLabel="Submit"
                     className="mt-8"
                     renderSuccess={(firstName) => (
                       <EnquirySuccess
                         firstName={firstName}
-                        message="Your enquiry is with our team. We'll contact you shortly to arrange a consultation."
+                        message="We've received your details and will call you back soon."
                         action={
                           <ActionButton variant="outline" size="md" onClick={() => setOpen(false)}>
-                            Continue browsing
+                            Back to the Site
                           </ActionButton>
                         }
                       />

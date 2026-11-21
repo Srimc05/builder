@@ -22,8 +22,8 @@ export function ServicesShowcase() {
           id="services-title"
           index="02"
           eyebrow="Services"
-          title={["Every stage of building,", "under one roof."]}
-          description="From the first sketch to the final coat of paint, our in-house teams cover design, engineering and construction — so nothing falls between the gaps."
+          title={["What we build,", "and how we build it."]}
+          description="Residential, commercial and industrial construction, plus renovation — each handled with direct involvement from start to finish."
           action={<ArrowLink to="/services">All services</ArrowLink>}
         />
 
@@ -38,16 +38,16 @@ export function ServicesShowcase() {
                     to={`/services#${service.slug}`}
                     onMouseEnter={() => setActive(i)}
                     onFocus={() => setActive(i)}
-                    className="focus-ring group grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-4 outline-offset-[-2px]"
+                    className="focus-ring group grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-5 outline-offset-[-2px]"
                   >
-                    <span className={cn("text-meta pt-1.5 font-semibold tabular-nums transition-colors duration-500", isActive ? "text-brand" : "text-stone/70")}>
+                    <span className={cn("text-meta pt-1.5 font-semibold tabular-nums transition-colors duration-500", isActive ? "text-brand" : "text-stone")}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span>
                       <span
                         className={cn(
-                          "block text-[1.3rem] leading-tight font-semibold tracking-[-0.025em] transition-colors duration-500",
-                          isActive ? "text-ink" : "text-ink/35 group-hover:text-ink/60",
+                          "block text-[1.45rem] leading-tight font-semibold tracking-[-0.025em] transition-colors duration-500",
+                          isActive ? "text-ink" : "text-ink/65 group-hover:text-ink",
                         )}
                       >
                         {service.title}
@@ -81,7 +81,7 @@ export function ServicesShowcase() {
 
           <div className="lg:col-span-6">
             <div className="sticky top-28">
-              <Reveal className="relative aspect-square overflow-hidden rounded-media bg-sand-deep">
+              <Reveal className="relative aspect-[4/3] overflow-hidden rounded-media bg-sand-deep">
                 <AnimatePresence initial={false}>
                   {current && (
                     <motion.div

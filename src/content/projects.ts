@@ -4,7 +4,6 @@ export const projectCategories: ProjectCategory[] = [
   { slug: "residential", label: "Residential" },
   { slug: "commercial", label: "Commercial" },
   { slug: "industrial", label: "Industrial" },
-  { slug: "interiors", label: "Interiors" },
 ]
 
 /**

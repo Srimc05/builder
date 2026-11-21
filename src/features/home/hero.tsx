@@ -35,7 +35,7 @@ export function Hero() {
             name="hero-residence-dusk"
             alt="Contemporary two-storey residence at dusk, its timber and glass facade glowing with warm interior light"
             priority
-            sizes="100vw"
+            sizes="(max-aspect-ratio: 3/2) 150vh, 100vw"
             className="size-full"
             imgClassName="object-[60%_center]"
           />
@@ -47,23 +47,22 @@ export function Hero() {
 
       <motion.div style={{ opacity: contentOpacity }} className="container-site flex flex-1 flex-col justify-end pt-32 pb-16 md:pb-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <motion.p {...enter(0.3)} className="text-eyebrow flex items-center gap-3 text-white/75">
-              <span aria-hidden className="h-px w-8 bg-bronze" />
-              Design · Engineering · Construction
+          <div className="lg:col-span-6">
+            <motion.p {...enter(0.3)} className="text-eyebrow flex items-center gap-3 leading-relaxed text-white/75">
+              Since 2001 · Chennai &amp; surroundings
             </motion.p>
             <h1 id="hero-title" className="text-display mt-5">
-              <MaskedLines lines={["Building Spaces.", "Creating Legacies."]} delay={0.45} animateOnMount />
+              <MaskedLines lines={["Building Trust.", "Creating Homes."]} delay={0.45} animateOnMount />
             </h1>
           </div>
-          <div className="lg:col-span-5 lg:pb-2">
+          <div className="lg:col-span-6 lg:pb-2 xl:col-span-5 xl:col-start-8">
             <motion.p {...enter(0.9)} className="text-lead max-w-md text-white/80">
-              From thoughtful planning to exceptional execution, we deliver construction solutions built on quality,
-              precision and trust.
+              Over two decades of building homes and industrial spaces — with direct involvement at every
+              stage, and relationships that last.
             </motion.p>
             <motion.div {...enter(1.05)} className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
               <ActionButton variant="light" size="md" className="w-full sm:w-auto" onClick={openConsultation}>
-                Discuss Your Project
+                Tell Us About Your Project
               </ActionButton>
               <ActionButton variant="outline-light" size="md" className="w-full sm:w-auto" to="/projects">
                 Explore Our Projects

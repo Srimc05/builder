@@ -6,12 +6,15 @@
  * CONTENT.md for the full checklist.
  */
 export const site = {
-  name: "Stratum",
-  legalName: "Stratum Constructions",
-  descriptor: "Construction & Design",
-  tagline: "Building spaces. Creating legacies.",
+  name: "Hari Shankar Builders",
+  legalName: "Hari Shankar Builders",
+  formerName: "JS Associates",
+  descriptor: "",
+  founder: "Shankar",
+  established: 2001,
+  tagline: "Building Trust. Creating Homes. Since 2001.",
   description:
-    "A design-led construction company delivering residential, commercial and industrial projects with precision, transparency and care.",
+    "Established builder and property developer in South India, building homes and industrial spaces with direct involvement at every stage and long customer relationships.",
 
   contact: {
     phoneDisplay: "+00 000 000 0000",
@@ -25,9 +28,7 @@ export const site = {
 
   social: [
     { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/" },
     { label: "Facebook", href: "https://www.facebook.com/" },
-    { label: "YouTube", href: "https://www.youtube.com/" },
   ],
 } as const
 
@@ -52,8 +53,6 @@ export const constructionTypes = [
   "Residential",
   "Commercial",
   "Industrial",
-  "Turnkey",
   "Renovation / Remodeling",
-  "Interior fit-out",
   "Other",
 ] as const

@@ -54,7 +54,7 @@ export function SiteHeader() {
             "flex h-[4.5rem] items-center justify-between gap-6 border transition-[background-color,border-color,box-shadow,border-radius,padding] duration-700 ease-architect",
             atTop
               ? "rounded-none border-transparent bg-transparent px-5 sm:px-8 lg:px-12"
-              : "h-16 rounded-full border-line/80 bg-white/85 pr-2 pl-5 shadow-soft backdrop-blur-xl sm:pl-6",
+              : "h-16 rounded-full border-line/80 bg-white/85 pr-2 pl-4 shadow-soft backdrop-blur-xl min-[360px]:pl-5 sm:pl-6",
           )}
         >
           <Logo tone={overDark ? "light" : "dark"} />
@@ -108,7 +108,7 @@ export function SiteHeader() {
               onClick={openConsultation}
               className="hidden sm:inline-flex"
             >
-              Get a Quote
+              Get a Free Quote
             </ActionButton>
             <MobileNav overDark={overDark} isActive={isActive} />
           </div>

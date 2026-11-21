@@ -17,7 +17,7 @@ export function ArrowLink({ to, children, className, tone = "light" }: ArrowLink
     <Link
       to={to}
       className={cn(
-        "group/arrow focus-ring inline-flex items-center gap-2 rounded-sm text-sm font-semibold tracking-[-0.01em]",
+        "group/arrow focus-ring inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold tracking-[-0.01em]",
         tone === "dark" ? "text-white" : "text-ink",
         className,
       )}

@@ -14,7 +14,7 @@ export function NotFoundPage() {
       <div className="mt-10 flex flex-wrap gap-3">
         <ActionButton to="/">Back to home</ActionButton>
         <ActionButton variant="outline" to="/projects">
-          View projects
+          See Our Work
         </ActionButton>
       </div>
     </section>

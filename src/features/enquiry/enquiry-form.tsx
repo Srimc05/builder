@@ -26,7 +26,7 @@ interface EnquiryFormProps {
 }
 
 export const fieldClass =
-  "h-12 rounded-xl border-transparent bg-sand px-4 text-base text-ink shadow-none transition-colors placeholder:text-stone/70 hover:bg-sand-deep focus-visible:border-brand focus-visible:bg-white focus-visible:ring-3 focus-visible:ring-brand/15 aria-invalid:border-destructive aria-invalid:bg-white md:text-[0.95rem]"
+  "h-12 rounded-xl border-transparent bg-sand px-4 text-base text-ink shadow-none transition-colors placeholder:text-stone hover:bg-sand-deep focus-visible:border-brand focus-visible:bg-white focus-visible:ring-3 focus-visible:ring-brand/15 aria-invalid:border-destructive aria-invalid:bg-white md:text-[0.95rem]"
 
 export function EnquiryForm({
   kind,
@@ -104,7 +104,7 @@ export function EnquiryForm({
                 className={cn(
                   fieldClass,
                   "w-full appearance-none border pr-10 outline-none",
-                  !form.values.constructionType && "text-stone/80",
+                  !form.values.constructionType && "text-stone",
                 )}
               >
                 <option value="" disabled>
@@ -197,7 +197,7 @@ export function EnquiryForm({
                 status={form.status}
                 className="h-12 w-full px-7 text-[0.95rem] font-semibold sm:w-auto"
               >
-                {form.status === "loading" ? "Sending…" : submitLabel}
+                {form.status === "loading" ? "Sending your details…" : submitLabel}
               </StatefulButton>
             </div>
             <p className="sr-only" aria-live="polite">

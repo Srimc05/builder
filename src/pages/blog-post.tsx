@@ -25,13 +25,13 @@ export function BlogPostPage() {
       <PageMeta title={post.title} description={post.excerpt} />
       <motion.div aria-hidden className="fixed inset-x-0 top-0 z-50 h-0.5 origin-left bg-brand" style={{ scaleX: progress }} />
 
-      <header className="container-site pt-36 md:pt-44">
+      <header className="container-site pt-32 md:pt-40">
         <div className="mx-auto max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
-            <Link to="/blog" className="focus-ring inline-flex items-center gap-2 rounded-full text-sm font-semibold text-stone hover:text-ink">
+            <Link to="/blog" className="focus-ring -ml-1 inline-flex min-h-11 items-center gap-2 rounded-full px-1 text-sm font-semibold text-stone hover:text-ink">
               <ArrowLeft aria-hidden className="size-4" /> All articles
             </Link>
-            <ArticleMeta post={post} className="mt-8" />
+            <ArticleMeta post={post} className="mt-6" />
           </motion.div>
           <h1 className="text-headline mt-5 text-ink">
             <MaskedLines lines={[post.title]} delay={0.15} animateOnMount />

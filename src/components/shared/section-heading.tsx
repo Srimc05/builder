@@ -38,9 +38,8 @@ export function SectionHeading({
     >
       <div className={cn(align === "split" && "lg:col-span-7")}>
         <Reveal>
-          <p className={cn("text-eyebrow flex items-center gap-3", dark ? "text-white/60" : "text-stone")}>
+          <p className={cn("text-eyebrow flex items-center gap-2.5", dark ? "text-white/60" : "text-stone")}>
             {index && <span className={dark ? "text-bronze" : "text-brand"}>{index}</span>}
-            <span aria-hidden className={cn("h-px w-8", dark ? "bg-white/25" : "bg-ink/20")} />
             {eyebrow}
           </p>
         </Reveal>

@@ -25,7 +25,7 @@ export function ContactPage() {
   return (
     <>
       <PageMeta title="Contact" description="Talk to our team about your construction project, or request a site visit." />
-      <PageHeader eyebrow="Contact" title={["Let's start", "a conversation."]} description="Call, message or write to us — or use the form to send an enquiry or request a site visit." />
+      <PageHeader eyebrow="Contact" title={["Let's start a", "conversation."]} description="Call, message or write to us — or use the form to send an enquiry or request a site visit." />
 
       <div className="container-site grid gap-12 pb-16 md:pb-20 lg:grid-cols-12 lg:gap-14">
         {/* Direct contact */}
@@ -68,7 +68,7 @@ export function ContactPage() {
                           document.getElementById(`tab-${next.kind}`)?.focus()
                         }
                       }}
-                      className={cn("focus-ring relative rounded-full px-4 py-2.5 text-sm font-semibold transition-colors sm:px-5", selected ? "text-white" : "text-ink/70 hover:text-ink")}
+                      className={cn("focus-ring relative flex h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors sm:px-5", selected ? "text-white" : "text-ink/70 hover:text-ink")}
                     >
                       {selected && <motion.span layoutId="contact-tab" className="absolute inset-0 rounded-full bg-ink" transition={{ duration: 0.45, ease: EASE }} />}
                       <span className="relative">{t.label}</span>
@@ -93,7 +93,7 @@ export function ContactPage() {
                 <EnquiryForm
                   kind={kind}
                   className="mt-6"
-                  submitLabel={kind === "site-visit" ? "Request site visit" : "Send enquiry"}
+                  submitLabel={kind === "site-visit" ? "Book a Site Visit" : "Send enquiry"}
                   renderSuccess={(firstName, reset) => (
                     <EnquirySuccess
                       firstName={firstName}
@@ -186,7 +186,7 @@ function MapCard() {
               <ActionButton size="md" icon={MapPin} onClick={() => setLoaded(true)}>
                 Load interactive map
               </ActionButton>
-              <p className="text-meta max-w-60 text-stone">Loads Google Maps, which may set cookies.</p>
+              <p className="text-meta max-w-60 text-stone">Tap to show the map. This loads Google Maps, which may set cookies.</p>
             </div>
           </>
         )}
@@ -200,7 +200,7 @@ function MapCard() {
             </span>
           ))}
         </address>
-        <a href={mapLinkHref} target="_blank" rel="noreferrer" className="focus-ring shrink-0 rounded-sm text-sm font-semibold text-brand underline-offset-4 hover:underline">
+        <a href={mapLinkHref} target="_blank" rel="noreferrer" className="focus-ring inline-flex min-h-11 shrink-0 items-center rounded-sm text-sm font-semibold text-brand underline-offset-4 hover:underline sm:min-h-0">
           Get directions ↗
         </a>
       </div>

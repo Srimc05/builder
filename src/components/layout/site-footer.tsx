@@ -31,7 +31,7 @@ export function SiteFooter() {
           </div>
           <Reveal delay={0.15} className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <ActionButton variant="light" className="w-full sm:w-auto" onClick={openConsultation}>
-              Discuss your project
+              Tell us about your project
             </ActionButton>
             <WhatsAppButton className="w-full sm:w-auto" />
           </Reveal>
@@ -48,7 +48,7 @@ export function SiteFooter() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-xs font-semibold text-white/80 transition-colors hover:border-white hover:bg-white hover:text-ink"
+                    className="focus-ring inline-flex h-11 items-center gap-1.5 rounded-full border border-white/15 px-4 text-xs font-semibold text-white/80 transition-colors hover:border-white hover:bg-white hover:text-ink sm:h-9"
                   >
                     {s.label}
                     <ArrowUpRight aria-hidden className="size-3" />
@@ -58,7 +58,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <FooterColumn title="Explore" className="lg:col-span-2 lg:col-start-6">
+          <FooterColumn title="Explore" className="lg:col-span-2">
             {navigation.map((item) => (
               <li key={item.to}>
                 <FooterLink to={item.to}>{item.label}</FooterLink>
@@ -66,7 +66,7 @@ export function SiteFooter() {
             ))}
           </FooterColumn>
 
-          <FooterColumn title="Services" className="lg:col-span-2">
+          <FooterColumn title="Services" className="lg:col-span-3">
             {services.slice(0, 7).map((s) => (
               <li key={s.slug}>
                 <FooterLink to={`/services#${s.slug}`}>{s.title}</FooterLink>
@@ -74,18 +74,18 @@ export function SiteFooter() {
             ))}
           </FooterColumn>
 
-          <FooterColumn title="Contact" className="lg:col-span-3 lg:col-start-10">
+          <FooterColumn title="Contact" className="lg:col-span-3">
             <li>
-              <a href={site.contact.phoneHref} className="focus-ring rounded-sm text-white/80 transition-colors hover:text-white">
+              <a href={site.contact.phoneHref} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
                 {site.contact.phoneDisplay}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.contact.email}`} className="focus-ring rounded-sm text-white/80 transition-colors hover:text-white">
+              <a href={`mailto:${site.contact.email}`} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
                 {site.contact.email}
               </a>
             </li>
-            <li className="text-white/60">
+            <li className="mt-2 text-white/60">
               <address className="not-italic leading-relaxed">
                 {site.contact.addressLines.map((line) => (
                   <span key={line} className="block">
@@ -94,22 +94,22 @@ export function SiteFooter() {
                 ))}
               </address>
             </li>
-            <li className="text-white/60">{site.contact.hours}</li>
+            <li className="mt-3 text-white/60">{site.contact.hours}</li>
           </FooterColumn>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 py-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {YEAR} {site.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy" className="focus-ring rounded-sm transition-colors hover:text-white">
+            <Link to="/privacy" className="focus-ring inline-flex min-h-11 items-center rounded-sm transition-colors hover:text-white">
               Privacy policy
             </Link>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0 })}
-              className="focus-ring group inline-flex items-center gap-2 rounded-sm transition-colors hover:text-white"
+              className="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-sm transition-colors hover:text-white"
             >
               Back to top
               <ArrowUp aria-hidden className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
@@ -120,9 +120,10 @@ export function SiteFooter() {
 
       {/* Oversized wordmark — an architectural signature at the base of every page */}
       <div aria-hidden className="pointer-events-none container-site select-none">
-        <p className="-mb-[0.18em] text-[clamp(4rem,16vw,13rem)] leading-none font-bold tracking-[-0.06em] text-white/[0.04]">
-          {site.name}
-        </p>
+        <p
+          data-wordmark={site.name}
+          className="-mb-[0.18em] overflow-hidden text-[clamp(1.25rem,7.6vw,7rem)] leading-none font-bold tracking-[-0.06em] whitespace-nowrap text-white/[0.04] before:content-[attr(data-wordmark)]"
+        />
       </div>
     </footer>
   )
@@ -131,15 +132,15 @@ export function SiteFooter() {
 function FooterColumn({ title, className, children }: { title: string; className?: string; children: ReactNode }) {
   return (
     <div className={className}>
-      <h3 className="text-eyebrow text-white/40">{title}</h3>
-      <ul className="mt-6 grid gap-3 text-[0.95rem]">{children}</ul>
+      <h3 className="text-eyebrow text-white/55">{title}</h3>
+      <ul className="mt-3 grid text-[0.95rem] lg:mt-4">{children}</ul>
     </div>
   )
 }
 
 function FooterLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="focus-ring rounded-sm text-white/80 transition-colors hover:text-white">
+    <Link to={to} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
       {children}
     </Link>
   )

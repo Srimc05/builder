@@ -41,7 +41,7 @@ export function ProjectDetailPage() {
         <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-t from-night/90 via-night/30 to-night/40" />
         <div className="container-site pt-32 pb-10 md:pb-14">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: EASE }} className="flex flex-wrap items-center gap-4">
-            <Link to="/projects" className="focus-ring inline-flex items-center gap-2 rounded-full text-sm font-semibold text-white/80 hover:text-white">
+            <Link to="/projects" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full text-sm font-semibold text-white/80 hover:text-white">
               <ArrowLeft aria-hidden className="size-4" /> All projects
             </Link>
             <StatusBadge status={project.status} tone="dark" />

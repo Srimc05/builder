@@ -1,13 +1,16 @@
-import { Building2, ClipboardCheck, Receipt, UserRound, type LucideIcon } from "lucide-react"
+import { ClipboardCheck, Hammer, Handshake, HardHat, HeartHandshake, History, ShieldCheck, UserRound, type LucideIcon } from "lucide-react"
 
 import { PageHeader } from "@/components/shared/page-header"
 import { PageMeta } from "@/components/shared/page-meta"
+import { FeatureGrid } from "@/components/shared/feature-grid"
 import { ImageReveal, MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { about } from "@/content/about"
 
-const whyIcons: LucideIcon[] = [Building2, Receipt, UserRound, ClipboardCheck]
+/** Icons follow the order of `about.values` and `about.whyChooseUs`. */
+const valueIcons: LucideIcon[] = [ShieldCheck, Hammer, ClipboardCheck, HeartHandshake]
+const whyIcons: LucideIcon[] = [UserRound, HardHat, History, Handshake]
 
 export function AboutPage() {
   return (
@@ -15,7 +18,7 @@ export function AboutPage() {
       <PageMeta title="About Us" description={about.introduction} />
       <PageHeader
         eyebrow="About us"
-        title={["Built on precision.", "Driven by care."]}
+        title={["Building trust", "since 2001."]}
         description={about.introduction}
       />
 
@@ -39,7 +42,7 @@ export function AboutPage() {
               <p className="text-eyebrow text-stone">Our background</p>
             </Reveal>
             <h2 id="story-title" className="text-headline mt-6">
-              <MaskedLines lines={["One team,", "start to finish."]} />
+              <MaskedLines lines={["Hands-on,", "start to finish."]} />
             </h2>
           </div>
           <Reveal delay={0.1} className="grid gap-6 text-lead text-stone lg:col-span-6 lg:col-start-7 lg:pt-14">
@@ -74,18 +77,17 @@ export function AboutPage() {
       {/* Core values */}
       <section aria-labelledby="values-title" className="section-y">
         <div className="container-site">
-          <SectionHeading id="values-title" eyebrow="Core values" title={["What we stand on."]} />
-          <RevealGroup as="ul" className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-media border border-line bg-line lg:grid-cols-4">
-            {about.values.map((v, i) => (
-              <RevealItem as="li" key={v.title} className="bg-white p-5 sm:p-8 lg:p-10">
-                <span className="text-[2.25rem] leading-none font-bold tracking-[-0.05em] text-sand-deep tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-6 text-lg font-semibold tracking-[-0.02em] text-ink">{v.title}</h3>
-                <p className="mt-3 leading-relaxed text-stone">{v.text}</p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <SectionHeading
+            id="values-title"
+            eyebrow="Core values"
+            title={["What we stand on."]}
+            description="The principles behind every project we take on, whatever its size."
+          />
+          <FeatureGrid
+            className="mt-10"
+            numbered
+            items={about.values.map((v, i) => ({ icon: valueIcons[i] ?? ShieldCheck, title: v.title, text: v.text }))}
+          />
         </div>
       </section>
 
@@ -93,7 +95,7 @@ export function AboutPage() {
       <section aria-labelledby="leadership-title" className="bg-night text-white">
         <div className="container-site grid items-center gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-14">
           <ImageReveal className="aspect-[4/3] rounded-media lg:col-span-4 lg:aspect-square">
-            <ResponsiveImage name="architect-drawing" alt="Hands sketching architectural plans at a drafting table" sizes="(min-width:1024px) 40vw, 100vw" className="size-full" />
+            <ResponsiveImage name="white-house" alt="Modern white house with large windows" sizes="(min-width:1024px) 40vw, 100vw" className="size-full" />
           </ImageReveal>
           <div className="lg:col-span-7 lg:col-start-6">
             <Reveal>
@@ -129,16 +131,16 @@ export function AboutPage() {
       <section aria-labelledby="why-title" className="section-y">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading id="why-title" align="left" eyebrow="Why choose us" title={["Clarity at", "every stage."]} />
+            <SectionHeading id="why-title" align="left" eyebrow="Why choose us" title={["Involved at", "every stage."]} />
             <ImageReveal className="mt-10 hidden aspect-[4/3] rounded-media lg:block">
               <ResponsiveImage name="rebar-crew" alt="Crew fixing reinforcement on a column" sizes="40vw" className="size-full" />
             </ImageReveal>
           </div>
           <RevealGroup as="ul" className="grid gap-3 sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:grid-cols-1 lg:pt-16">
             {about.whyChooseUs.map((item, i) => {
-              const Icon = whyIcons[i] ?? Building2
+              const Icon = whyIcons[i] ?? UserRound
               return (
-                <RevealItem as="li" key={item.title} className="flex gap-4 rounded-media border border-line p-5 transition-colors hover:border-ink/20 md:p-6">
+                <RevealItem as="li" key={item.title} className="flex gap-4 rounded-media border border-line p-5 md:p-6">
                   <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-soft text-brand">
                     <Icon aria-hidden className="size-5" strokeWidth={1.75} />
                   </span>

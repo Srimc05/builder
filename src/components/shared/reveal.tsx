@@ -118,11 +118,11 @@ export function MaskedLines({
   return (
     <motion.span className={cn("block", className)} {...trigger} variants={stagger(0.11, delay)}>
       {lines.map((line) => (
-        <span key={line} className="block overflow-hidden pb-[0.08em]">
+        <span key={line} className="-mb-[0.12em] block overflow-hidden pb-[0.2em]">
           <motion.span
             className={cn("block", lineClassName)}
             variants={{
-              hidden: { y: "105%" },
+              hidden: { y: "130%" },
               visible: { y: "0%", transition: { duration: 1.1, ease: EASE } },
             }}
           >

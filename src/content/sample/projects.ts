@@ -255,7 +255,7 @@ export const sampleProjects: Project[] = [
     slug: "atelier-living-interiors",
     name: "Atelier Living Interiors",
     location: "Old Town",
-    category: "interiors",
+    category: "residential",
     year: 2024,
     builtUpArea: "3,100 sq ft",
     status: "Completed",

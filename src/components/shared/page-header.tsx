@@ -23,7 +23,6 @@ export function PageHeader({ eyebrow, title, description, children, className }:
         transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
         className="text-eyebrow flex items-center gap-3 text-stone"
       >
-        <span aria-hidden className="h-px w-8 bg-brand" />
         {eyebrow}
       </motion.p>
       <div className="mt-5 grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-10">
