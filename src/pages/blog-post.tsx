@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router"
 import { PageMeta } from "@/components/shared/page-meta"
 import { ImageReveal, MaskedLines, Reveal } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
-import type { BlogBlock } from "@/content/types"
+import { ArticleBody } from "@/features/blog/article-body"
 import { ArticleCard, ArticleMeta } from "@/features/blog/article-card"
 import { getPost, posts } from "@/lib/content"
 import { EASE } from "@/lib/motion"
@@ -47,9 +47,7 @@ export function BlogPostPage() {
 
       <div className="container-site py-16 md:py-24">
         <Reveal className="mx-auto max-w-2xl">
-          {post.body.map((block, i) => (
-            <Block key={i} block={block} />
-          ))}
+          <ArticleBody blocks={post.body} />
         </Reveal>
       </div>
 
@@ -71,30 +69,4 @@ export function BlogPostPage() {
       )}
     </article>
   )
-}
-
-function Block({ block }: { block: BlogBlock }) {
-  switch (block.type) {
-    case "heading":
-      return <h2 className="mt-12 mb-4 text-[1.6rem] leading-tight font-semibold tracking-[-0.025em] text-ink first:mt-0">{block.text}</h2>
-    case "list":
-      return (
-        <ul className="my-6 grid gap-3">
-          {block.items?.map((item) => (
-            <li key={item} className="flex gap-3 text-[1.08rem] leading-relaxed text-ink-soft">
-              <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-brand" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      )
-    case "quote":
-      return (
-        <blockquote className="my-12 border-l-2 border-bronze pl-6 text-[1.5rem] leading-snug font-medium tracking-[-0.02em] text-ink">
-          {block.text}
-        </blockquote>
-      )
-    default:
-      return <p className="mb-6 text-[1.08rem] leading-[1.8] text-ink-soft">{block.text}</p>
-  }
 }

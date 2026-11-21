@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 export function ArticleMeta({ post, className }: { post: BlogPost; className?: string }) {
   return (
     <p className={cn("text-meta flex flex-wrap items-center gap-x-2 gap-y-1 text-stone", className)}>
-      <span className="font-semibold text-brand">{post.category}</span>
+      <span className="font-semibold text-bronze-deep">{post.category}</span>
       <span aria-hidden>·</span>
       <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
       <span aria-hidden>·</span>

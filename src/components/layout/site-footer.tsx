@@ -1,17 +1,17 @@
-import type { ReactNode } from "react"
-import { ArrowUp, ArrowUpRight } from "lucide-react"
+import { IconBrandInstagram } from "@tabler/icons-react"
+import { ArrowUp } from "lucide-react"
 import { Link } from "react-router"
 
 import { ActionButton } from "@/components/shared/action-button"
 import { MaskedLines, Reveal } from "@/components/shared/reveal"
 import { WhatsAppButton } from "@/components/shared/whatsapp-button"
-import { services } from "@/content/services"
-import { navigation, site } from "@/content/site"
+import { site } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 
-import { Logo } from "./logo"
+import { FooterScene } from "./footer-scene"
 
 const YEAR = new Date().getFullYear()
+const instagram = site.social.find((s) => s.label === "Instagram")
 
 export function SiteFooter() {
   const { openConsultation } = useConsultation()
@@ -20,12 +20,9 @@ export function SiteFooter() {
     <footer className="relative overflow-hidden bg-night text-white">
       <div className="container-site pt-16 md:pt-20">
         {/* Closing call to action */}
-        <div className="flex flex-col gap-10 border-b border-white/10 pb-12 md:pb-14 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Reveal>
-              <p className="text-eyebrow text-bronze">Start a conversation</p>
-            </Reveal>
-            <h2 className="text-headline mt-4 max-w-3xl">
+            <h2 className="text-headline max-w-3xl">
               <MaskedLines lines={["Have a project", "in mind?"]} />
             </h2>
           </div>
@@ -33,73 +30,43 @@ export function SiteFooter() {
             <ActionButton variant="light" className="w-full sm:w-auto" onClick={openConsultation}>
               Tell us about your project
             </ActionButton>
-            <WhatsAppButton className="w-full sm:w-auto" />
+            <div className="flex gap-3">
+              <WhatsAppButton className="flex-1 sm:flex-none" />
+              {instagram && (
+                <a
+                  href={instagram.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${site.name} on Instagram`}
+                  className="focus-ring group relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-white/25 text-white transition-colors duration-300 hover:border-transparent"
+                >
+                  {/* Instagram's own gradient fills the button on hover */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+                  />
+                  <IconBrandInstagram aria-hidden className="relative size-5" stroke={1.7} />
+                </a>
+              )}
+            </div>
           </Reveal>
         </div>
 
-        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-4">
-            <Logo tone="light" />
-            <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/60">{site.description}</p>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Social media">
-              {site.social.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="focus-ring inline-flex h-11 items-center gap-1.5 rounded-full border border-white/15 px-4 text-xs font-semibold text-white/80 transition-colors hover:border-white hover:bg-white hover:text-ink sm:h-9"
-                  >
-                    {s.label}
-                    <ArrowUpRight aria-hidden className="size-3" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <Reveal>
+          <p className="mt-12 max-w-md text-[0.95rem] leading-relaxed text-white/65 md:mt-14">
+            <span className="text-bronze">Homes across Chennai and its surrounding areas</span> — built with care since{" "}
+            {site.established}, and still building.
+          </p>
+        </Reveal>
+      </div>
 
-          <FooterColumn title="Explore" className="lg:col-span-2">
-            {navigation.map((item) => (
-              <li key={item.to}>
-                <FooterLink to={item.to}>{item.label}</FooterLink>
-              </li>
-            ))}
-          </FooterColumn>
+      {/* The neighbourhood: windows light up as the footer comes into view */}
+      <FooterScene className="mt-4 block h-[clamp(210px,22vw,330px)] w-full" />
 
-          <FooterColumn title="Services" className="lg:col-span-3">
-            {services.slice(0, 7).map((s) => (
-              <li key={s.slug}>
-                <FooterLink to={`/services#${s.slug}`}>{s.title}</FooterLink>
-              </li>
-            ))}
-          </FooterColumn>
-
-          <FooterColumn title="Contact" className="lg:col-span-3">
-            <li>
-              <a href={site.contact.phoneHref} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
-                {site.contact.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${site.contact.email}`} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
-                {site.contact.email}
-              </a>
-            </li>
-            <li className="mt-2 text-white/60">
-              <address className="not-italic leading-relaxed">
-                {site.contact.addressLines.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </address>
-            </li>
-            <li className="mt-3 text-white/60">{site.contact.hours}</li>
-          </FooterColumn>
-        </div>
-
-        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>
+      {/* Bottom bar continues the street */}
+      <div className="bg-[#090909]">
+        <div className="container-site flex flex-col gap-1 py-4 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+          <p className="py-2">
             © {YEAR} {site.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -117,31 +84,6 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-
-      {/* Oversized wordmark — an architectural signature at the base of every page */}
-      <div aria-hidden className="pointer-events-none container-site select-none">
-        <p
-          data-wordmark={site.name}
-          className="-mb-[0.18em] overflow-hidden text-[clamp(1.25rem,7.6vw,7rem)] leading-none font-bold tracking-[-0.06em] whitespace-nowrap text-white/[0.04] before:content-[attr(data-wordmark)]"
-        />
-      </div>
     </footer>
-  )
-}
-
-function FooterColumn({ title, className, children }: { title: string; className?: string; children: ReactNode }) {
-  return (
-    <div className={className}>
-      <h3 className="text-eyebrow text-white/55">{title}</h3>
-      <ul className="mt-3 grid text-[0.95rem] lg:mt-4">{children}</ul>
-    </div>
-  )
-}
-
-function FooterLink({ to, children }: { to: string; children: ReactNode }) {
-  return (
-    <Link to={to} className="focus-ring inline-flex min-h-11 items-center rounded-sm text-white/80 transition-colors hover:text-white lg:min-h-9">
-      {children}
-    </Link>
   )
 }

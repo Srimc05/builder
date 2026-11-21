@@ -3,6 +3,10 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/manrope";
 
+/* The site is light-only. Without this, Tailwind applies third-party
+   components' dark: styles whenever the visitor's OS is in dark mode. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ------------------------------------------------------------------
    Design tokens
    Brand palette from the brief. Secondary text is #6b6b6b rather than

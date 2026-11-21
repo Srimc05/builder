@@ -68,8 +68,8 @@ export function TiltedCards({ items, className }: { items: TiltedCardItem[]; cla
           whileTap={lifted}
           className="group relative lg:-mx-3"
         >
-          <article className="rounded-[1.6rem] bg-white p-2 shadow-soft ring-1 ring-black/5 transition-shadow duration-500 group-hover:shadow-lift sm:p-2.5">
-            <div className="aspect-square overflow-hidden rounded-[1.15rem]">
+          <article className="rounded-[1.6rem] bg-white p-2 shadow-[0_1px_2px_rgb(20_20_20/0.06),0_12px_28px_-10px_rgb(20_20_20/0.22)] ring-1 ring-black/5 transition-shadow duration-500 group-hover:shadow-[0_2px_4px_rgb(20_20_20/0.06),0_28px_56px_-16px_rgb(20_20_20/0.38)] sm:p-2.5">
+            <div className="aspect-[5/4] overflow-hidden rounded-[1.15rem]">
               <ResponsiveImage
                 name={item.image.name}
                 alt={item.image.alt}
@@ -78,7 +78,7 @@ export function TiltedCards({ items, className }: { items: TiltedCardItem[]; cla
                 imgClassName="transition-transform duration-[1.2s] ease-architect group-hover:scale-105"
               />
             </div>
-            <div className="px-2 pt-3 pb-2.5 sm:px-3 sm:pt-4 sm:pb-3">
+            <div className="px-2 pt-3 pb-2 sm:px-3 sm:pt-3.5 sm:pb-2.5">
               {item.eyebrow && (
                 <span className="text-meta font-semibold text-bronze-deep tabular-nums">{item.eyebrow}</span>
               )}
