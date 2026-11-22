@@ -22,7 +22,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
         <button
           type="button"
           className={cn(
-            "focus-ring group grid size-11 place-items-center rounded-btn transition-colors xl:hidden",
+            "focus-ring group grid size-11 place-items-center rounded-btn transition-colors min-[72rem]:hidden",
             overDark ? "bg-white/12 text-white backdrop-blur hover:bg-white/20" : "bg-ink text-white hover:bg-black",
           )}
           aria-label="Open menu"

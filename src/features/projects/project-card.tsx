@@ -2,29 +2,9 @@ import { ArrowUpRight } from "lucide-react"
 import { Link } from "react-router"
 
 import { ResponsiveImage } from "@/components/shared/responsive-image"
-import type { Project, ProjectStatus } from "@/content/types"
+import type { Project } from "@/content/types"
 import { categoryLabel } from "@/lib/content"
 import { cn } from "@/lib/utils"
-
-const statusDot: Record<ProjectStatus, string> = {
-  Completed: "bg-emerald-500",
-  "Under construction": "bg-bronze",
-  "In design": "bg-brand",
-}
-
-export function StatusBadge({ status, tone = "light" }: { status: ProjectStatus; tone?: "light" | "dark" }) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold",
-        tone === "dark" ? "bg-night/55 text-white ring-1 ring-white/15 backdrop-blur-md" : "bg-white text-ink ring-1 ring-line",
-      )}
-    >
-      <span aria-hidden className={cn("size-1.5 rounded-full", statusDot[status])} />
-      {status}
-    </span>
-  )
-}
 
 interface ProjectCardProps {
   project: Project
@@ -51,9 +31,6 @@ export function ProjectCard({ project, aspect, sizes, variant = "standard", prio
           className="size-full"
           imgClassName="transition-transform duration-[1.4s] ease-architect group-hover:scale-[1.045]"
         />
-        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-          <StatusBadge status={project.status} tone={feature ? "dark" : "light"} />
-        </div>
         <span
           aria-hidden
           className="absolute top-4 right-4 grid size-11 scale-75 place-items-center rounded-full bg-white text-ink opacity-0 shadow-soft transition-all duration-500 ease-architect group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100"

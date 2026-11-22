@@ -8,7 +8,6 @@ import { MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/share
 import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { useConsultation } from "@/features/enquiry/consultation-context"
-import { StatusBadge } from "@/features/projects/project-card"
 import { ProjectGalleryGrid } from "@/features/projects/gallery-lightbox"
 import { categoryLabel, getProject, projects } from "@/lib/content"
 import { EASE } from "@/lib/motion"
@@ -45,7 +44,6 @@ export function ProjectDetailPage() {
             <Link to="/projects" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full text-sm font-semibold text-white/80 hover:text-white">
               <ArrowLeft aria-hidden className="size-4" /> All projects
             </Link>
-            <StatusBadge status={project.status} tone="dark" />
           </motion.div>
           <h1 className="text-display mt-6 max-w-5xl">
             <MaskedLines lines={[project.name]} delay={0.3} animateOnMount />

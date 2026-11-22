@@ -89,7 +89,7 @@ export function SiteHeader() {
           </AnimatePresence>
           <Logo tone={overDark ? "light" : "dark"} />
 
-          <nav aria-label="Primary" className="hidden xl:block" onMouseLeave={() => setHovered(null)}>
+          <nav aria-label="Primary" className="hidden min-[72rem]:block" onMouseLeave={() => setHovered(null)}>
             <ul className="flex items-center gap-0.5">
               {navigation.map((item) => {
                 const active = isActive(item.to)
