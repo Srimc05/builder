@@ -20,7 +20,7 @@ function Block({ block }: { block: BlogBlock }) {
         <ul className="my-6 grid gap-3">
           {block.items?.map((item) => (
             <li key={item} className="flex gap-3 text-[1.08rem] leading-relaxed text-ink-soft">
-              <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-brand" />
+              <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-bronze-deep" />
               {item}
             </li>
           ))}

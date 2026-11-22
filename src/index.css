@@ -27,6 +27,8 @@
   --color-brand-soft: #f1ebfd;
   --color-bronze: #c58a50;
   --color-bronze-deep: #9a6634;
+  /* Soft terracotta tint for icon tiles (pairs with bronze-deep icons) */
+  --color-bronze-soft: #f5ece2;
   --color-night: #141414;
 
   --radius-media: 0.625rem;

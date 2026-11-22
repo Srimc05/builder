@@ -106,7 +106,7 @@ export function ConsultationModal() {
 
                 <div className="flex-1 overflow-y-auto overscroll-contain px-5 pt-6 pb-8 sm:px-8 md:px-10 md:py-10 lg:px-12">
                   <div className="md:pr-10">
-                    <p className="text-eyebrow text-brand">Talk to Us</p>
+                    <p className="text-eyebrow text-bronze-deep">Talk to Us</p>
                     <DialogPrimitive.Title className="text-title mt-4 max-w-md text-ink md:text-[2.1rem]">
                       Let&rsquo;s Build Something Great Together
                     </DialogPrimitive.Title>

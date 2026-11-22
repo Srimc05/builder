@@ -39,7 +39,7 @@ export function SectionHeading({
       <div className={cn(align === "split" && "lg:col-span-7")}>
         <Reveal>
           <p className={cn("text-eyebrow flex items-center gap-2.5", dark ? "text-white/60" : "text-stone")}>
-            {index && <span className={dark ? "text-bronze" : "text-brand"}>{index}</span>}
+            {index && <span className={dark ? "text-bronze" : "text-bronze-deep"}>{index}</span>}
             {eyebrow}
           </p>
         </Reveal>

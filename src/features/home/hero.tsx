@@ -51,17 +51,14 @@ export function Hero() {
       <motion.div style={{ opacity: contentOpacity }} className="container-site flex flex-1 flex-col justify-end pt-32 pb-16 md:pb-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-6">
-            <motion.p {...enter(0.3)} className="text-eyebrow flex items-center gap-3 leading-relaxed text-white/75">
-              Since 2001 · Chennai &amp; surroundings
-            </motion.p>
-            <h1 id="hero-title" className="text-display mt-5">
+            <h1 id="hero-title" className="text-display">
               <MaskedLines lines={["Building Trust.", "Creating Homes."]} delay={0.45} animateOnMount />
             </h1>
           </div>
           <div className="lg:col-span-6 lg:pb-2">
             <motion.p {...enter(0.9)} className="text-lead max-w-md text-white/80">
-              Over two decades of building homes and industrial spaces — with direct involvement at every
-              stage, and relationships that last.
+              Your build is one of the biggest decisions you&rsquo;ll make. Since 2001, we&rsquo;ve stood
+              beside families and businesses from the first plan to the final key &mdash; and long after.
             </motion.p>
             <motion.div {...enter(1.05)} className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
               <ActionButton variant="light" size="md" className="w-full sm:w-auto" onClick={openConsultation}>

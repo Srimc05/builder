@@ -19,7 +19,7 @@ export function AboutIntro() {
       <div className="container-site">
         <Reveal>
           <p className="text-eyebrow flex items-center gap-2.5 text-stone">
-            <span className="text-brand">01</span>
+            <span className="text-bronze-deep">01</span>
             About us
           </p>
         </Reveal>

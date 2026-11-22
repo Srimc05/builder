@@ -98,7 +98,7 @@ export function ProjectDetailPage() {
         {/* Narrative */}
         <div className="lg:col-span-7 lg:col-start-6">
           <section aria-labelledby="overview-title">
-            <h2 id="overview-title" className="text-eyebrow text-brand">
+            <h2 id="overview-title" className="text-eyebrow text-bronze-deep">
               Project overview
             </h2>
             <Reveal className="mt-6 grid gap-5">
@@ -112,7 +112,7 @@ export function ProjectDetailPage() {
 
           {project.gallery.length > 0 && (
             <section aria-labelledby="gallery-title" className="mt-14">
-              <h2 id="gallery-title" className="text-eyebrow text-brand">
+              <h2 id="gallery-title" className="text-eyebrow text-bronze-deep">
                 Gallery
               </h2>
               <div className="mt-6">
@@ -122,7 +122,7 @@ export function ProjectDetailPage() {
           )}
 
           <section aria-labelledby="details-title" className="mt-14">
-            <h2 id="details-title" className="text-eyebrow text-brand">
+            <h2 id="details-title" className="text-eyebrow text-bronze-deep">
               Construction details
             </h2>
             <RevealGroup as="ol" className="mt-6 divide-y divide-line border-y border-line">
@@ -136,7 +136,7 @@ export function ProjectDetailPage() {
           </section>
 
           <section aria-labelledby="challenges-title" className="mt-14">
-            <h2 id="challenges-title" className="text-eyebrow text-brand">
+            <h2 id="challenges-title" className="text-eyebrow text-bronze-deep">
               Challenges &amp; solutions
             </h2>
             <RevealGroup as="ul" className="mt-6 grid gap-4">
@@ -147,7 +147,7 @@ export function ProjectDetailPage() {
                     <p className="mt-3 leading-relaxed text-ink">{c.challenge}</p>
                   </div>
                   <div className="p-6 md:p-7">
-                    <p className="text-eyebrow text-brand">Solution</p>
+                    <p className="text-eyebrow text-bronze-deep">Solution</p>
                     <p className="mt-3 leading-relaxed text-ink">{c.solution}</p>
                   </div>
                 </RevealItem>
@@ -156,7 +156,7 @@ export function ProjectDetailPage() {
           </section>
 
           <section aria-labelledby="completion-title" className="mt-14">
-            <h2 id="completion-title" className="text-eyebrow text-brand">
+            <h2 id="completion-title" className="text-eyebrow text-bronze-deep">
               Completion
             </h2>
             <Reveal className="mt-6 rounded-media bg-night p-7 text-white md:p-9">

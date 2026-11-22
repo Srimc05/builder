@@ -10,6 +10,8 @@ import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { about } from "@/content/about"
+import { ScatteredTestimonials } from "@/features/testimonials/scattered-testimonials"
+import { aboutTestimonials } from "@/lib/content"
 
 /** Icons follow the order of `about.whyChooseUs`. */
 const whyIcons: LucideIcon[] = [UserRound, HardHat, History, Handshake]
@@ -57,7 +59,7 @@ export function AboutPage() {
               delay={i * 0.1}
               className="border-line py-12 md:py-16 md:first:border-r md:first:pr-12 md:last:pl-12 max-md:first:border-b"
             >
-              <p className="text-eyebrow text-brand">{item.label}</p>
+              <p className="text-eyebrow text-bronze-deep">{item.label}</p>
               <p className="mt-4 text-[clamp(1.2rem,1.05rem+0.6vw,1.5rem)] leading-snug font-semibold tracking-[-0.02em] text-ink">
                 <GeneratedText words={item.text} stagger={STATEMENT_STAGGER} />
               </p>
@@ -149,6 +151,23 @@ export function AboutPage() {
           </RevealGroup>
         </div>
       </section>
+
+      {/* Client stories — shown only once real testimonials exist */}
+      {aboutTestimonials.length > 0 && (
+        <section aria-labelledby="stories-title" className="section-y overflow-hidden bg-sand">
+          <div className="container-site">
+            <SectionHeading
+              id="stories-title"
+              eyebrow="Client stories"
+              title={["In their", "own words."]}
+              description="Families and businesses we have built for, on what it was like to work with us."
+            />
+            <Reveal className="mt-10 md:mt-14">
+              <ScatteredTestimonials testimonials={aboutTestimonials} />
+            </Reveal>
+          </div>
+        </section>
+      )}
     </>
   )
 }

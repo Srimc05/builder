@@ -102,7 +102,7 @@ function Brick({ item, index }: { item: BrickItem; index: number }) {
           data-numeral={String(index + 1).padStart(2, "0")}
           className={cn(
             brick.numeral,
-            "transition-colors group-hover:text-brand-soft",
+            "transition-colors group-hover:text-bronze-soft",
             HOVER_EASE,
           )}
         />

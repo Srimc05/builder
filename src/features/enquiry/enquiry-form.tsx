@@ -5,6 +5,7 @@ import { Link } from "react-router"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { MagneticButton } from "@/components/ui/magnetic-button"
 import { StatefulButton } from "@/components/ui/stateful-button"
 import { Textarea } from "@/components/ui/textarea"
 import { constructionTypes, site } from "@/content/site"
@@ -192,13 +193,16 @@ export function EnquiryForm({
                 </Link>
                 .
               </p>
-              <StatefulButton
-                type="submit"
-                status={form.status}
-                className="h-12 w-full px-7 sm:w-auto"
-              >
-                {form.status === "loading" ? "Sending your details…" : submitLabel}
-              </StatefulButton>
+              {/* Magnetic pull towards the cursor (mouse only; touch is unaffected) */}
+              <MagneticButton className="w-full sm:w-auto">
+                <StatefulButton
+                  type="submit"
+                  status={form.status}
+                  className="h-12 w-full px-7 sm:w-auto"
+                >
+                  {form.status === "loading" ? "Sending your details…" : submitLabel}
+                </StatefulButton>
+              </MagneticButton>
             </div>
             <p className="sr-only" aria-live="polite">
               {form.status === "loading" ? "Sending your enquiry" : ""}

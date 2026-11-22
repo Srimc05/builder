@@ -19,6 +19,15 @@ export const posts = (includeSamples ? [...blogPosts, ...samplePosts] : blogPost
 
 export const hasSampleContent = includeSamples
 
+/**
+ * Testimonials for the About page's scattered cards. Until real testimonials
+ * are added, the local dev server shows the samples so the design can be
+ * reviewed. `import.meta.env.DEV` is false in every build, so a production
+ * build never falls back to them (the showcase build includes them anyway).
+ */
+export const aboutTestimonials =
+  testimonials.length > 0 ? testimonials : import.meta.env.DEV ? sampleTestimonials : []
+
 export const getProject = (slug: string | undefined) => projects.find((p) => p.slug === slug)
 export const getPost = (slug: string | undefined) => posts.find((p) => p.slug === slug)
 export const categoryLabel = (slug: string) => projectCategories.find((c) => c.slug === slug)?.label ?? slug

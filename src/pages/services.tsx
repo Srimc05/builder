@@ -58,7 +58,7 @@ export function ServicesPage() {
                 <ResponsiveImage name={service.image.name} alt={service.image.alt} sizes="(min-width:1024px) 48vw, 100vw" className="size-full" />
               </ImageReveal>
               <Reveal delay={0.1} className={cn("lg:col-span-5", flip ? "lg:order-1 lg:col-start-1" : "lg:col-start-8")}>
-                <p className="text-meta font-semibold text-brand tabular-nums">{String(i + 1).padStart(2, "0")}</p>
+                <p className="text-meta font-semibold text-bronze-deep tabular-nums">{String(i + 1).padStart(2, "0")}</p>
                 <h2 id={`${service.slug}-title`} className="text-title mt-3 text-ink">
                   {service.title}
                 </h2>
@@ -66,7 +66,7 @@ export function ServicesPage() {
                 <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
                   {service.deliverables.map((d) => (
                     <li key={d} className="flex items-start gap-3 text-[0.95rem] text-ink">
-                      <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-brand-soft text-brand">
+                      <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-bronze-soft text-bronze-deep">
                         <Check aria-hidden className="size-3" strokeWidth={3} />
                       </span>
                       {d}

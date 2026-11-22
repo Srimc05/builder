@@ -1,50 +1,72 @@
 import type { Testimonial } from "../types"
 
 /**
- * SAMPLE TESTIMONIALS — placeholders that demonstrate the layout only.
- * The brief requires real testimonials: replace these with genuine client
- * feedback (with the client's permission) before launch. Sample items are
- * excluded from production builds automatically.
+ * SAMPLE TESTIMONIALS — fictional placeholders for design review only.
+ * The names, projects and quotes below are NOT real clients. Replace them with
+ * genuine client feedback (with each client's permission) in
+ * `src/content/testimonials.ts` before launch. Sample items are shown in
+ * development and the showcase build only, and are excluded from production
+ * builds automatically.
  */
 export const sampleTestimonials: Testimonial[] = [
   {
     sample: true,
     id: "courtyard-residence",
-    clientName: "Sample Client A",
-    projectName: "The Courtyard Residence",
-    location: "Hillside District",
+    clientName: "Priya & Arun",
+    projectName: "Independent house",
+    location: "Pallavaram",
     feedback:
-      "Placeholder testimonial. The team explained every decision clearly, kept us updated weekly and handed over a home that was finished to a standard we hadn't expected.",
-    image: { name: "hero-residence-dusk", alt: "The Courtyard Residence at dusk" },
+      "Building our first home felt overwhelming until we met the team. Every decision was explained clearly, we had updates every week, and the house we moved into was finished better than we had imagined.",
+    image: { name: "hero-residence-dusk", alt: "Independent house at dusk" },
   },
   {
     sample: true,
     id: "azure-terrace",
-    clientName: "Sample Client B",
-    projectName: "Azure Terrace Villa",
-    location: "Coastal Road",
+    clientName: "Mr Raghavan",
+    projectName: "Villa with terrace",
+    location: "Chromepet",
     feedback:
-      "Placeholder testimonial. From the first drawings to the final walkthrough, there was one team responsible for everything. The budget we agreed was the budget we paid.",
-    image: { name: "villa-terrace-pool", alt: "Azure Terrace Villa terraces and pool" },
+      "From the first drawings to the final walkthrough, one team was responsible for everything. The budget we agreed at the start was the budget we paid.",
+    image: { name: "villa-terrace-pool", alt: "Villa terraces and pool" },
   },
   {
     sample: true,
-    id: "perforated-house",
-    clientName: "Sample Client C",
-    projectName: "The Perforated House",
-    location: "Greenfield Layout",
+    id: "apartment-block",
+    clientName: "Lakshmi S.",
+    projectName: "Apartment block",
+    location: "Chitlapakkam",
     feedback:
-      "Placeholder testimonial. The attention to detail on site was remarkable. Problems were raised early and always came with a solution attached.",
-    image: { name: "house-courtyard", alt: "The Perforated House courtyard" },
+      "Mr Shankar was on site himself, week after week. Whenever something came up, it was raised early and always came with a solution attached.",
+    image: { name: "apartments-balconies", alt: "Apartment block with balconies" },
+  },
+  {
+    sample: true,
+    id: "warehouse",
+    clientName: "Karthik M.",
+    projectName: "Warehouse",
+    location: "Chennai outskirts",
+    feedback:
+      "We needed a large clear-span building on a tight schedule. They planned the work carefully, kept us informed at every stage and handed over on the date they promised.",
+    image: { name: "warehouse-interior", alt: "Warehouse interior with racking" },
+  },
+  {
+    sample: true,
+    id: "renovation",
+    clientName: "The Venkatesan family",
+    projectName: "Home renovation",
+    location: "Chromepet",
+    feedback:
+      "Renovating while living in the house is never easy, but they protected what we wanted to keep, kept the site tidy and finished the extension without fuss.",
+    image: { name: "interior-living", alt: "Renovated living room" },
   },
   {
     sample: true,
     id: "meridian",
-    clientName: "Sample Client D",
-    projectName: "Meridian Business Centre",
-    location: "Central Business District",
+    clientName: "Suresh R.",
+    projectName: "Office building",
+    location: "Chennai",
     feedback:
-      "Placeholder testimonial. On a constrained city-centre site, their planning and coordination kept the programme on track and our neighbours on side.",
-    image: { name: "white-pavilion", alt: "Meridian Business Centre facade" },
+      "Ten years after handover, we still call them first. That says more about the relationship than anything else could.",
+    image: { name: "white-pavilion", alt: "Office building facade" },
   },
 ]

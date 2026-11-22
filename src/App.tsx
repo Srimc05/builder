@@ -41,6 +41,13 @@ const router = createBrowserRouter([
                 }
               },
             },
+            {
+              path: "dev/magnetic-button",
+              lazy: async () => {
+                const { default: Demo } = await import("@/components/magnetic-button-demo")
+                return { Component: Demo }
+              },
+            },
           ]
         : []),
       { path: "*", lazy: async () => ({ Component: (await import("@/pages/not-found")).NotFoundPage }) },

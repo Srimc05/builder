@@ -6,7 +6,7 @@ export function NotFoundPage() {
   return (
     <section className="container-site flex min-h-[75svh] flex-col justify-center pt-32 pb-20">
       <PageMeta title="Page not found" />
-      <p className="text-eyebrow text-brand">Error 404</p>
+      <p className="text-eyebrow text-bronze-deep">Error 404</p>
       <h1 className="text-display mt-6">
         <MaskedLines lines={["This space is", "still unbuilt."]} animateOnMount />
       </h1>
