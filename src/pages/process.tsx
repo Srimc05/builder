@@ -18,6 +18,8 @@ export function ProcessPage() {
     <>
       <PageMeta title="Our Process" description="Seven clear stages from initial consultation to project handover." />
       <PageHeader
+        image="roof-framing"
+        className="mb-0 md:mb-0"
         eyebrow="Our process"
         title={["A clear path from", "idea to handover."]}
         description="A well-defined process removes uncertainty. Here is how every project moves from your first call to the day you receive the keys."

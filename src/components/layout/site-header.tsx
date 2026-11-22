@@ -8,6 +8,7 @@ import { navigation } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 import { getProject } from "@/lib/content"
 import { EASE } from "@/lib/motion"
+import { useDarkHero } from "@/lib/dark-hero"
 import { cn } from "@/lib/utils"
 
 import { Logo } from "./logo"
@@ -43,7 +44,8 @@ export function SiteHeader() {
     return () => window.clearTimeout(t)
   }, [atTop])
 
-  const overDark = atTop && hasDarkHero(pathname)
+  const darkHero = useDarkHero()
+  const overDark = atTop && (darkHero || hasDarkHero(pathname))
   const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname.startsWith(to))
 
   return (

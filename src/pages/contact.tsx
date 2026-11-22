@@ -26,7 +26,7 @@ export function ContactPage() {
   return (
     <>
       <PageMeta title="Contact" description="Talk to our team about your construction project, or request a site visit." />
-      <PageHeader eyebrow="Contact" title={["Let's start a", "conversation."]} description="Call, message or write to us — or use the form to send an enquiry or request a site visit." />
+      <PageHeader image="office-interior" eyebrow="Contact" title={["Let's start a", "conversation."]} description="Call, message or write to us — or use the form to send an enquiry or request a site visit." />
 
       <div className="container-site pb-16 md:pb-20">
         {/* Ways to reach us — one brick each */}

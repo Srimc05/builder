@@ -19,22 +19,12 @@ export function AboutPage() {
     <>
       <PageMeta title="About Us" description={about.introduction} />
       <PageHeader
+        image="site-team-slab"
+        className="mb-0 md:mb-0"
         eyebrow="About us"
         title={["Building trust", "since 2001."]}
         description={about.introduction}
       />
-
-      <div className="container-site">
-        <ImageReveal className="aspect-[4/3] rounded-panel sm:aspect-[16/9] lg:aspect-[21/9]">
-          <ResponsiveImage
-            name="site-team-slab"
-            alt="Construction team gathered on a concrete slab reviewing the site"
-            sizes="100vw"
-            priority
-            className="size-full"
-          />
-        </ImageReveal>
-      </div>
 
       {/* Background */}
       <section aria-labelledby="story-title" className="section-y">

@@ -30,6 +30,7 @@ export function BlogPage() {
       <PageMeta title="Blog" description="Insights on construction planning, architectural design, materials and cost." />
       <PageHeader
         compact
+        image="architect-drawing"
         eyebrow="Blog & insights"
         title={["Notes on planning,", "design and building."]}
         description="Practical guidance for anyone planning a build — from first budgets to final finishes."

@@ -9,6 +9,7 @@ export function ProjectsPage() {
     <>
       <PageMeta title="Projects" description="A portfolio of residential, commercial and industrial construction projects." />
       <PageHeader
+        image="facade-timber-night"
         eyebrow="Projects"
         title={["Selected work."]}
         description="Homes, workplaces and industrial facilities — each planned carefully, built precisely and finished with care."

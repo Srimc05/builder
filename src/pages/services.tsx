@@ -26,6 +26,7 @@ export function ServicesPage() {
     <>
       <PageMeta title="Services" description="Residential, commercial and industrial construction and renovation, delivered with direct involvement at every stage." />
       <PageHeader
+        image="tower-cranes"
         eyebrow="Services"
         title={["Residential, commercial", "and industrial."]}
         description="Construction and renovation services, delivered with direct involvement at every stage."
@@ -35,7 +36,7 @@ export function ServicesPage() {
             <a
               key={s.slug}
               href={`#${s.slug}`}
-              className="focus-ring flex h-11 items-center rounded-btn border border-line px-4 sm:h-10 text-sm font-semibold text-ink/75 transition-colors hover:border-ink hover:bg-ink hover:text-white"
+              className="focus-ring flex h-11 items-center rounded-btn border border-white/35 px-4 text-sm font-semibold text-white/90 backdrop-blur-sm transition-colors hover:border-white hover:bg-white hover:text-ink sm:h-10"
             >
               {s.title}
             </a>
