@@ -252,9 +252,6 @@ function MapBrick() {
             </g>
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center">
-            <span className="grid size-14 place-items-center rounded-brick bg-brand text-white shadow-[0_0_0_10px_rgb(100_37_232/0.12)]">
-              <MapPin aria-hidden className="size-6" />
-            </span>
             <ActionButton size="md" icon={MapPin} onClick={() => setLoaded(true)}>
               Load interactive map
             </ActionButton>
