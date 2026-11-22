@@ -114,7 +114,7 @@ export const AnimatedTestimonials = ({
                     name={testimonial.image.name}
                     alt={isActive(index) ? testimonial.image.alt : ""}
                     sizes="(min-width: 1024px) 320px, 272px"
-                    className="h-full w-full rounded-3xl"
+                    className="h-full w-full rounded-media"
                     imgClassName="object-center"
                   />
                 </motion.div>
@@ -172,7 +172,7 @@ export const AnimatedTestimonials = ({
               onClick={handlePrev}
               aria-controls={regionId}
               aria-label="Previous testimonial"
-              className="group/button focus-ring flex size-11 items-center justify-center rounded-full bg-white text-ink shadow-soft ring-1 ring-line transition-colors hover:bg-ink hover:text-white hover:ring-ink"
+              className="group/button focus-ring flex size-11 items-center justify-center rounded-btn bg-white text-ink shadow-soft ring-1 ring-line transition-colors hover:bg-ink hover:text-white hover:ring-ink"
             >
               <IconArrowLeft aria-hidden className="size-5 transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
@@ -181,7 +181,7 @@ export const AnimatedTestimonials = ({
               onClick={handleNext}
               aria-controls={regionId}
               aria-label="Next testimonial"
-              className="group/button focus-ring flex size-11 items-center justify-center rounded-full bg-white text-ink shadow-soft ring-1 ring-line transition-colors hover:bg-ink hover:text-white hover:ring-ink"
+              className="group/button focus-ring flex size-11 items-center justify-center rounded-btn bg-white text-ink shadow-soft ring-1 ring-line transition-colors hover:bg-ink hover:text-white hover:ring-ink"
             >
               <IconArrowRight aria-hidden className="size-5 transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>

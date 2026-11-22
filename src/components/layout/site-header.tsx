@@ -59,7 +59,7 @@ export function SiteHeader() {
             "relative isolate flex h-[4.5rem] items-center justify-between gap-6 border transition-[background-color,border-color,box-shadow,border-radius,padding,backdrop-filter] duration-700 ease-architect",
             atTop
               ? "rounded-none border-transparent bg-transparent px-5 sm:px-8 lg:px-12"
-              : "h-16 rounded-full pr-2 pl-4 min-[360px]:pl-5 sm:pl-6",
+              : "h-16 rounded-panel pr-2 pl-4 min-[360px]:pl-5 sm:pl-6",
             !atTop && !glass && "border-line/80 bg-white/85 shadow-soft backdrop-blur-xl",
             glass && "border-transparent bg-transparent",
           )}
@@ -75,7 +75,7 @@ export function SiteHeader() {
                 transition={{ duration: 0.4, ease: EASE }}
               >
                 <LiquidGlass
-                  radius={999}
+                  radius={16}
                   bevelDepth={14}
                   scale={36}
                   aberration={2}
@@ -98,7 +98,7 @@ export function SiteHeader() {
                       onMouseEnter={() => setHovered(item.to)}
                       onFocus={() => setHovered(item.to)}
                       className={cn(
-                        "focus-ring relative z-10 block rounded-full px-3.5 py-2 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-300",
+                        "focus-ring relative z-10 block rounded-btn px-3.5 py-2 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-300",
                         overDark ? "text-white/85 hover:text-white" : "text-ink/70 hover:text-ink",
                         active && (overDark ? "text-white" : "text-ink"),
                       )}
@@ -119,7 +119,7 @@ export function SiteHeader() {
                       <motion.span
                         layoutId="nav-hover"
                         aria-hidden
-                        className={cn("absolute inset-0 rounded-full", overDark ? "bg-white/12" : "bg-sand-deep")}
+                        className={cn("absolute inset-0 rounded-btn", overDark ? "bg-white/12" : "bg-sand-deep")}
                         transition={{ duration: 0.35, ease: EASE }}
                       />
                     )}

@@ -29,8 +29,11 @@
   --color-bronze-deep: #9a6634;
   --color-night: #141414;
 
-  --radius-media: 1.25rem;
-  --radius-panel: 1.75rem;
+  --radius-media: 0.625rem;
+  /* Buttons: crisp, brick-like corners */
+  --radius-brick: 0.25rem;
+  --radius-btn: 0.375rem;
+  --radius-panel: 1rem;
 
   --ease-architect: cubic-bezier(0.22, 1, 0.36, 1);
 

@@ -9,7 +9,7 @@ export function RouteError() {
       <p className="text-eyebrow text-brand">Error {status}</p>
       <h1 className="text-headline max-w-2xl text-ink">Something went wrong loading this page.</h1>
       <p className="text-lead max-w-md text-stone">Please refresh, or return to the home page.</p>
-      <a href="/" className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white hover:bg-black">
+      <a href="/" className="rounded-btn bg-ink px-6 py-3 text-[0.78rem] font-semibold tracking-[0.12em] text-white uppercase hover:bg-black">
         Back to home
       </a>
     </main>

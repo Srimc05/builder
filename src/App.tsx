@@ -25,6 +25,24 @@ const router = createBrowserRouter([
       { path: "blog/:slug", lazy: async () => ({ Component: (await import("@/pages/blog-post")).BlogPostPage }) },
       { path: "contact", lazy: async () => ({ Component: (await import("@/pages/contact")).ContactPage }) },
       { path: "privacy", lazy: async () => ({ Component: (await import("@/pages/privacy")).PrivacyPage }) },
+      // Component demo, development only (left out of production builds).
+      ...(import.meta.env.DEV
+        ? [
+            {
+              path: "dev/text-generate",
+              lazy: async () => {
+                const { default: Demo } = await import("@/components/text-generate-effect-demo")
+                return {
+                  Component: () => (
+                    <div className="container-site pt-32 pb-24">
+                      <Demo />
+                    </div>
+                  ),
+                }
+              },
+            },
+          ]
+        : []),
       { path: "*", lazy: async () => ({ Component: (await import("@/pages/not-found")).NotFoundPage }) },
     ],
   },

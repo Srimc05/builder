@@ -58,7 +58,7 @@ function InsightContent({ post }: { post: BlogPost }) {
         {post.readingMinutes} min read
       </p>
       <p className="text-lead mt-4 text-ink">{post.excerpt}</p>
-      <div className="mt-8 aspect-[16/9] overflow-hidden rounded-3xl">
+      <div className="mt-8 aspect-[16/9] overflow-hidden rounded-media">
         <ResponsiveImage name={post.cover.name} alt={post.cover.alt} sizes="(min-width: 1024px) 768px, 100vw" className="size-full" />
       </div>
       <div className="mt-10">

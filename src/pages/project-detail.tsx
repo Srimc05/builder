@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router"
 import { ActionButton } from "@/components/shared/action-button"
 import { PageMeta } from "@/components/shared/page-meta"
 import { MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 import { StatusBadge } from "@/features/projects/project-card"
@@ -103,7 +104,7 @@ export function ProjectDetailPage() {
             <Reveal className="mt-6 grid gap-5">
               {project.overview.map((p, i) => (
                 <p key={p.slice(0, 20)} className={i === 0 ? "text-[clamp(1.15rem,1rem+0.6vw,1.4rem)] leading-snug font-medium tracking-[-0.015em] text-ink" : "text-lead text-stone"}>
-                  {p}
+                  {i === 0 ? <GeneratedText words={p} stagger={STATEMENT_STAGGER} /> : p}
                 </p>
               ))}
             </Reveal>
@@ -159,7 +160,9 @@ export function ProjectDetailPage() {
               Completion
             </h2>
             <Reveal className="mt-6 rounded-media bg-night p-7 text-white md:p-9">
-              <p className="text-lg leading-relaxed">{project.completion}</p>
+              <p className="text-lg leading-relaxed">
+                <GeneratedText words={project.completion} stagger={STATEMENT_STAGGER} />
+              </p>
               <p className="text-meta mt-5 text-white/55">
                 {project.status} · {project.year}
               </p>

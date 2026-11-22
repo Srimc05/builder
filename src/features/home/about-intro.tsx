@@ -4,7 +4,8 @@ import { useRef } from "react"
 import { ArrowLink } from "@/components/shared/arrow-link"
 import { ImageReveal, Reveal } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
-import { TiltedCards } from "@/components/shared/tilted-cards"
+import { BrickWall } from "@/components/shared/brick-wall"
+import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
 import { about } from "@/content/about"
 
 export function AboutIntro() {
@@ -25,14 +26,18 @@ export function AboutIntro() {
 
         <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <Reveal>
-              <h2 id="about-title" className="text-[clamp(1.35rem,1.1rem+1vw,1.95rem)] leading-[1.25] font-semibold tracking-[-0.03em] text-ink">
-                Established builder and property developer since 2001.{" "}
-                <span className="text-stone">
-                  Led by Mr Shankar, with direct involvement at every stage and customers who stay with us for years.
-                </span>
-              </h2>
-            </Reveal>
+            <h2 id="about-title" className="text-[clamp(1.35rem,1.1rem+1vw,1.95rem)] leading-[1.25] font-semibold tracking-[-0.03em] text-ink">
+              <GeneratedText
+                stagger={STATEMENT_STAGGER}
+                words={[
+                  { text: "Established builder and property developer since 2001." },
+                  {
+                    text: "Led by Mr Shankar, with direct involvement at every stage and customers who stay with us for years.",
+                    className: "text-stone",
+                  },
+                ]}
+              />
+            </h2>
             <Reveal delay={0.1} className="mt-8 grid max-w-2xl gap-6 text-[0.95rem] leading-relaxed text-stone sm:grid-cols-2">
               {about.background.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
@@ -63,15 +68,13 @@ export function AboutIntro() {
           </div>
         </div>
 
-        <TiltedCards
+        <BrickWall
           className="mt-20 lg:mt-24"
-          items={about.values.map((v, i) => ({
-            key: v.title,
-            image: v.image,
-            eyebrow: String(i + 1).padStart(2, "0"),
-            title: v.title,
-            text: v.text,
-          }))}
+          halves={[
+            { value: "50+", label: "Projects completed", countUp: true },
+            { value: "2001", label: "Building since" },
+          ]}
+          items={about.values.map((v) => ({ key: v.title, image: v.image, title: v.title, text: v.text }))}
         />
       </div>
     </section>

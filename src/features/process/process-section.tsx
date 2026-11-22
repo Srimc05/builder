@@ -90,7 +90,7 @@ function DesktopJourney() {
                     type="button"
                     onClick={() => goTo(i)}
                     aria-current={isActive ? "step" : undefined}
-                    className="focus-ring group flex w-full items-start gap-5 rounded-xl py-2.5 text-left"
+                    className="focus-ring group flex w-full items-start gap-5 rounded-btn py-2.5 text-left"
                   >
                     <span
                       className={cn(

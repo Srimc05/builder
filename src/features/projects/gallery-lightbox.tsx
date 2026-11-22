@@ -81,7 +81,7 @@ export function ProjectGalleryGrid({ photos, title }: { photos: Photo[]; title: 
                         {(index ?? 0) + 1} / {photos.length}
                       </span>
                     </DialogPrimitive.Title>
-                    <DialogPrimitive.Close className="focus-ring grid size-11 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label="Close gallery">
+                    <DialogPrimitive.Close className="focus-ring grid size-11 place-items-center rounded-btn bg-white/10 hover:bg-white/20" aria-label="Close gallery">
                       <X className="size-5" />
                     </DialogPrimitive.Close>
                   </div>
@@ -91,7 +91,7 @@ export function ProjectGalleryGrid({ photos, title }: { photos: Photo[]; title: 
                         key={current.name + index}
                         src={imageSrc(current.name, 1920)}
                         alt={current.alt}
-                        className="max-h-full max-w-full rounded-xl object-contain"
+                        className="max-h-full max-w-full rounded-media object-contain"
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.98 }}
@@ -100,10 +100,10 @@ export function ProjectGalleryGrid({ photos, title }: { photos: Photo[]; title: 
                     </AnimatePresence>
                     {photos.length > 1 && (
                       <>
-                        <button type="button" onClick={() => step(-1)} aria-label="Previous image" className="focus-ring absolute left-2 grid size-12 place-items-center rounded-full bg-white/10 backdrop-blur hover:bg-white/20 sm:left-6">
+                        <button type="button" onClick={() => step(-1)} aria-label="Previous image" className="focus-ring absolute left-2 grid size-12 place-items-center rounded-btn bg-white/10 backdrop-blur hover:bg-white/20 sm:left-6">
                           <ArrowLeft className="size-5" />
                         </button>
-                        <button type="button" onClick={() => step(1)} aria-label="Next image" className="focus-ring absolute right-2 grid size-12 place-items-center rounded-full bg-white/10 backdrop-blur hover:bg-white/20 sm:right-6">
+                        <button type="button" onClick={() => step(1)} aria-label="Next image" className="focus-ring absolute right-2 grid size-12 place-items-center rounded-btn bg-white/10 backdrop-blur hover:bg-white/20 sm:right-6">
                           <ArrowRight className="size-5" />
                         </button>
                       </>

@@ -67,7 +67,7 @@ export function ServicesShowcase() {
                     <span
                       aria-hidden
                       className={cn(
-                        "mt-0.5 grid size-8 place-items-center rounded-full border transition-all duration-500 ease-architect",
+                        "mt-0.5 grid size-8 place-items-center rounded-btn border transition-all duration-500 ease-architect",
                         isActive ? "rotate-45 border-brand bg-brand text-white" : "border-ink/15 text-ink/40",
                       )}
                     >

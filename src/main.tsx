@@ -2,6 +2,7 @@ import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 
 import App from "./App"
+import { dismissBootLoader } from "./lib/boot"
 import "./index.css"
 
 const root = document.getElementById("root")
@@ -12,3 +13,5 @@ createRoot(root).render(
     <App />
   </StrictMode>,
 )
+
+void dismissBootLoader()

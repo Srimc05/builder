@@ -35,7 +35,7 @@ export function ServicesPage() {
             <a
               key={s.slug}
               href={`#${s.slug}`}
-              className="focus-ring flex h-11 items-center rounded-full border border-line px-4 sm:h-10 text-sm font-semibold text-ink/75 transition-colors hover:border-ink hover:bg-ink hover:text-white"
+              className="focus-ring flex h-11 items-center rounded-btn border border-line px-4 sm:h-10 text-sm font-semibold text-ink/75 transition-colors hover:border-ink hover:bg-ink hover:text-white"
             >
               {s.title}
             </a>
@@ -51,7 +51,7 @@ export function ServicesPage() {
               key={service.slug}
               id={service.slug}
               aria-labelledby={`${service.slug}-title`}
-              className="grid scroll-mt-28 items-center gap-8 border-t border-line py-12 md:py-16 lg:grid-cols-12 lg:gap-14"
+              className="grid scroll-mt-28 items-center gap-8 py-12 md:py-16 lg:grid-cols-12 lg:gap-14"
             >
               <ImageReveal className={cn("aspect-[4/3] rounded-media lg:col-span-6", flip && "lg:order-2 lg:col-start-7")}>
                 <ResponsiveImage name={service.image.name} alt={service.image.alt} sizes="(min-width:1024px) 48vw, 100vw" className="size-full" />

@@ -22,7 +22,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
         <button
           type="button"
           className={cn(
-            "focus-ring group grid size-11 place-items-center rounded-full transition-colors xl:hidden",
+            "focus-ring group grid size-11 place-items-center rounded-btn transition-colors xl:hidden",
             overDark ? "bg-white/12 text-white backdrop-blur hover:bg-white/20" : "bg-ink text-white hover:bg-black",
           )}
           aria-label="Open menu"
@@ -41,7 +41,7 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
         <div className="flex h-[4.5rem] items-center justify-between px-5 sm:px-8">
           <Logo />
           <SheetClose asChild>
-            <button type="button" className="focus-ring grid size-11 place-items-center rounded-full bg-sand text-ink hover:bg-sand-deep" aria-label="Close menu">
+            <button type="button" className="focus-ring grid size-11 place-items-center rounded-btn bg-sand text-ink hover:bg-sand-deep" aria-label="Close menu">
               <X className="size-5" />
             </button>
           </SheetClose>
@@ -93,13 +93,13 @@ export function MobileNav({ overDark, isActive }: { overDark: boolean; isActive:
             Get a Free Quote
           </ActionButton>
           <div className="grid grid-cols-3 gap-2 text-sm font-semibold">
-            <a href={site.contact.phoneHref} className="focus-ring flex flex-col items-center gap-1.5 rounded-xl bg-white py-3 text-ink">
+            <a href={site.contact.phoneHref} className="focus-ring flex flex-col items-center gap-1.5 rounded-btn bg-white py-3 text-ink">
               <Phone aria-hidden className="size-4 text-brand" /> Call
             </a>
-            <a href={whatsappHref()} target="_blank" rel="noreferrer" className="focus-ring flex flex-col items-center gap-1.5 rounded-xl bg-white py-3 text-ink">
+            <a href={whatsappHref()} target="_blank" rel="noreferrer" className="focus-ring flex flex-col items-center gap-1.5 rounded-btn bg-white py-3 text-ink">
               <MessageCircle aria-hidden className="size-4 text-brand" /> WhatsApp
             </a>
-            <a href={`mailto:${site.contact.email}`} className="focus-ring flex flex-col items-center gap-1.5 rounded-xl bg-white py-3 text-ink">
+            <a href={`mailto:${site.contact.email}`} className="focus-ring flex flex-col items-center gap-1.5 rounded-btn bg-white py-3 text-ink">
               <Mail aria-hidden className="size-4 text-brand" /> Email
             </a>
           </div>

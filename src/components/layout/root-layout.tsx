@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { AnimatePresence, MotionConfig, motion } from "motion/react"
-import { Outlet, ScrollRestoration, useLocation } from "react-router"
+import { Outlet, ScrollRestoration, useLocation, useNavigation } from "react-router"
 import { X } from "lucide-react"
 
 import { ConsultationProvider } from "@/features/enquiry/consultation-provider"
@@ -23,6 +23,7 @@ export function RootLayout() {
         >
           Skip to content
         </a>
+        <RouteProgress />
         <SiteHeader />
         <motion.main
           id="main"
@@ -39,6 +40,31 @@ export function RootLayout() {
         {hasSampleContent && <SampleContentNotice />}
       </ConsultationProvider>
     </MotionConfig>
+  )
+}
+
+/**
+ * Thin brand-coloured bar at the top of the screen while the next page loads
+ * (pages are code-split, so a slow connection could otherwise feel unresponsive).
+ * Appears only after a short delay, so fast navigations show nothing at all.
+ */
+function RouteProgress() {
+  const navigation = useNavigation()
+  const loading = navigation.state !== "idle"
+  return (
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          key="route-progress"
+          role="progressbar"
+          aria-label="Loading page"
+          className="fixed inset-x-0 top-0 z-[70] h-0.5 origin-left bg-brand"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 0.85, opacity: 1, transition: { scaleX: { duration: 2.4, ease: EASE }, opacity: { duration: 0.2, delay: 0.15 } } }}
+          exit={{ scaleX: 1, opacity: 0, transition: { scaleX: { duration: 0.2 }, opacity: { duration: 0.3, delay: 0.15 } } }}
+        />
+      )}
+    </AnimatePresence>
   )
 }
 

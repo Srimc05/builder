@@ -45,14 +45,14 @@ export function FilterChips({
                   aria-pressed={selected}
                   onClick={() => onChange(option.value)}
                   className={cn(
-                    "focus-ring relative flex h-11 items-center gap-2 rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors duration-300 sm:h-10",
+                    "focus-ring relative flex h-11 items-center gap-2 rounded-btn border px-4 text-sm font-semibold whitespace-nowrap transition-colors duration-300 sm:h-10",
                     selected ? "border-ink text-white" : "border-line bg-white text-ink/70 hover:border-ink/30 hover:text-ink",
                   )}
                 >
                   {selected && (
                     <motion.span
                       layoutId="chip"
-                      className="absolute -inset-px rounded-full bg-ink"
+                      className="absolute -inset-px rounded-btn bg-ink"
                       transition={{ duration: 0.45, ease: EASE }}
                     />
                   )}

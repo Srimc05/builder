@@ -4,11 +4,94 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#141414" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Hari Shankar Builders — Building Trust. Creating Homes. Since 2001.</title>
     <meta name="description" content="Established builder and property developer in South India. Direct involvement at every stage, long customer relationships." />
+    <!--
+      Boot loader: shown instantly, before any JavaScript downloads, and
+      dismissed from src/lib/boot.ts once the font and hero image are ready.
+      Five isometric floor slabs, drawn like an architectural model, lift into
+      a tower floor by floor and settle back — a building going up.
+    -->
+    <style>
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        color: #222;
+        font-family: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+        transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+      }
+      #boot-loader.is-done { transform: translateY(-100%); }
+      #boot-loader .bl-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      #boot-loader svg { width: 148px; height: auto; overflow: visible; }
+      #boot-loader .bl-name { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+      #boot-loader .bl-sub { margin: -8px 0 0; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6b6b6b; }
+      #boot-loader .bl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+      /* Spring: each slab rises by its level, with an overshoot on both ends. */
+      #boot-loader .bl-slab {
+        transform-box: view-box;
+        animation: bl-spring 1.25s cubic-bezier(0.5, -0.15, 0.3, 1.25) infinite alternate;
+        animation-delay: calc(var(--i) * 70ms);
+      }
+      #boot-loader .bl-shadow { transform-box: fill-box; transform-origin: center; animation: bl-shadow 1.25s cubic-bezier(0.5, -0.15, 0.3, 1.25) infinite alternate; }
+
+      @keyframes bl-spring { from { transform: translateY(0); } to { transform: translateY(calc(var(--i) * -18px)); } }
+      @keyframes bl-shadow { from { transform: scale(1); opacity: 0.08; } to { transform: scale(0.86); opacity: 0.05; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        #boot-loader { transition: opacity 0.3s; }
+        #boot-loader.is-done { transform: none; opacity: 0; }
+        #boot-loader .bl-slab, #boot-loader .bl-shadow { animation: none; }
+      }
+    </style>
   </head>
   <body>
+    <div id="boot-loader" role="status" aria-live="polite">
+      <div class="bl-inner">
+        <svg viewBox="0 10 200 220" aria-hidden="true" stroke="#222" stroke-width="1.1" stroke-linejoin="round">
+          <!-- ground shadow -->
+          <ellipse class="bl-shadow" cx="100" cy="214" rx="78" ry="9" fill="#222" stroke="none" />
+          <!--
+            Slabs, bottom to top. Each: left side, right side (dark extrusion),
+            then the purple top face. Widths 150 → 38, iso height = width / 2,
+            thickness 12, stacked 12 units apart when compressed.
+          -->
+          <g class="bl-slab" style="--i:0">
+            <path d="M25 160 L100 197.5 L100 209.5 L25 172 Z" fill="#efeeea" />
+            <path d="M175 160 L100 197.5 L100 209.5 L175 172 Z" fill="#e4e2dc" />
+            <path d="M100 122.5 L175 160 L100 197.5 L25 160 Z" fill="#fff" />
+          </g>
+          <g class="bl-slab" style="--i:1">
+            <path d="M39 148 L100 178.5 L100 190.5 L39 160 Z" fill="#efeeea" />
+            <path d="M161 148 L100 178.5 L100 190.5 L161 160 Z" fill="#e4e2dc" />
+            <path d="M100 117.5 L161 148 L100 178.5 L39 148 Z" fill="#fff" />
+          </g>
+          <g class="bl-slab" style="--i:2">
+            <path d="M53 136 L100 159.5 L100 171.5 L53 148 Z" fill="#efeeea" />
+            <path d="M147 136 L100 159.5 L100 171.5 L147 148 Z" fill="#e4e2dc" />
+            <path d="M100 112.5 L147 136 L100 159.5 L53 136 Z" fill="#fff" />
+          </g>
+          <g class="bl-slab" style="--i:3">
+            <path d="M67 124 L100 140.5 L100 152.5 L67 136 Z" fill="#efeeea" />
+            <path d="M133 124 L100 140.5 L100 152.5 L133 136 Z" fill="#e4e2dc" />
+            <path d="M100 107.5 L133 124 L100 140.5 L67 124 Z" fill="#fff" />
+          </g>
+          <g class="bl-slab" style="--i:4">
+            <path d="M81 112 L100 121.5 L100 133.5 L81 124 Z" fill="#efeeea" />
+            <path d="M119 112 L100 121.5 L100 133.5 L119 124 Z" fill="#e4e2dc" />
+            <path d="M100 102.5 L119 112 L100 121.5 L81 112 Z" fill="#6425e8" />
+          </g>
+        </svg>
+        <p class="bl-name">Hari Shankar Builders</p>
+        <p class="bl-sub">Since 2001</p>
+        <span class="bl-sr">Loading</span>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

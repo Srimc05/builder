@@ -22,7 +22,7 @@ export function WhatsAppButton({ className, label = "Chat on WhatsApp" }: { clas
   return (
     <StatefulButton
       onClick={openChat}
-      className={cn("h-12 gap-2 bg-green-700 px-6 text-[0.95rem] font-semibold ring-offset-night hover:ring-green-600 focus-visible:ring-green-500", className)}
+      className={cn("h-12 gap-2 bg-green-700 px-6 ring-offset-night hover:ring-green-600 focus-visible:ring-green-500", className)}
     >
       <span className="flex items-center gap-2">
         <IconBrandWhatsapp aria-hidden className="size-5" stroke={1.75} />

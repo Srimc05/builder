@@ -57,7 +57,7 @@ export function ConsultationModal() {
                   <Button
                     variant="ghost"
                     size="icon-lg"
-                    className="absolute top-3 right-3 z-20 rounded-full bg-white/90 text-ink backdrop-blur hover:bg-white md:top-5 md:right-5 md:bg-sand md:hover:bg-sand-deep"
+                    className="absolute top-3 right-3 z-20 rounded-btn bg-white/90 text-ink backdrop-blur hover:bg-white md:top-5 md:right-5 md:bg-sand md:hover:bg-sand-deep"
                   >
                     <X className="size-5" />
                     <span className="sr-only">Close</span>

@@ -34,7 +34,7 @@ export function ArrowLink({ to, children, className, tone = "light" }: ArrowLink
       </span>
       <span
         className={cn(
-          "grid size-7 place-items-center rounded-full border transition-all duration-500 ease-architect group-hover/arrow:rotate-45",
+          "grid size-7 place-items-center rounded-brick border transition-all duration-500 ease-architect group-hover/arrow:rotate-45",
           tone === "dark"
             ? "border-white/30 group-hover/arrow:border-white group-hover/arrow:bg-white group-hover/arrow:text-ink"
             : "border-ink/15 group-hover/arrow:border-brand group-hover/arrow:bg-brand group-hover/arrow:text-white",

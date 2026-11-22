@@ -20,13 +20,7 @@ import React, {
   type ImgHTMLAttributes,
   type ReactElement,
 } from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconPlayerPause,
-  IconPlayerPlay,
-  IconX,
-} from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
@@ -65,13 +59,12 @@ export const Carousel = ({ items, initialScroll = 0, autoplay = false, autoplayI
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-  const [userPaused, setUserPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focusWithin, setFocusWithin] = useState(false);
   const [inView, setInView] = useState(false);
   const lastInteraction = useRef(0);
   const autoplayOn = autoplay && !reduceMotion;
-  const playing = autoplayOn && !userPaused && !hovered && !focusWithin && inView;
+  const playing = autoplayOn && !hovered && !focusWithin && inView;
 
   // Only run while the carousel is actually on screen.
   useEffect(() => {
@@ -101,38 +94,11 @@ export const Carousel = ({ items, initialScroll = 0, autoplay = false, autoplayI
   const noteInteraction = () => {
     lastInteraction.current = Date.now();
   };
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const checkScrollability = useCallback(() => {
-    if (carouselRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
-    }
-  }, []);
-
   useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = initialScroll;
-      checkScrollability();
-    }
-  }, [initialScroll, checkScrollability]);
-
-  const scrollLeft = () => {
-    noteInteraction();
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    noteInteraction();
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  };
+    if (carouselRef.current) carouselRef.current.scrollLeft = initialScroll;
+  }, [initialScroll]);
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
@@ -168,7 +134,6 @@ export const Carousel = ({ items, initialScroll = 0, autoplay = false, autoplayI
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-14"
           ref={carouselRef}
-          onScroll={checkScrollability}
           onPointerDown={noteInteraction}
           onTouchStart={noteInteraction}
           onWheel={noteInteraction}
@@ -204,46 +169,12 @@ export const Carousel = ({ items, initialScroll = 0, autoplay = false, autoplayI
                 }}
                 key={"card" + index}
                 data-carousel-item
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+                className="rounded-media last:pr-[5%] md:last:pr-[33%]"
               >
                 {item}
               </motion.div>
             ))}
           </div>
-        </div>
-        <div className="mr-10 flex justify-end gap-2">
-          {autoplayOn && (
-            <button
-              type="button"
-              aria-label={userPaused ? "Play automatic scrolling" : "Pause automatic scrolling"}
-              className="relative z-40 mr-2 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-soft ring-1 ring-line"
-              onClick={() => setUserPaused((p) => !p)}
-            >
-              {userPaused ? (
-                <IconPlayerPlay aria-hidden className="h-5 w-5 text-ink" />
-              ) : (
-                <IconPlayerPause aria-hidden className="h-5 w-5 text-ink" />
-              )}
-            </button>
-          )}
-          <button
-            type="button"
-            aria-label="Previous"
-            className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-soft ring-1 ring-line disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft aria-hidden className="h-6 w-6 text-ink" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next"
-            className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-soft ring-1 ring-line disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight aria-hidden className="h-6 w-6 text-ink" />
-          </button>
         </div>
       </div>
     </CarouselContext.Provider>
@@ -322,13 +253,13 @@ export const Card = ({
               aria-modal="true"
               aria-labelledby={titleId}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
+              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-panel bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
             >
               <button
                 ref={closeRef}
                 type="button"
                 aria-label="Close"
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
+                className="sticky top-4 right-0 ml-auto flex h-9 w-9 items-center justify-center rounded-btn bg-black dark:bg-white"
                 onClick={handleClose}
               >
                 <IconX aria-hidden className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
@@ -356,7 +287,7 @@ export const Card = ({
         type="button"
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[30rem] md:w-72 dark:bg-neutral-900"
+        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-media bg-gray-100 md:h-[30rem] md:w-72 dark:bg-neutral-900"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-6 md:p-7">

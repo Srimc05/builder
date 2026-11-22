@@ -26,7 +26,7 @@ interface EnquiryFormProps {
 }
 
 export const fieldClass =
-  "h-12 rounded-xl border-transparent bg-sand px-4 text-base text-ink shadow-none transition-colors placeholder:text-stone hover:bg-sand-deep focus-visible:border-brand focus-visible:bg-white focus-visible:ring-3 focus-visible:ring-brand/15 aria-invalid:border-destructive aria-invalid:bg-white md:text-[0.95rem]"
+  "h-12 rounded-btn border-transparent bg-sand px-4 text-base text-ink shadow-none transition-colors placeholder:text-stone hover:bg-sand-deep focus-visible:border-brand focus-visible:bg-white focus-visible:ring-3 focus-visible:ring-brand/15 aria-invalid:border-destructive aria-invalid:bg-white md:text-[0.95rem]"
 
 export function EnquiryForm({
   kind,
@@ -168,7 +168,7 @@ export function EnquiryForm({
                   transition={{ duration: 0.35, ease: EASE }}
                   className="overflow-hidden"
                 >
-                  <div className="flex gap-3 rounded-xl border border-destructive/20 bg-destructive/5 p-4 text-sm text-ink">
+                  <div className="flex gap-3 rounded-media border border-destructive/20 bg-destructive/5 p-4 text-sm text-ink">
                     <CircleAlert aria-hidden className="mt-0.5 size-4 shrink-0 text-destructive" />
                     <p>
                       {form.failureMessage}{" "}
@@ -195,7 +195,7 @@ export function EnquiryForm({
               <StatefulButton
                 type="submit"
                 status={form.status}
-                className="h-12 w-full px-7 text-[0.95rem] font-semibold sm:w-auto"
+                className="h-12 w-full px-7 sm:w-auto"
               >
                 {form.status === "loading" ? "Sending your details…" : submitLabel}
               </StatefulButton>

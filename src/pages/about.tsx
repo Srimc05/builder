@@ -1,15 +1,17 @@
-import { ClipboardCheck, Hammer, Handshake, HardHat, HeartHandshake, History, ShieldCheck, UserRound, type LucideIcon } from "lucide-react"
+import { Handshake, HardHat, History, UserRound, type LucideIcon } from "lucide-react"
 
 import { PageHeader } from "@/components/shared/page-header"
 import { PageMeta } from "@/components/shared/page-meta"
-import { FeatureGrid } from "@/components/shared/feature-grid"
+import { brick } from "@/components/shared/brick"
+import { BrickWall } from "@/components/shared/brick-wall"
+import { cn } from "@/lib/utils"
 import { ImageReveal, MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { about } from "@/content/about"
 
-/** Icons follow the order of `about.values` and `about.whyChooseUs`. */
-const valueIcons: LucideIcon[] = [ShieldCheck, Hammer, ClipboardCheck, HeartHandshake]
+/** Icons follow the order of `about.whyChooseUs`. */
 const whyIcons: LucideIcon[] = [UserRound, HardHat, History, Handshake]
 
 export function AboutPage() {
@@ -67,7 +69,7 @@ export function AboutPage() {
             >
               <p className="text-eyebrow text-brand">{item.label}</p>
               <p className="mt-4 text-[clamp(1.2rem,1.05rem+0.6vw,1.5rem)] leading-snug font-semibold tracking-[-0.02em] text-ink">
-                {item.text}
+                <GeneratedText words={item.text} stagger={STATEMENT_STAGGER} />
               </p>
             </Reveal>
           ))}
@@ -83,10 +85,13 @@ export function AboutPage() {
             title={["What we stand on."]}
             description="The principles behind every project we take on, whatever its size."
           />
-          <FeatureGrid
+          <BrickWall
             className="mt-10"
-            numbered
-            items={about.values.map((v, i) => ({ icon: valueIcons[i] ?? ShieldCheck, title: v.title, text: v.text }))}
+            halves={[
+              { value: "50+", label: "Projects completed", countUp: true },
+              { value: "2001", label: "Building since" },
+            ]}
+            items={about.values.map((v) => ({ key: v.title, image: v.image, title: v.title, text: v.text }))}
           />
         </div>
       </section>
@@ -98,16 +103,13 @@ export function AboutPage() {
             <ResponsiveImage name="white-house" alt="Modern white house with large windows" sizes="(min-width:1024px) 40vw, 100vw" className="size-full" />
           </ImageReveal>
           <div className="lg:col-span-7 lg:col-start-6">
-            <Reveal>
-              <p className="text-eyebrow text-bronze">Leadership</p>
-            </Reveal>
             <h2 id="leadership-title" className="sr-only">
               A message from our leadership
             </h2>
             <Reveal delay={0.1}>
               <blockquote>
-                <p className="mt-5 text-[clamp(1.25rem,1.05rem+0.8vw,1.75rem)] leading-[1.4] font-medium tracking-[-0.02em]">
-                  &ldquo;{about.leadership.message}&rdquo;
+                <p className="text-[clamp(1.25rem,1.05rem+0.8vw,1.75rem)] leading-[1.4] font-medium tracking-[-0.02em]">
+                  <GeneratedText words={`“${about.leadership.message}”`} stagger={STATEMENT_STAGGER} />
                 </p>
                 <footer className="mt-8 flex items-center gap-4 border-t border-white/15 pt-5">
                   <span className="grid size-12 place-items-center rounded-full bg-white/10 text-sm font-bold" aria-hidden>
@@ -136,12 +138,15 @@ export function AboutPage() {
               <ResponsiveImage name="rebar-crew" alt="Crew fixing reinforcement on a column" sizes="40vw" className="size-full" />
             </ImageReveal>
           </div>
-          <RevealGroup as="ul" className="grid gap-3 sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:grid-cols-1 lg:pt-16">
+          <RevealGroup
+            as="ul"
+            className={cn("grid self-start sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:mt-16 lg:grid-cols-1", brick.panel, brick.gap)}
+          >
             {about.whyChooseUs.map((item, i) => {
               const Icon = whyIcons[i] ?? UserRound
               return (
-                <RevealItem as="li" key={item.title} className="flex gap-4 rounded-media border border-line p-5 md:p-6">
-                  <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-soft text-brand">
+                <RevealItem as="li" key={item.title} className={cn(brick.surface, brick.lift, "flex gap-4 p-5 md:p-6")}>
+                  <span className={cn(brick.icon, brick.iconHover)}>
                     <Icon aria-hidden className="size-5" strokeWidth={1.75} />
                   </span>
                   <span>

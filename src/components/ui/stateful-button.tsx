@@ -118,7 +118,7 @@ export const Button = ({ className, children, status: controlled, disabled, ...p
       layout={!reduceMotion}
       ref={scope}
       className={cn(
-        "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full bg-brand px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 hover:ring-2 hover:ring-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
+        "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-btn bg-brand px-4 py-2 text-[0.78rem] font-semibold tracking-[0.12em] text-white uppercase ring-offset-2 transition duration-200 hover:ring-2 hover:ring-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
         "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:ring-0 aria-busy:cursor-progress",
         className,
       )}

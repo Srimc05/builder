@@ -19,8 +19,8 @@ const variants: Record<Variant, { base: string; fill: string; label: string; ico
 }
 
 const sizes: Record<Size, { root: string; disc: string; grow: string }> = {
-  md: { root: "h-11 gap-3 pl-5 pr-1 text-sm", disc: "size-9", grow: "w-9" },
-  lg: { root: "h-12 gap-3.5 pl-6 pr-1 text-[0.95rem]", disc: "size-10", grow: "w-10" },
+  md: { root: "h-11 gap-3 pl-5 pr-1 text-[0.74rem]", disc: "size-9", grow: "w-9" },
+  lg: { root: "h-12 gap-3.5 pl-6 pr-1 text-[0.78rem]", disc: "size-10", grow: "w-10" },
 }
 
 interface CommonProps {
@@ -40,7 +40,7 @@ type ActionButtonProps = CommonProps &
   )
 
 /**
- * The site's signature button. A coloured disc sits at the right edge; on
+ * The site's signature button — rectangular, brick-like. A coloured block sits at the right edge; on
  * hover or keyboard focus it grows to fill the whole pill while the arrow
  * slides out and back in. Renders a router link, an anchor or a button.
  */
@@ -50,7 +50,7 @@ export function ActionButton(props: ActionButtonProps) {
   const s = sizes[size]
 
   const classes = cn(
-    "group/action relative isolate inline-flex shrink-0 items-center justify-between overflow-hidden rounded-full font-semibold tracking-[-0.01em] whitespace-nowrap select-none",
+    "group/action relative isolate inline-flex shrink-0 items-center justify-between overflow-hidden rounded-btn font-semibold tracking-[0.12em] whitespace-nowrap uppercase select-none",
     "transition-transform duration-300 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand",
     v.base,
     s.root,
@@ -63,14 +63,14 @@ export function ActionButton(props: ActionButtonProps) {
       <span
         aria-hidden
         className={cn(
-          "absolute inset-y-1 right-1 -z-10 rounded-full transition-[width] duration-500 ease-architect",
+          "absolute inset-y-1 right-1 -z-10 rounded-brick transition-[width] duration-500 ease-architect",
           "group-hover/action:w-[calc(100%-0.5rem)] group-focus-visible/action:w-[calc(100%-0.5rem)]",
           v.fill,
           s.grow,
         )}
       />
       <span className={cn("transition-colors duration-500", v.label)}>{children}</span>
-      <span aria-hidden className={cn("relative grid shrink-0 place-items-center overflow-hidden rounded-full", s.disc, v.icon)}>
+      <span aria-hidden className={cn("relative grid shrink-0 place-items-center overflow-hidden rounded-brick", s.disc, v.icon)}>
         <Icon className="size-4 transition-transform duration-500 ease-architect group-hover/action:translate-x-[180%] group-hover/action:-translate-y-[180%]" />
         <Icon className="absolute size-4 -translate-x-[180%] translate-y-[180%] transition-transform duration-500 ease-architect group-hover/action:translate-x-0 group-hover/action:translate-y-0" />
       </span>

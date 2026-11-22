@@ -5,6 +5,7 @@ import { ActionButton } from "@/components/shared/action-button"
 import { MaskedLines } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { useConsultation } from "@/features/enquiry/consultation-context"
+import { useBootReady } from "@/lib/boot"
 import { EASE } from "@/lib/motion"
 
 export function Hero() {
@@ -15,9 +16,11 @@ export function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "12%"])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, reduce ? 1 : 0])
 
+  // Entrance animations start as the loading screen lifts, not underneath it.
+  const booted = useBootReady()
   const enter = (delay: number) => ({
     initial: { opacity: 0, y: 24 },
-    animate: { opacity: 1, y: 0 },
+    animate: booted ? { opacity: 1, y: 0 } : undefined,
     transition: { duration: 1, delay, ease: EASE },
   })
 
@@ -28,7 +31,7 @@ export function Hero() {
         <motion.div
           className="size-full"
           initial={{ scale: 1.14, opacity: 0.4 }}
-          animate={{ scale: 1, opacity: 1 }}
+          animate={booted ? { scale: 1, opacity: 1 } : undefined}
           transition={{ duration: 2.2, ease: EASE }}
         >
           <ResponsiveImage
@@ -55,7 +58,7 @@ export function Hero() {
               <MaskedLines lines={["Building Trust.", "Creating Homes."]} delay={0.45} animateOnMount />
             </h1>
           </div>
-          <div className="lg:col-span-6 lg:pb-2 xl:col-span-5 xl:col-start-8">
+          <div className="lg:col-span-6 lg:pb-2">
             <motion.p {...enter(0.9)} className="text-lead max-w-md text-white/80">
               Over two decades of building homes and industrial spaces — with direct involvement at every
               stage, and relationships that last.

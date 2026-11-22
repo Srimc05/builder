@@ -38,7 +38,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`${site.name} on Instagram`}
-                  className="focus-ring group relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-white/25 text-white transition-colors duration-300 hover:border-transparent"
+                  className="focus-ring group relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-btn border border-white/25 text-white transition-colors duration-300 hover:border-transparent"
                 >
                   {/* Instagram's own gradient fills the button on hover */}
                   <span

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import { motion, useReducedMotion } from "motion/react"
 
+import { useBootReady } from "@/lib/boot"
 import { EASE, fadeUp, revealViewport, stagger } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 
@@ -112,8 +113,9 @@ export function MaskedLines({
   delay?: number
   animateOnMount?: boolean
 }) {
+  const booted = useBootReady()
   const trigger = animateOnMount
-    ? { initial: "hidden", animate: "visible" }
+    ? { initial: "hidden", animate: booted ? "visible" : "hidden" }
     : { initial: "hidden", whileInView: "visible", viewport: revealViewport }
   return (
     <motion.span className={cn("block", className)} {...trigger} variants={stagger(0.11, delay)}>
