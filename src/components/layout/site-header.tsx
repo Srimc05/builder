@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react"
+import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react"
 import { NavLink, useLocation } from "react-router"
 
 import { ActionButton } from "@/components/shared/action-button"
@@ -7,10 +7,13 @@ import { LiquidGlass } from "@/components/ui/liquid-glass"
 import { navigation } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
 import { getProject } from "@/lib/content"
+import { useBootReady } from "@/lib/boot"
+import { isCinematic } from "@/lib/experiments"
 import { EASE } from "@/lib/motion"
 import { useDarkHero } from "@/lib/dark-hero"
 import { cn } from "@/lib/utils"
 
+import { FullscreenMenu } from "./fullscreen-menu"
 import { Logo } from "./logo"
 import { MobileNav } from "./mobile-nav"
 
@@ -47,6 +50,20 @@ export function SiteHeader() {
   const darkHero = useDarkHero()
   const overDark = atTop && (darkHero || hasDarkHero(pathname))
   const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname.startsWith(to))
+
+  // Cinematic variant: logo, links and actions drop in one after another on first load.
+  // (No blur here: a filter on these wrappers would break the menu button's backdrop blur.)
+  const booted = useBootReady()
+  const reduceMotion = useReducedMotion()
+  const enter = (delay: number) =>
+    isCinematic && !reduceMotion
+      ? {
+          initial: { opacity: 0, y: -14 },
+          animate: booted ? { opacity: 1, y: 0 } : undefined,
+          transition: { duration: 0.9, delay, ease: EASE },
+        }
+      : {}
+  const Menu = isCinematic ? FullscreenMenu : MobileNav
 
   return (
     <header className="fixed inset-x-0 top-0 z-40">
@@ -87,14 +104,16 @@ export function SiteHeader() {
               </motion.div>
             )}
           </AnimatePresence>
-          <Logo tone={overDark ? "light" : "dark"} />
+          <motion.div {...enter(0.1)} className="min-w-0">
+            <Logo tone={overDark ? "light" : "dark"} />
+          </motion.div>
 
           <nav aria-label="Primary" className="hidden min-[72rem]:block" onMouseLeave={() => setHovered(null)}>
             <ul className="flex items-center gap-0.5">
-              {navigation.map((item) => {
+              {navigation.map((item, i) => {
                 const active = isActive(item.to)
                 return (
-                  <li key={item.to} className="relative">
+                  <motion.li key={item.to} {...enter(0.2 + i * 0.05)} className="relative">
                     <NavLink
                       to={item.to}
                       onMouseEnter={() => setHovered(item.to)}
@@ -125,13 +144,13 @@ export function SiteHeader() {
                         transition={{ duration: 0.35, ease: EASE }}
                       />
                     )}
-                  </li>
+                  </motion.li>
                 )
               })}
             </ul>
           </nav>
 
-          <div className="flex items-center gap-2">
+          <motion.div {...enter(0.55)} className="flex items-center gap-2">
             <ActionButton
               variant={overDark ? "light" : "primary"}
               size="md"
@@ -140,8 +159,8 @@ export function SiteHeader() {
             >
               Get a Free Quote
             </ActionButton>
-            <MobileNav overDark={overDark} isActive={isActive} />
-          </div>
+            <Menu overDark={overDark} isActive={isActive} />
+          </motion.div>
         </div>
       </div>
     </header>

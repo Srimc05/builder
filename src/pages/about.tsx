@@ -13,6 +13,9 @@ import { about } from "@/content/about"
 import { ScatteredTestimonials } from "@/features/testimonials/scattered-testimonials"
 import { aboutTestimonials } from "@/lib/content"
 
+/** The "Building since" tile counts down from this year to 2001. */
+const THIS_YEAR = new Date().getFullYear()
+
 /** Icons follow the order of `about.whyChooseUs`. */
 const whyIcons: LucideIcon[] = [UserRound, HardHat, History, Handshake]
 
@@ -81,7 +84,7 @@ export function AboutPage() {
             className="mt-10"
             halves={[
               { value: "50+", label: "Projects completed", countUp: true },
-              { value: "2001", label: "Building since" },
+              { value: "2001", label: "Building since", countUp: true, countFrom: THIS_YEAR },
             ]}
             items={about.values.map((v) => ({ key: v.title, image: v.image, title: v.title, text: v.text }))}
           />

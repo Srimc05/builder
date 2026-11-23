@@ -40,3 +40,7 @@ They are stand-ins for the company's own project photography — replace them be
 | cost-planning | https://unsplash.com/photos/1626178793926-22b28830aa30 (images.unsplash.com/photo-1626178793926-22b28830aa30) |
 | white-house | https://unsplash.com/photos/1523217582562-09d0def993a6 (images.unsplash.com/photo-1523217582562-09d0def993a6) |
 | site-aerial | https://unsplash.com/photos/1504307651254-35680f356dfd (images.unsplash.com/photo-1504307651254-35680f356dfd) |
+| svc-residential | https://unsplash.com/photos/a-building-with-a-red-awning-next-to-a-parking-lot-pjVsIlrdiCo by Parth Savani (images.unsplash.com/photo-1632398414290-15262b0ec12d) |
+| svc-commercial | https://unsplash.com/photos/high-rise-buildings-during-daytime-nZz9i0YxEQw by Parth Savani (images.unsplash.com/photo-1630061712710-2539eb457c55) |
+| svc-industrial | https://unsplash.com/photos/blue-industrial-buildings-along-road-mR-M2XlO18U by Mustafa Fatemi (images.unsplash.com/photo-1787063757757-6609756ad14f) |
+| svc-renovation | https://unsplash.com/photos/a-group-of-people-standing-around-a-pile-of-bricks-A8KeditXu5w by Swastik Arora (images.unsplash.com/photo-1706715201231-b703e7df3395) |

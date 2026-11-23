@@ -134,6 +134,26 @@
     "height": 2912,
     "blur": "data:image/webp;base64,UklGRggBAABXRUJQVlA4IPwAAACQBQCdASoYAB0APuliq02pJaQiMBgMASAdCWgAnQKbBPehf6AGwRbMJ5788pOrTAQG74dOAAD+w0/Yfz3p3dJJ9btq8K8YqL/3KEj+ae3rt3p/mqQrWHfIIb+fIZd1/yb3VytJhy8xYbL7pdXACT+kVX8UKkF+i3SptHuxjBg2A009nSQw9En4A640qwxXfd1k4UoAKNdY8uE3eHE/bAfK9PxaTCKrx1HR/1D2cX2AOroLprePaLLrr4m4INofU/aqg2RXAPfKLZ/cOp+xYlqtlkA8g5c4OrTILHysgrH3LErM1sUXutFIokngkPiq3txrElE8NJRyYkvlAAA="
   },
+  "svc-commercial": {
+    "width": 2400,
+    "height": 2395,
+    "blur": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABQBQCdASoYABgAPu1mq04ppaQiMAgBMB2JYwDCgCHfksPtlCJZZOciPg6jTbpe2iyJaAAA/u01jQqWe3Bik5HNDwd6uF2ROKn7bYZcFurpREtzqXRT37H++3/F9Ii4H9Lyf8ILnB0BZWD8bzxe+BlFsJlCZ82fhJidIxwQnK1EQpZTP86AMaes4vnPd0ZQzOiLcI6GU8gMjoIss+g2Vks6SqNZyJSaw3u4WjnFf+CpDRTxDYGgKAPrVRRAAA=="
+  },
+  "svc-industrial": {
+    "width": 2400,
+    "height": 1800,
+    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBQCdASoYABIAPu1orE+ppiQiMBgIATAdiWUAuwAQ4hqOKryR3m0N4m2dHzOj778AAP7TTSHRll54GhVRH/qflVX8GvyuW9yBllx5LJAZmmswlGdFhe5afQYuy9UieTmEkmU0yFlGpVZIHzabYOY4eWFETGdYq2XWgiCB0AAAAA=="
+  },
+  "svc-renovation": {
+    "width": 2400,
+    "height": 1350,
+    "blur": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JZgCdMoR4GBcUawuRMBlARgIAAP104LO/04CCrkIWJv581tcFBQt5BZ+hZj38cUHiWT9Be2D5LOduavTDTdn/D8OmMnXAo1pc9HtVuaT5/FsKyzIr9hoFsgepfvqhNFEvIL+jBQLVpu0rAAA="
+  },
+  "svc-residential": {
+    "width": 2400,
+    "height": 2087,
+    "blur": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAQBQCdASoYABUAPu1cqU6ppKOiMBgMATAdiWQAuwGMsm98S5XoXoF74iARnGMgT1vAAP5be0hX391K0tckQsp88heNQUi3M8+ynzetRqNiFwPtICO/byNx5VqxlZrKHmDiR0dEVN9QAf4xmDPj0brwbRxAEFHQ3amS4puN5tOGXDxUR3yUoN9RromCnDFgJ6KHZxn5EMzv6aGlhxvC0khKgBJa3vAA"
+  },
   "tower-cranes": {
     "width": 2400,
     "height": 1600,

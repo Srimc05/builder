@@ -20,6 +20,8 @@ export interface HalfBrick {
   label: string
   /** Count up from 0 to the number in `value` when the wall comes into view. */
   countUp?: boolean
+  /** Start the count here instead of 0; above the target it counts down (e.g. this year → 2001). */
+  countFrom?: number
 }
 
 const lay: Variants = {
@@ -116,7 +118,7 @@ function Brick({ item, index }: { item: BrickItem; index: number }) {
 /** Photo and numeral follow the site-wide hover timing (instant with reduced motion). */
 const HOVER_EASE = `${brick.timing} motion-reduce:duration-0`
 
-function HalfBrickTile({ value, label, tone, countUp }: HalfBrick & { tone: "night" | "terracotta" }) {
+function HalfBrickTile({ value, label, tone, countUp, countFrom }: HalfBrick & { tone: "night" | "terracotta" }) {
   return (
     <div
       className={cn(
@@ -126,7 +128,7 @@ function HalfBrickTile({ value, label, tone, countUp }: HalfBrick & { tone: "nig
       style={{ backgroundImage: BRICK_PATTERN }}
     >
       <span className="text-[clamp(1.6rem,1.2rem+1vw,2.1rem)] leading-none font-bold tracking-[-0.03em]">
-        {countUp ? <CountUp value={value} /> : value}
+        {countUp ? <CountUp value={value} from={countFrom} /> : value}
       </span>
       <span className={cn("mt-2 text-sm", tone === "night" ? "text-white/65" : "text-white/85")}>{label}</span>
     </div>
@@ -134,12 +136,13 @@ function HalfBrickTile({ value, label, tone, countUp }: HalfBrick & { tone: "nig
 }
 
 /**
- * Counts from 0 up to the leading number in `value` (keeping any suffix, e.g.
- * "50+"), once, after the brick has been laid. The final value is reserved
+ * Counts from `from` (default 0) to the leading number in `value` (keeping any
+ * suffix, e.g. "50+"), once, after the brick has been laid. A `from` above the
+ * target counts down instead, e.g. from the current year back to 2001. The final value is reserved
  * invisibly so the tile never changes size, and screen readers hear only the
  * final value. With reduced motion the final value is shown straight away.
  */
-function CountUp({ value }: { value: string }) {
+function CountUp({ value, from = 0 }: { value: string; from?: number }) {
   const match = /^(\d+)(.*)$/.exec(value)
   const target = match ? Number(match[1]) : 0
   const suffix = match?.[2] ?? ""
@@ -147,18 +150,18 @@ function CountUp({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.6 })
   const reduce = useReducedMotion() ?? false
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(from)
 
   useEffect(() => {
     if (!inView || reduce || !hasNumber) return
-    const controls = animate(0, target, {
+    const controls = animate(from, target, {
       duration: 2.2,
       delay: 0.45, // let the brick settle first
-      ease: [0.25, 0.1, 0.35, 1], // gentle ease-out: every number is visible, slowing into 50
+      ease: [0.25, 0.1, 0.35, 1], // gentle ease-out: every number is visible, slowing into the target
       onUpdate: (v) => setCurrent(Math.round(v)),
     })
     return () => controls.stop()
-  }, [inView, reduce, target, hasNumber])
+  }, [inView, reduce, from, target, hasNumber])
 
   if (!hasNumber) return <>{value}</>
   const shown = reduce ? target : current

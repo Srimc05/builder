@@ -8,6 +8,9 @@ import { BrickWall } from "@/components/shared/brick-wall"
 import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
 import { about } from "@/content/about"
 
+/** The "Building since" tile counts down from this year to 2001. */
+const THIS_YEAR = new Date().getFullYear()
+
 export function AboutIntro() {
   const ref = useRef<HTMLDivElement>(null)
   const reduce = useReducedMotion()
@@ -72,7 +75,7 @@ export function AboutIntro() {
           className="mt-20 lg:mt-24"
           halves={[
             { value: "50+", label: "Projects completed", countUp: true },
-            { value: "2001", label: "Building since" },
+            { value: "2001", label: "Building since", countUp: true, countFrom: THIS_YEAR },
           ]}
           items={about.values.map((v) => ({ key: v.title, image: v.image, title: v.title, text: v.text }))}
         />
