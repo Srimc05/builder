@@ -7,6 +7,11 @@
    components' dark: styles whenever the visitor's OS is in dark mode. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Touch screens have no hover, so the card crossing the middle of the screen
+   gets data-spot (src/lib/spotlight.ts) and shows its hover look.
+   spot: styles the card itself; group-spot: styles its contents. */
+@custom-variant spot (&[data-spot]);
+
 /* ------------------------------------------------------------------
    Design tokens
    Brand palette from the brief. Secondary text is #6b6b6b rather than

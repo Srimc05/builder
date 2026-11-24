@@ -8,6 +8,7 @@ import { ImageReveal } from "@/components/shared/reveal"
 import type { Photo } from "@/content/types"
 import { imageSrc } from "@/lib/images"
 import { EASE } from "@/lib/motion"
+import { spotlight } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
 /** Editorial image grid that opens a full-screen, keyboard-navigable viewer. */
@@ -39,6 +40,7 @@ export function ProjectGalleryGrid({ photos, title }: { photos: Photo[]; title: 
           <li key={`${photo.name}-${i}`} className={cn(i % 3 === 0 && "col-span-2")}>
             <button
               type="button"
+              ref={spotlight}
               onClick={() => setIndex(i)}
               className="focus-ring group relative block w-full overflow-hidden rounded-media"
               aria-label={`Open image ${i + 1} of ${photos.length}: ${photo.alt}`}
@@ -49,10 +51,10 @@ export function ProjectGalleryGrid({ photos, title }: { photos: Photo[]; title: 
                   alt={photo.alt}
                   sizes={i % 3 === 0 ? "(min-width:1024px) 55vw, 100vw" : "(min-width:1024px) 28vw, 50vw"}
                   className="size-full"
-                  imgClassName="transition-transform duration-[1.2s] ease-architect group-hover:scale-[1.04]"
+                  imgClassName="transition-transform duration-[1.2s] ease-architect group-hover:scale-[1.04] motion-safe:group-spot:scale-[1.04]"
                 />
               </ImageReveal>
-              <span aria-hidden className="absolute right-3 bottom-3 grid size-10 place-items-center rounded-full bg-white/90 text-ink opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+              <span aria-hidden className="absolute right-3 bottom-3 grid size-10 place-items-center rounded-full bg-white/90 text-ink opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 group-spot:opacity-100">
                 <Maximize2 className="size-4" />
               </span>
             </button>

@@ -9,6 +9,7 @@ import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { services } from "@/content/services"
 import { EASE } from "@/lib/motion"
+import { spotlightX } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
 export function ServicesShowcase() {
@@ -132,14 +133,14 @@ export function ServicesShowcase() {
         >
           {services.map((service, i) => (
             <RevealItem as="li" key={service.slug} className="w-[72vw] max-w-[19rem] shrink-0 snap-start">
-              <Link to={`/services#${service.slug}`} className="focus-ring group block rounded-media">
+              <Link ref={spotlightX} to={`/services#${service.slug}`} className="focus-ring group block rounded-media">
                 <div className="relative aspect-[5/4] overflow-hidden rounded-media">
                   <ResponsiveImage
                     name={service.image.name}
                     alt={service.image.alt}
                     sizes="78vw"
                     className="size-full"
-                    imgClassName="transition-transform duration-700 ease-architect group-hover:scale-105"
+                    imgClassName="transition-transform duration-700 ease-architect group-hover:scale-105 motion-safe:group-spot:scale-105"
                   />
                   <span className="text-meta absolute top-4 left-4 rounded-full bg-white/90 px-2.5 py-1 font-semibold tabular-nums text-ink backdrop-blur">
                     {String(i + 1).padStart(2, "0")}

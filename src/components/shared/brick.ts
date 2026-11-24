@@ -24,11 +24,13 @@ export const brick = {
    * solid ink block appears behind it on the right and bottom, like an
    * extruded button. Reduced motion keeps the block but not the movement.
    * Add `group` to the card so its contents can react via `group-hover`.
+   * On touch screens the same lift shows while the card is in the scroll
+   * spotlight (`spot:`); give the card `ref={spotlight}` from `@/lib/spotlight`.
    */
-  lift: `group transition-[translate,box-shadow] ${HOVER_TIMING} hover:-translate-x-1.5 hover:-translate-y-1.5 hover:shadow-[6px_6px_0_0_var(--color-ink)] hover:ring-1 hover:ring-ink focus-visible:-translate-x-1.5 focus-visible:-translate-y-1.5 focus-visible:shadow-[6px_6px_0_0_var(--color-ink)] focus-visible:ring-1 focus-visible:ring-ink motion-reduce:hover:translate-none motion-reduce:focus-visible:translate-none`,
+  lift: `group transition-[translate,box-shadow] ${HOVER_TIMING} hover:-translate-x-1.5 hover:-translate-y-1.5 hover:shadow-[6px_6px_0_0_var(--color-ink)] hover:ring-1 hover:ring-ink focus-visible:-translate-x-1.5 focus-visible:-translate-y-1.5 focus-visible:shadow-[6px_6px_0_0_var(--color-ink)] focus-visible:ring-1 focus-visible:ring-ink spot:-translate-x-1.5 spot:-translate-y-1.5 spot:shadow-[6px_6px_0_0_var(--color-ink)] spot:ring-1 spot:ring-ink motion-reduce:hover:translate-none motion-reduce:focus-visible:translate-none motion-reduce:spot:translate-none`,
   icon: "grid size-11 shrink-0 place-items-center rounded-brick bg-bronze-soft text-bronze-deep",
-  /** Icon tile turns solid terracotta when its card is hovered. */
-  iconHover: `transition-colors ${HOVER_TIMING} group-hover:bg-bronze-deep group-hover:text-white`,
+  /** Icon tile turns solid terracotta when its card is hovered (or in the scroll spotlight). */
+  iconHover: `transition-colors ${HOVER_TIMING} group-hover:bg-bronze-deep group-hover:text-white group-spot:bg-bronze-deep group-spot:text-white`,
   /** Large faint number behind a brick's text (drawn via CSS content, so it isn't read or contrast-checked). */
   numeral:
     "pointer-events-none absolute -right-1 -bottom-4 hidden text-[5.5rem] leading-none font-bold tracking-[-0.06em] text-sand-deep/80 tabular-nums select-none before:content-[attr(data-numeral)] sm:block",

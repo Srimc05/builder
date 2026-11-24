@@ -6,6 +6,7 @@ import { ResponsiveImage } from "@/components/shared/responsive-image"
 import type { Photo } from "@/content/types"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { revealViewport } from "@/lib/motion"
+import { spotlight } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
 export interface BrickItem {
@@ -84,7 +85,8 @@ function Brick({ item, index }: { item: BrickItem; index: number }) {
   return (
     // The site-wide 3D lift; the photo and numeral share its timing so the
     // whole brick moves as one.
-    <article className={cn(brick.surface, brick.lift, "relative flex h-full flex-row overflow-hidden sm:flex-col lg:flex-row")}>
+    // On touch screens the hover look shows while the brick crosses the middle of the screen.
+    <article ref={spotlight} className={cn(brick.surface, brick.lift, "relative flex h-full flex-row overflow-hidden sm:flex-col lg:flex-row")}>
       <div className="w-[36%] shrink-0 overflow-hidden sm:aspect-[16/10] sm:w-auto lg:aspect-auto lg:w-[44%]">
         <ResponsiveImage
           name={item.image.name}
@@ -93,6 +95,7 @@ function Brick({ item, index }: { item: BrickItem; index: number }) {
           className="size-full"
           imgClassName={cn(
             "grayscale-[0.9] sepia-[0.18] transition-[scale,filter] group-hover:scale-105 group-hover:grayscale-0 group-hover:sepia-0",
+            "group-spot:grayscale-0 group-spot:sepia-0 motion-safe:group-spot:scale-105",
             HOVER_EASE,
           )}
         />
@@ -104,7 +107,7 @@ function Brick({ item, index }: { item: BrickItem; index: number }) {
           data-numeral={String(index + 1).padStart(2, "0")}
           className={cn(
             brick.numeral,
-            "transition-colors group-hover:text-bronze-soft",
+            "transition-colors group-hover:text-bronze-soft group-spot:text-bronze-soft",
             HOVER_EASE,
           )}
         />

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode, Ref } from "react"
 import { motion, useReducedMotion } from "motion/react"
 
 import { useBootReady } from "@/lib/boot"
@@ -55,10 +55,16 @@ export function RevealGroup({
   )
 }
 
-export function RevealItem({ children, className, as = "div" }: Omit<RevealProps, "delay">) {
+export function RevealItem({
+  children,
+  className,
+  as = "div",
+  ref,
+}: Omit<RevealProps, "delay"> & { ref?: Ref<HTMLElement> }) {
   const Comp = motion[as]
   return (
-    <Comp className={className} variants={fadeUp}>
+    // The element type varies with `as`, so the ref is typed as a plain HTMLElement.
+    <Comp ref={ref as Ref<never>} className={className} variants={fadeUp}>
       {children}
     </Comp>
   )

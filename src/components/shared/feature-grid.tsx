@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react"
 
 import { brick } from "@/components/shared/brick"
 import { RevealGroup, RevealItem } from "@/components/shared/reveal"
+import { spotlight } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
 export interface FeatureItem {
@@ -31,6 +32,7 @@ export function FeatureGrid({
         <RevealItem
           as="li"
           key={title}
+          ref={spotlight}
           className={cn(
             brick.surface,
             brick.lift,

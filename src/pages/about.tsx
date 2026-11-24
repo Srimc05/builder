@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/shared/page-header"
 import { PageMeta } from "@/components/shared/page-meta"
 import { brick } from "@/components/shared/brick"
 import { BrickWall } from "@/components/shared/brick-wall"
+import { spotlight } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 import { ImageReveal, MaskedLines, Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
 import { GeneratedText, STATEMENT_STAGGER } from "@/components/ui/text-generate-effect"
@@ -140,7 +141,7 @@ export function AboutPage() {
             {about.whyChooseUs.map((item, i) => {
               const Icon = whyIcons[i] ?? UserRound
               return (
-                <RevealItem as="li" key={item.title} className={cn(brick.surface, brick.lift, "flex gap-4 p-5 md:p-6")}>
+                <RevealItem as="li" key={item.title} ref={spotlight} className={cn(brick.surface, brick.lift, "flex gap-4 p-5 md:p-6")}>
                   <span className={cn(brick.icon, brick.iconHover)}>
                     <Icon aria-hidden className="size-5" strokeWidth={1.75} />
                   </span>

@@ -12,6 +12,7 @@ import { EnquiryForm } from "@/features/enquiry/enquiry-form"
 import { EnquirySuccess } from "@/features/enquiry/enquiry-success"
 import type { EnquiryKind } from "@/lib/enquiry"
 import { EASE } from "@/lib/motion"
+import { spotlight } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
 const tabs: { kind: EnquiryKind; label: string; intro: string }[] = [
@@ -164,6 +165,7 @@ function ContactBrick({
     <RevealItem as="li">
       {href ? (
         <a
+          ref={spotlight}
           href={href}
           target={external ? "_blank" : undefined}
           rel={external ? "noreferrer" : undefined}
@@ -172,7 +174,7 @@ function ContactBrick({
           {content}
         </a>
       ) : (
-        <div className={base}>{content}</div>
+        <div ref={spotlight} className={base}>{content}</div>
       )}
     </RevealItem>
   )
