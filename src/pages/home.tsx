@@ -7,14 +7,14 @@ import { ProjectsShowcase } from "@/features/home/projects-showcase"
 import { ServicesShowcase } from "@/features/home/services-showcase"
 import { TestimonialsSection } from "@/features/home/testimonials-section"
 import { ProcessSection } from "@/features/process/process-section"
-import { posts, projects, testimonials } from "@/lib/content"
+import { posts, testimonials } from "@/lib/content"
 import { isCinematic } from "@/lib/experiments"
 
 // Sections that depend on content hide themselves when empty; keep numbering continuous.
+// The projects section (rising cards) has no eyebrow, so it isn't numbered.
 const order = [
   "about",
   "services",
-  projects.length > 0 && "work",
   "process",
   testimonials.length > 0 && "testimonials",
   posts.length > 0 && "insights",
@@ -29,7 +29,7 @@ export function HomePage() {
       {isCinematic ? <HeroCinematic /> : <Hero />}
       <AboutIntro />
       <ServicesShowcase />
-      <ProjectsShowcase index={n("work")} />
+      <ProjectsShowcase />
       <ProcessSection index={n("process")} />
       <TestimonialsSection index={n("testimonials")} />
       <InsightsPreview index={n("insights")} />
