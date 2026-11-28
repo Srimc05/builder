@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { ArrowUpRight } from "lucide-react"
 import { Link } from "react-router"
@@ -8,13 +8,32 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal"
 import { ResponsiveImage } from "@/components/shared/responsive-image"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { services } from "@/content/services"
+import { imageSrc } from "@/lib/images"
 import { EASE } from "@/lib/motion"
 import { spotlightX } from "@/lib/spotlight"
 import { cn } from "@/lib/utils"
 
+import { BrickLaidImage } from "./brick-laid-image"
+
 export function ServicesShowcase() {
   const [active, setActive] = useState(0)
+  // Each change lays a new photo on top of the last, so it needs its own key and stacking order.
+  const [layer, setLayer] = useState(0)
   const current = services[active] ?? services[0]
+
+  const select = (i: number) => {
+    if (i === active) return
+    setActive(i)
+    setLayer((l) => l + 1)
+  }
+
+  // Fetch every service photo the first time the list is approached, so a wall is never laid with an empty photo.
+  const preloaded = useRef(false)
+  const preload = () => {
+    if (preloaded.current) return
+    preloaded.current = true
+    for (const s of services) new Image().src = imageSrc(s.image.name, 1280)
+  }
 
   return (
     <section aria-labelledby="services-title" className="section-y bg-sand">
@@ -30,15 +49,15 @@ export function ServicesShowcase() {
 
         {/* Desktop: editorial index with a responsive image stage */}
         <div className="mt-14 hidden gap-12 lg:grid lg:grid-cols-12">
-          <ol className="lg:col-span-6">
+          <ol className="lg:col-span-6" onPointerEnter={preload} onFocus={preload}>
             {services.map((service, i) => {
               const isActive = i === active
               return (
                 <li key={service.slug} className="border-t border-ink/10 last:border-b">
                   <Link
                     to={`/services#${service.slug}`}
-                    onMouseEnter={() => setActive(i)}
-                    onFocus={() => setActive(i)}
+                    onMouseEnter={() => select(i)}
+                    onFocus={() => select(i)}
                     className="focus-ring group grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-5 outline-offset-[-2px]"
                   >
                     <span className={cn("text-meta pt-1.5 font-semibold tabular-nums transition-colors duration-500", isActive ? "text-brand" : "text-stone")}>
@@ -47,8 +66,11 @@ export function ServicesShowcase() {
                     <span>
                       <span
                         className={cn(
-                          "block text-[1.45rem] leading-tight font-semibold tracking-[-0.025em] transition-colors duration-500",
-                          isActive ? "text-ink" : "text-ink/65 group-hover:text-ink",
+                          // Ink fill: the active title fills with ink from left to right.
+                          "block bg-[linear-gradient(90deg,var(--color-ink)_50%,rgb(34_34_34/0.6)_50%)] bg-size-[200%_100%] bg-clip-text text-[1.45rem] leading-tight font-semibold tracking-[-0.025em] text-transparent",
+                          "transition-[background-position] duration-700 ease-architect motion-reduce:duration-0",
+                          "forced-colors:bg-none forced-colors:text-[CanvasText]",
+                          isActive ? "bg-left" : "bg-right",
                         )}
                       >
                         {service.title}
@@ -83,27 +105,13 @@ export function ServicesShowcase() {
           <div className="lg:col-span-6">
             <div className="sticky top-28">
               <Reveal className="relative aspect-[4/3] overflow-hidden rounded-media bg-sand-deep">
-                <AnimatePresence initial={false}>
-                  {current && (
-                    <motion.div
-                      key={current.slug}
-                      className="absolute inset-0"
-                      initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-                      animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                      exit={{ opacity: 0, transition: { duration: 0.6, delay: 0.3 } }}
-                      transition={{ duration: 0.9, ease: EASE }}
-                    >
-                      <motion.div
-                        className="size-full"
-                        initial={{ scale: 1.12 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 1.4, ease: EASE }}
-                      >
-                        <ResponsiveImage name={current.image.name} alt={current.image.alt} sizes="45vw" className="size-full" />
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Each new photo is laid brick by brick over the last one. `isolate` keeps
+                    their growing stacking order below the caption. */}
+                <div className="absolute inset-0 isolate">
+                  <AnimatePresence initial={false}>
+                    {current && <BrickLaidImage key={layer} photo={current.image} z={layer} />}
+                  </AnimatePresence>
+                </div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-end justify-between bg-linear-to-t from-night/70 to-transparent p-6 pt-20 text-white">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.p
