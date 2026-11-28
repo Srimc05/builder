@@ -45,7 +45,7 @@ export function ProjectsShowcase() {
 
         {/* The cards start below the fold; the section ends soon after the last one passes the headline.
             On laptops the right-hand column is set lower, so cards rise alternately. */}
-        <ol className="relative z-10 mx-auto -mt-[100svh] grid max-w-[74rem] grid-cols-1 gap-y-[30svh] px-5 pt-[78svh] pb-[12svh] sm:px-8 lg:grid-cols-2 lg:gap-x-20 lg:gap-y-[14svh]">
+        <ol className="relative z-10 mx-auto -mt-[100svh] grid max-w-[74rem] grid-cols-1 gap-y-[16svh] px-5 pt-[78svh] pb-[12svh] sm:px-8 lg:grid-cols-2 lg:gap-x-20 lg:gap-y-[14svh]">
           {shown.map((project, i) => (
             <RisingCard key={project.slug} project={project} index={i} />
           ))}
