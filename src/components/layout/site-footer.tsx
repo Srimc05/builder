@@ -7,6 +7,7 @@ import { MaskedLines, Reveal } from "@/components/shared/reveal"
 import { WhatsAppButton } from "@/components/shared/whatsapp-button"
 import { site } from "@/content/site"
 import { useConsultation } from "@/features/enquiry/consultation-context"
+import { scrollToY } from "@/lib/smooth-scroll"
 
 import { FooterScene } from "./footer-scene"
 
@@ -75,7 +76,7 @@ export function SiteFooter() {
             </Link>
             <button
               type="button"
-              onClick={() => window.scrollTo({ top: 0 })}
+              onClick={() => scrollToY(0)}
               className="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-sm transition-colors hover:text-white"
             >
               Back to top

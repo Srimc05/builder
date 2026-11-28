@@ -177,6 +177,11 @@
     -webkit-tap-highlight-color: transparent;
     text-rendering: optimizeLegibility;
   }
+  /* Lenis (src/lib/smooth-scroll.ts) animates the scroll itself; CSS smoothing
+     on top would make every frame of its glide animate again. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
   body {
     @apply bg-canvas text-ink;
     font-feature-settings: "ss01", "cv11";

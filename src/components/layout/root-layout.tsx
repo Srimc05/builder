@@ -1,15 +1,21 @@
+import { useLayoutEffect } from "react"
 import { AnimatePresence, MotionConfig, motion } from "motion/react"
 import { Outlet, ScrollRestoration, useLocation, useNavigation } from "react-router"
 
 import { ConsultationProvider } from "@/features/enquiry/consultation-provider"
 import { ConsultationModal } from "@/features/enquiry/consultation-modal"
 import { EASE } from "@/lib/motion"
+import { resetSmoothScroll, useSmoothScroll } from "@/lib/smooth-scroll"
 
 import { SiteFooter } from "./site-footer"
 import { SiteHeader } from "./site-header"
 
 export function RootLayout() {
-  const { pathname } = useLocation()
+  const { pathname, key } = useLocation()
+  useSmoothScroll()
+  // Back/forward doesn't click a link, so stop any glide here too before the
+  // new page's scroll position is restored.
+  useLayoutEffect(resetSmoothScroll, [key])
 
   return (
     <MotionConfig reducedMotion="user">

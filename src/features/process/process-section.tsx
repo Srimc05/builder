@@ -14,6 +14,7 @@ import { ClipboardCheck, HardHat, KeyRound, MessagesSquare, PencilRuler, ScanSea
 import { SectionHeading } from "@/components/shared/section-heading"
 import { processStages } from "@/content/process"
 import { EASE } from "@/lib/motion"
+import { scrollToY } from "@/lib/smooth-scroll"
 import { cn } from "@/lib/utils"
 
 import { ProcessScene } from "./process-scene"
@@ -67,7 +68,7 @@ function DesktopJourney() {
     if (!el) return
     const start = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.35
     const length = el.offsetHeight - window.innerHeight + window.innerHeight * 0.35
-    window.scrollTo({ top: start + length * ((i + 0.62) / N), behavior: reduce ? "auto" : "smooth" })
+    scrollToY(start + length * ((i + 0.62) / N))
   }
 
   const current = processStages[active]
